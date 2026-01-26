@@ -1,21 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\DELL\\OneDrive\\Escritorio\\UCR\\Cursos\\IF7100 - Ingenieria de Software\\Proyecto\\BackEnd\\SistemaHojasDeMatricula\\",
+  "WorkspaceRootPath": "C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2DEB1FF5-7AEB-430D-899A-09B18BEBCDBB}|SistemaHojasDeMatricula.csproj|c:\\users\\dell\\onedrive\\escritorio\\ucr\\cursos\\if7100 - ingenieria de software\\proyecto\\backend\\sistemahojasdematricula\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{2DEB1FF5-7AEB-430D-899A-09B18BEBCDBB}|SistemaHojasDeMatricula.csproj|c:\\users\\junio\\onedrive\\escritorio\\unidadpedag-gica_sistema\\sistemahojasdematricula\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2DEB1FF5-7AEB-430D-899A-09B18BEBCDBB}|SistemaHojasDeMatricula.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2DEB1FF5-7AEB-430D-899A-09B18BEBCDBB}|SistemaHojasDeMatricula.csproj|c:\\users\\dell\\onedrive\\escritorio\\ucr\\cursos\\if7100 - ingenieria de software\\proyecto\\backend\\sistemahojasdematricula\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2DEB1FF5-7AEB-430D-899A-09B18BEBCDBB}|SistemaHojasDeMatricula.csproj|C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2DEB1FF5-7AEB-430D-899A-09B18BEBCDBB}|SistemaHojasDeMatricula.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2DEB1FF5-7AEB-430D-899A-09B18BEBCDBB}|SistemaHojasDeMatricula.csproj|c:\\users\\dell\\onedrive\\escritorio\\ucr\\cursos\\if7100 - ingenieria de software\\proyecto\\backend\\sistemahojasdematricula\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2DEB1FF5-7AEB-430D-899A-09B18BEBCDBB}|SistemaHojasDeMatricula.csproj|C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2DEB1FF5-7AEB-430D-899A-09B18BEBCDBB}|SistemaHojasDeMatricula.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2DEB1FF5-7AEB-430D-899A-09B18BEBCDBB}|SistemaHojasDeMatricula.csproj|c:\\users\\dell\\onedrive\\escritorio\\ucr\\cursos\\if7100 - ingenieria de software\\proyecto\\backend\\sistemahojasdematricula\\buscarestudiante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{2DEB1FF5-7AEB-430D-899A-09B18BEBCDBB}|SistemaHojasDeMatricula.csproj|C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\buscarestudiante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2DEB1FF5-7AEB-430D-899A-09B18BEBCDBB}|SistemaHojasDeMatricula.csproj|solutionrelative:buscarestudiante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -26,8 +26,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1119,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
@@ -50,23 +54,34 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Form1.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T21:47:18.474Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
               "Title": "BuscarEstudiante.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\UCR\\Cursos\\IF7100 - Ingenieria de Software\\Proyecto\\BackEnd\\SistemaHojasDeMatricula\\BuscarEstudiante.cs",
+              "DocumentMoniker": "C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\BuscarEstudiante.cs",
               "RelativeDocumentMoniker": "BuscarEstudiante.cs",
               "ToolTip": "C:\\Users\\DELL\\OneDrive\\Escritorio\\UCR\\Cursos\\IF7100 - Ingenieria de Software\\Proyecto\\BackEnd\\SistemaHojasDeMatricula\\BuscarEstudiante.cs [Dise\u00F1o]",
-              "RelativeToolTip": "BuscarEstudiante.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\DELL\\OneDrive\\Escritorio\\UCR\\Cursos\\IF7100 - Ingenieria de Software\\Proyecto\\BackEnd\\SistemaHojasDeMatricula\\BuscarEstudiante.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-13T22:12:16.72Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2026-01-13T22:12:16.72Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\UCR\\Cursos\\IF7100 - Ingenieria de Software\\Proyecto\\BackEnd\\SistemaHojasDeMatricula\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Escritorio\\UCR\\Cursos\\IF7100 - Ingenieria de Software\\Proyecto\\BackEnd\\SistemaHojasDeMatricula\\Form1.cs",
+              "ToolTip": "C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAhwBcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -77,26 +92,13 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\UCR\\Cursos\\IF7100 - Ingenieria de Software\\Proyecto\\BackEnd\\SistemaHojasDeMatricula\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Escritorio\\UCR\\Cursos\\IF7100 - Ingenieria de Software\\Proyecto\\BackEnd\\SistemaHojasDeMatricula\\Program.cs",
+              "ToolTip": "C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\Program.cs",
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-13T21:52:19.301Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\DELL\\OneDrive\\Escritorio\\UCR\\Cursos\\IF7100 - Ingenieria de Software\\Proyecto\\BackEnd\\SistemaHojasDeMatricula\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\DELL\\OneDrive\\Escritorio\\UCR\\Cursos\\IF7100 - Ingenieria de Software\\Proyecto\\BackEnd\\SistemaHojasDeMatricula\\Form1.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Form1.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-13T21:47:18.474Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2026-01-13T21:52:19.301Z"
             }
           ]
         }
