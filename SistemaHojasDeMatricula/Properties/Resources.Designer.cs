@@ -63,6 +63,26 @@ namespace SistemaHojasDeMatricula.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_pantalla_2026_01_26_124651 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de pantalla 2026-01-26 124651", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_pantalla_2026_01_26_230308 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de pantalla 2026-01-26 230308", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap UPLogo {
             get {
                 object obj = ResourceManager.GetObject("UPLogo", resourceCulture);

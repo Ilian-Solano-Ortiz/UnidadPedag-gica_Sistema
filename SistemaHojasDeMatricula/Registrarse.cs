@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace SistemaHojasDeMatricula
 {
-    public partial class Form1 : Form
+    public partial class Registrarse : Form
     {
-        public Form1()
+        public Registrarse()
         {
             InitializeComponent();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

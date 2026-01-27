@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace SistemaHojasDeMatricula
 {
-    public partial class BuscarEstudiante : Form
+    public partial class FrmContenedor : Form
     {
         public Form FormularioActivo { get; set; }
-        public BuscarEstudiante()
+        public FrmContenedor()
         {
             InitializeComponent();
             FormularioActivo = null;
@@ -23,15 +23,9 @@ namespace SistemaHojasDeMatricula
         {
             this.Close();
         }
-
-        private void usuariosBtn_Click(object sender, EventArgs e)
-        {
-            abrirFormulario(new BuscarUsuarios());
-        }
-
         private void abrirFormulario(Form formulario)
         {
-            if (FormularioActivo!=null)
+            if (FormularioActivo != null)
             {
                 FormularioActivo.Close();
             }
@@ -44,24 +38,21 @@ namespace SistemaHojasDeMatricula
 
             formulario.Show();
             formulario.BringToFront();
-            
-        }
 
+        }
         private void estudiantesBtn_Click(object sender, EventArgs e)
         {
-            Form formulario = new BuscarEstudiante();
-            if (FormularioActivo != null)
-            {
-                FormularioActivo.Close();
-            }
-            formulario.TopLevel = false;
-            formulario.Dock = DockStyle.Fill;
-            formulario.FormBorderStyle = FormBorderStyle.None;
-            FormularioActivo = formulario;
-            this.Controls.Add(formulario);
+            abrirFormulario(new BuscarEstudiante());
+        }
 
-            formulario.Show();
-            formulario.BringToFront();
+        private void usuariosBtn_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new BuscarUsuarios());
+        }
+
+        private void cambiarContraBtn_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new CambioContra());
         }
     }
 }

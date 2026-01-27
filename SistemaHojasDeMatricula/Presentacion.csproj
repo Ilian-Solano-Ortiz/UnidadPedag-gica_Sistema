@@ -52,16 +52,52 @@
     <Compile Include="BuscarEstudiante.Designer.cs">
       <DependentUpon>BuscarEstudiante.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="BuscarUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="BuscarUsuarios.Designer.cs">
+      <DependentUpon>BuscarUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CambioContra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CambioContra.Designer.cs">
+      <DependentUpon>CambioContra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmContenedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmContenedor.Designer.cs">
+      <DependentUpon>FrmContenedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrarse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrarse.Designer.cs">
+      <DependentUpon>Registrarse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="BuscarEstudiante.resx">
+      <DependentUpon>BuscarEstudiante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuscarUsuarios.resx">
+      <DependentUpon>BuscarUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CambioContra.resx">
+      <DependentUpon>CambioContra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmContenedor.resx">
+      <DependentUpon>FrmContenedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -73,6 +109,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Registrarse.resx">
+      <DependentUpon>Registrarse.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -88,6 +127,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\UPLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de pantalla 2026-01-26 124651.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de pantalla 2026-01-26 230308.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

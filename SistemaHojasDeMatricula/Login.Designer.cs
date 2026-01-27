@@ -1,6 +1,6 @@
 ﻿namespace SistemaHojasDeMatricula
 {
-    partial class Form1
+    partial class Login
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.contenedor = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.registrarseBtn = new System.Windows.Forms.Button();
             this.contraseñaTxt = new System.Windows.Forms.TextBox();
             this.usuarioTxt = new System.Windows.Forms.TextBox();
             this.ingresarBtn = new System.Windows.Forms.Button();
             this.contrasenalbl = new System.Windows.Forms.Label();
             this.usuariolbl = new System.Windows.Forms.Label();
-            this.registrarseBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.contenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -60,6 +60,40 @@
             this.contenedor.Size = new System.Drawing.Size(800, 450);
             this.contenedor.TabIndex = 0;
             this.contenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(284, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(253, 18);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Sistema Formulario de Matrícula";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(41, 283);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(176, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Unidad Pedagógica Río Cuba";
+            // 
+            // registrarseBtn
+            // 
+            this.registrarseBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.registrarseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.registrarseBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registrarseBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.registrarseBtn.Location = new System.Drawing.Point(383, 277);
+            this.registrarseBtn.Name = "registrarseBtn";
+            this.registrarseBtn.Size = new System.Drawing.Size(152, 28);
+            this.registrarseBtn.TabIndex = 5;
+            this.registrarseBtn.Text = "Registrarse";
+            this.registrarseBtn.UseVisualStyleBackColor = false;
+            this.registrarseBtn.Click += new System.EventHandler(this.registrarseBtn_Click);
             // 
             // contraseñaTxt
             // 
@@ -87,6 +121,7 @@
             this.ingresarBtn.TabIndex = 2;
             this.ingresarBtn.Text = "Ingresar";
             this.ingresarBtn.UseVisualStyleBackColor = false;
+            this.ingresarBtn.Click += new System.EventHandler(this.ingresarBtn_Click);
             // 
             // contrasenalbl
             // 
@@ -108,19 +143,6 @@
             this.usuariolbl.TabIndex = 0;
             this.usuariolbl.Text = "Usuario";
             // 
-            // registrarseBtn
-            // 
-            this.registrarseBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.registrarseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.registrarseBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registrarseBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.registrarseBtn.Location = new System.Drawing.Point(383, 277);
-            this.registrarseBtn.Name = "registrarseBtn";
-            this.registrarseBtn.Size = new System.Drawing.Size(152, 28);
-            this.registrarseBtn.TabIndex = 5;
-            this.registrarseBtn.Text = "Registrarse";
-            this.registrarseBtn.UseVisualStyleBackColor = false;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SistemaHojasDeMatricula.Properties.Resources.UPLogo;
@@ -131,33 +153,13 @@
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(41, 283);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(176, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Unidad Pedagógica Río Cuba";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(284, 65);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(187, 18);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Formulario de Matrícula";
-            // 
-            // Form1
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.contenedor);
-            this.Name = "Form1";
+            this.Name = "Login";
             this.Text = "Form1";
             this.contenedor.ResumeLayout(false);
             this.contenedor.PerformLayout();

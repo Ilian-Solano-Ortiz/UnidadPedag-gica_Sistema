@@ -13,9 +13,9 @@ C:\Users\Junio\OneDrive\Escritorio\UnidadPedag-gica_Sistema\SistemaHojasDeMatric
 C:\Users\Junio\OneDrive\Escritorio\UnidadPedag-gica_Sistema\SistemaHojasDeMatricula\bin\Debug\SistemaHojasDeMatricula.pdb
 C:\Users\Junio\OneDrive\Escritorio\UnidadPedag-gica_Sistema\SistemaHojasDeMatricula\obj\Debug\SistemaHojasDeMatricula.csproj.AssemblyReference.cache
 C:\Users\Junio\OneDrive\Escritorio\UnidadPedag-gica_Sistema\SistemaHojasDeMatricula\obj\Debug\SistemaHojasDeMatricula.exe.config
-C:\Users\Junio\OneDrive\Escritorio\UnidadPedag-gica_Sistema\SistemaHojasDeMatricula\obj\Debug\SistemaHojasDeMatricula.Form1.resources
 C:\Users\Junio\OneDrive\Escritorio\UnidadPedag-gica_Sistema\SistemaHojasDeMatricula\obj\Debug\SistemaHojasDeMatricula.Properties.Resources.resources
 C:\Users\Junio\OneDrive\Escritorio\UnidadPedag-gica_Sistema\SistemaHojasDeMatricula\obj\Debug\SistemaHojasDeMatricula.csproj.GenerateResource.cache
 C:\Users\Junio\OneDrive\Escritorio\UnidadPedag-gica_Sistema\SistemaHojasDeMatricula\obj\Debug\SistemaHojasDeMatricula.csproj.CoreCompileInputs.cache
 C:\Users\Junio\OneDrive\Escritorio\UnidadPedag-gica_Sistema\SistemaHojasDeMatricula\obj\Debug\SistemaHojasDeMatricula.exe
 C:\Users\Junio\OneDrive\Escritorio\UnidadPedag-gica_Sistema\SistemaHojasDeMatricula\obj\Debug\SistemaHojasDeMatricula.pdb
+C:\Users\Junio\OneDrive\Escritorio\UnidadPedag-gica_Sistema\SistemaHojasDeMatricula\obj\Debug\SistemaHojasDeMatricula.Login.resources
