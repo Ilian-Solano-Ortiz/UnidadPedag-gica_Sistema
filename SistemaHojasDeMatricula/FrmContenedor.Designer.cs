@@ -29,19 +29,22 @@
         private void InitializeComponent()
         {
             this.navegacionPanel = new System.Windows.Forms.Panel();
+            this.cambiarContraBtn = new System.Windows.Forms.Button();
             this.cerrarSesionBtn = new System.Windows.Forms.Button();
             this.usuariosBtn = new System.Windows.Forms.Button();
             this.estudiantesBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.contenedor = new System.Windows.Forms.Panel();
-            this.cambiarContraBtn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.navegacionPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // navegacionPanel
             // 
             this.navegacionPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.navegacionPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.navegacionPanel.Controls.Add(this.pictureBox1);
             this.navegacionPanel.Controls.Add(this.cambiarContraBtn);
             this.navegacionPanel.Controls.Add(this.cerrarSesionBtn);
             this.navegacionPanel.Controls.Add(this.usuariosBtn);
@@ -52,6 +55,20 @@
             this.navegacionPanel.Name = "navegacionPanel";
             this.navegacionPanel.Size = new System.Drawing.Size(117, 450);
             this.navegacionPanel.TabIndex = 0;
+            // 
+            // cambiarContraBtn
+            // 
+            this.cambiarContraBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cambiarContraBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cambiarContraBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cambiarContraBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cambiarContraBtn.Location = new System.Drawing.Point(3, 391);
+            this.cambiarContraBtn.Name = "cambiarContraBtn";
+            this.cambiarContraBtn.Size = new System.Drawing.Size(106, 23);
+            this.cambiarContraBtn.TabIndex = 4;
+            this.cambiarContraBtn.Text = "Cambiar contraseña";
+            this.cambiarContraBtn.UseVisualStyleBackColor = false;
+            this.cambiarContraBtn.Click += new System.EventHandler(this.cambiarContraBtn_Click);
             // 
             // cerrarSesionBtn
             // 
@@ -73,7 +90,7 @@
             this.usuariosBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.usuariosBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usuariosBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.usuariosBtn.Location = new System.Drawing.Point(3, 76);
+            this.usuariosBtn.Location = new System.Drawing.Point(4, 159);
             this.usuariosBtn.Name = "usuariosBtn";
             this.usuariosBtn.Size = new System.Drawing.Size(106, 23);
             this.usuariosBtn.TabIndex = 2;
@@ -87,7 +104,7 @@
             this.estudiantesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.estudiantesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.estudiantesBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.estudiantesBtn.Location = new System.Drawing.Point(3, 31);
+            this.estudiantesBtn.Location = new System.Drawing.Point(4, 121);
             this.estudiantesBtn.Name = "estudiantesBtn";
             this.estudiantesBtn.Size = new System.Drawing.Size(106, 23);
             this.estudiantesBtn.TabIndex = 0;
@@ -111,19 +128,15 @@
             this.contenedor.Size = new System.Drawing.Size(683, 450);
             this.contenedor.TabIndex = 1;
             // 
-            // cambiarContraBtn
+            // pictureBox1
             // 
-            this.cambiarContraBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cambiarContraBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cambiarContraBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cambiarContraBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cambiarContraBtn.Location = new System.Drawing.Point(3, 391);
-            this.cambiarContraBtn.Name = "cambiarContraBtn";
-            this.cambiarContraBtn.Size = new System.Drawing.Size(106, 23);
-            this.cambiarContraBtn.TabIndex = 4;
-            this.cambiarContraBtn.Text = "Cambiar contraseña";
-            this.cambiarContraBtn.UseVisualStyleBackColor = false;
-            this.cambiarContraBtn.Click += new System.EventHandler(this.cambiarContraBtn_Click);
+            this.pictureBox1.Image = global::SistemaHojasDeMatricula.Properties.Resources.UPLogo;
+            this.pictureBox1.Location = new System.Drawing.Point(9, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 105);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmContenedor
             // 
@@ -135,6 +148,7 @@
             this.Name = "FrmContenedor";
             this.Text = "Form1";
             this.navegacionPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -148,5 +162,6 @@
         private System.Windows.Forms.Button estudiantesBtn;
         private System.Windows.Forms.Panel contenedor;
         private System.Windows.Forms.Button cambiarContraBtn;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

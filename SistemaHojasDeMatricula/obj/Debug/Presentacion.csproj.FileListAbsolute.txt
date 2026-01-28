@@ -14,3 +14,4 @@ C:\Users\Junio\OneDrive\Escritorio\UnidadPedag-gica_Sistema\SistemaHojasDeMatric
 C:\Users\Junio\OneDrive\Escritorio\UnidadPedag-gica_Sistema\SistemaHojasDeMatricula\obj\Debug\SistemaHojasDeMatricula.BuscarUsuarios.resources
 C:\Users\Junio\OneDrive\Escritorio\UnidadPedag-gica_Sistema\SistemaHojasDeMatricula\obj\Debug\SistemaHojasDeMatricula.FrmContenedor.resources
 C:\Users\Junio\OneDrive\Escritorio\UnidadPedag-gica_Sistema\SistemaHojasDeMatricula\obj\Debug\SistemaHojasDeMatricula.CambioContra.resources
+C:\Users\Junio\OneDrive\Escritorio\UnidadPedag-gica_Sistema\SistemaHojasDeMatricula\obj\Debug\SistemaHojasDeMatricula.MatriculaExistenteFrm.resources

@@ -76,6 +76,7 @@
             this.buscarBtn.TabIndex = 4;
             this.buscarBtn.Text = "Buscar";
             this.buscarBtn.UseVisualStyleBackColor = false;
+            this.buscarBtn.Click += new System.EventHandler(this.buscarBtn_Click);
             // 
             // contenedor
             // 

@@ -1,0 +1,305 @@
+﻿namespace SistemaHojasDeMatricula
+{
+    partial class MatriculaExistenteFrm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.label1 = new System.Windows.Forms.Label();
+            this.preescolarCheck = new System.Windows.Forms.CheckBox();
+            this.secundariaCheck = new System.Windows.Forms.CheckBox();
+            this.primariaCheck = new System.Windows.Forms.CheckBox();
+            this.nivelCbx = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelMatricula = new System.Windows.Forms.Label();
+            this.fechaMatriculaTxt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.nombreCompletoTxt = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cedulaTxt = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.telefonoEncargadoTxt = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.inglesCheck = new System.Windows.Forms.CheckBox();
+            this.francesCheck = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.siCheck = new System.Windows.Forms.CheckBox();
+            this.noCheck = new System.Windows.Forms.CheckBox();
+            this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(230, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(137, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Matrícula Existente";
+            // 
+            // preescolarCheck
+            // 
+            this.preescolarCheck.AutoSize = true;
+            this.preescolarCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.preescolarCheck.Location = new System.Drawing.Point(136, 79);
+            this.preescolarCheck.Name = "preescolarCheck";
+            this.preescolarCheck.Size = new System.Drawing.Size(92, 20);
+            this.preescolarCheck.TabIndex = 1;
+            this.preescolarCheck.Text = "Preescolar";
+            this.preescolarCheck.UseVisualStyleBackColor = true;
+            this.preescolarCheck.CheckedChanged += new System.EventHandler(this.preescolarCheck_CheckedChanged);
+            // 
+            // secundariaCheck
+            // 
+            this.secundariaCheck.AutoSize = true;
+            this.secundariaCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.secundariaCheck.Location = new System.Drawing.Point(404, 79);
+            this.secundariaCheck.Name = "secundariaCheck";
+            this.secundariaCheck.Size = new System.Drawing.Size(95, 20);
+            this.secundariaCheck.TabIndex = 2;
+            this.secundariaCheck.Text = "Secundaria";
+            this.secundariaCheck.UseVisualStyleBackColor = true;
+            this.secundariaCheck.CheckedChanged += new System.EventHandler(this.secundariaCheck_CheckedChanged);
+            // 
+            // primariaCheck
+            // 
+            this.primariaCheck.AutoSize = true;
+            this.primariaCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.primariaCheck.Location = new System.Drawing.Point(279, 79);
+            this.primariaCheck.Name = "primariaCheck";
+            this.primariaCheck.Size = new System.Drawing.Size(76, 20);
+            this.primariaCheck.TabIndex = 3;
+            this.primariaCheck.Text = "Primaria";
+            this.primariaCheck.UseVisualStyleBackColor = true;
+            this.primariaCheck.CheckedChanged += new System.EventHandler(this.primariaCheck_CheckedChanged);
+            // 
+            // nivelCbx
+            // 
+            this.nivelCbx.FormattingEnabled = true;
+            this.nivelCbx.Location = new System.Drawing.Point(79, 147);
+            this.nivelCbx.Name = "nivelCbx";
+            this.nivelCbx.Size = new System.Drawing.Size(121, 21);
+            this.nivelCbx.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(35, 148);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 16);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Nivel";
+            // 
+            // labelMatricula
+            // 
+            this.labelMatricula.AutoSize = true;
+            this.labelMatricula.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMatricula.Location = new System.Drawing.Point(246, 148);
+            this.labelMatricula.Name = "labelMatricula";
+            this.labelMatricula.Size = new System.Drawing.Size(121, 16);
+            this.labelMatricula.TabIndex = 6;
+            this.labelMatricula.Text = "Fecha de Matrícula";
+            // 
+            // fechaMatriculaTxt
+            // 
+            this.fechaMatriculaTxt.Location = new System.Drawing.Point(383, 148);
+            this.fechaMatriculaTxt.Name = "fechaMatriculaTxt";
+            this.fechaMatriculaTxt.Size = new System.Drawing.Size(148, 20);
+            this.fechaMatriculaTxt.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(26, 196);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(202, 16);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Nombre completo del estudiante";
+            // 
+            // nombreCompletoTxt
+            // 
+            this.nombreCompletoTxt.Location = new System.Drawing.Point(249, 192);
+            this.nombreCompletoTxt.Name = "nombreCompletoTxt";
+            this.nombreCompletoTxt.Size = new System.Drawing.Size(282, 20);
+            this.nombreCompletoTxt.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(26, 234);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 16);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Cédula";
+            // 
+            // cedulaTxt
+            // 
+            this.cedulaTxt.Location = new System.Drawing.Point(85, 234);
+            this.cedulaTxt.Name = "cedulaTxt";
+            this.cedulaTxt.Size = new System.Drawing.Size(157, 20);
+            this.cedulaTxt.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(267, 234);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(152, 16);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Teléfono del encargado";
+            // 
+            // telefonoEncargadoTxt
+            // 
+            this.telefonoEncargadoTxt.Location = new System.Drawing.Point(425, 234);
+            this.telefonoEncargadoTxt.Name = "telefonoEncargadoTxt";
+            this.telefonoEncargadoTxt.Size = new System.Drawing.Size(157, 20);
+            this.telefonoEncargadoTxt.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(26, 281);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(222, 16);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Si cursa el nivel de 10 elija el idioma";
+            // 
+            // inglesCheck
+            // 
+            this.inglesCheck.AutoSize = true;
+            this.inglesCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inglesCheck.Location = new System.Drawing.Point(279, 281);
+            this.inglesCheck.Name = "inglesCheck";
+            this.inglesCheck.Size = new System.Drawing.Size(62, 20);
+            this.inglesCheck.TabIndex = 15;
+            this.inglesCheck.Text = "Inglés";
+            this.inglesCheck.UseVisualStyleBackColor = true;
+            // 
+            // francesCheck
+            // 
+            this.francesCheck.AutoSize = true;
+            this.francesCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.francesCheck.Location = new System.Drawing.Point(383, 281);
+            this.francesCheck.Name = "francesCheck";
+            this.francesCheck.Size = new System.Drawing.Size(75, 20);
+            this.francesCheck.TabIndex = 16;
+            this.francesCheck.Text = "Francés";
+            this.francesCheck.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(26, 322);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(315, 16);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Si cursa el nivel de 11 indique si ya realizó horas TC";
+            // 
+            // siCheck
+            // 
+            this.siCheck.AutoSize = true;
+            this.siCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siCheck.Location = new System.Drawing.Point(357, 318);
+            this.siCheck.Name = "siCheck";
+            this.siCheck.Size = new System.Drawing.Size(38, 20);
+            this.siCheck.TabIndex = 18;
+            this.siCheck.Text = "Sí";
+            this.siCheck.UseVisualStyleBackColor = true;
+            // 
+            // noCheck
+            // 
+            this.noCheck.AutoSize = true;
+            this.noCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noCheck.Location = new System.Drawing.Point(437, 318);
+            this.noCheck.Name = "noCheck";
+            this.noCheck.Size = new System.Drawing.Size(44, 20);
+            this.noCheck.TabIndex = 19;
+            this.noCheck.Text = "No";
+            this.noCheck.UseVisualStyleBackColor = true;
+            // 
+            // MatriculaExistenteFrm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClientSize = new System.Drawing.Size(667, 411);
+            this.Controls.Add(this.noCheck);
+            this.Controls.Add(this.siCheck);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.francesCheck);
+            this.Controls.Add(this.inglesCheck);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.telefonoEncargadoTxt);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cedulaTxt);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.nombreCompletoTxt);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.fechaMatriculaTxt);
+            this.Controls.Add(this.labelMatricula);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.nivelCbx);
+            this.Controls.Add(this.primariaCheck);
+            this.Controls.Add(this.secundariaCheck);
+            this.Controls.Add(this.preescolarCheck);
+            this.Controls.Add(this.label1);
+            this.Name = "MatriculaExistenteFrm";
+            this.Text = "MatriculaExistenteFrm";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox preescolarCheck;
+        private System.Windows.Forms.CheckBox secundariaCheck;
+        private System.Windows.Forms.CheckBox primariaCheck;
+        private System.Windows.Forms.ComboBox nivelCbx;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelMatricula;
+        private System.Windows.Forms.TextBox fechaMatriculaTxt;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox nombreCompletoTxt;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox cedulaTxt;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox telefonoEncargadoTxt;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox inglesCheck;
+        private System.Windows.Forms.CheckBox francesCheck;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox siCheck;
+        private System.Windows.Forms.CheckBox noCheck;
+    }
+}

@@ -47,21 +47,18 @@ namespace SistemaHojasDeMatricula
             
         }
 
-        private void estudiantesBtn_Click(object sender, EventArgs e)
+        private void buscarBtn_Click(object sender, EventArgs e)
         {
-            Form formulario = new BuscarEstudiante();
-            if (FormularioActivo != null)
+            if (true)
             {
-                FormularioActivo.Close();
+                MessageBox.Show("El estudiante existe en la base de datos");
+                abrirFormulario(new MatriculaExistenteFrm());
             }
-            formulario.TopLevel = false;
-            formulario.Dock = DockStyle.Fill;
-            formulario.FormBorderStyle = FormBorderStyle.None;
-            FormularioActivo = formulario;
-            this.Controls.Add(formulario);
-
-            formulario.Show();
-            formulario.BringToFront();
+            else
+            {
+                MessageBox.Show("El estudiante no existe en la base de datos");
+            }
+                
         }
     }
 }
