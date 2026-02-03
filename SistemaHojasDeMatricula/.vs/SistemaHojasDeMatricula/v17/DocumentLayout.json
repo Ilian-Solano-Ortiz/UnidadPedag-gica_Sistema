@@ -1,24 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{2DEB1FF5-7AEB-430D-899A-09B18BEBCDBB}|Presentacion.csproj|c:\\users\\junio\\onedrive\\escritorio\\unidadpedag-gica_sistema\\sistemahojasdematricula\\matriculaexistentefrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DEB1FF5-7AEB-430D-899A-09B18BEBCDBB}|Presentacion.csproj|solutionrelative:matriculaexistentefrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DEB1FF5-7AEB-430D-899A-09B18BEBCDBB}|Presentacion.csproj|C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\matriculaexistentefrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2DEB1FF5-7AEB-430D-899A-09B18BEBCDBB}|Presentacion.csproj|solutionrelative:matriculaexistentefrm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DEB1FF5-7AEB-430D-899A-09B18BEBCDBB}|Presentacion.csproj|C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\frmcontenedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2DEB1FF5-7AEB-430D-899A-09B18BEBCDBB}|Presentacion.csproj|solutionrelative:frmcontenedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DEB1FF5-7AEB-430D-899A-09B18BEBCDBB}|Presentacion.csproj|C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2DEB1FF5-7AEB-430D-899A-09B18BEBCDBB}|Presentacion.csproj|solutionrelative:login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -26,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1119,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -47,52 +30,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MatriculaExistenteFrm.cs",
-              "DocumentMoniker": "C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\MatriculaExistenteFrm.cs",
-              "RelativeDocumentMoniker": "MatriculaExistenteFrm.cs",
-              "ToolTip": "C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\MatriculaExistenteFrm.cs",
-              "RelativeToolTip": "MatriculaExistenteFrm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T20:19:58.133Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MatriculaExistenteFrm.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\MatriculaExistenteFrm.cs",
-              "RelativeDocumentMoniker": "MatriculaExistenteFrm.cs",
-              "ToolTip": "C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\MatriculaExistenteFrm.cs [Dise\u00F1o]",
-              "RelativeToolTip": "MatriculaExistenteFrm.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T20:19:48.132Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Login.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\Login.cs",
-              "RelativeDocumentMoniker": "Login.cs",
-              "ToolTip": "C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\Login.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Login.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T20:06:46.967Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FrmContenedor.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\FrmContenedor.cs",
-              "RelativeDocumentMoniker": "FrmContenedor.cs",
-              "ToolTip": "C:\\Users\\Junio\\OneDrive\\Escritorio\\UnidadPedag-gica_Sistema\\SistemaHojasDeMatricula\\FrmContenedor.cs [Dise\u00F1o]",
-              "RelativeToolTip": "FrmContenedor.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T20:05:58.68Z"
             }
           ]
         }
