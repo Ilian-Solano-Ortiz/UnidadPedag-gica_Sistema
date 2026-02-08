@@ -35,7 +35,10 @@
             this.nivelCbx = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.labelMatricula = new System.Windows.Forms.Label();
+<<<<<<< HEAD
             this.txtFechaMatrcula = new System.Windows.Forms.TextBox();
+=======
+>>>>>>> d69846e49f1b1a070f92197d78d501781ca436c1
             this.label3 = new System.Windows.Forms.Label();
             this.txtNombreComp = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,8 +51,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.siCheck = new System.Windows.Forms.CheckBox();
             this.noCheck = new System.Windows.Forms.CheckBox();
+<<<<<<< HEAD
             this.btnAtras = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
+=======
+            this.fechaMatricula = new System.Windows.Forms.DateTimePicker();
+            this.generarBtn = new System.Windows.Forms.Button();
+>>>>>>> d69846e49f1b1a070f92197d78d501781ca436c1
             this.SuspendLayout();
             // 
             // label1
@@ -134,6 +142,7 @@
             this.labelMatricula.TabIndex = 6;
             this.labelMatricula.Text = "Fecha de Matrícula";
             // 
+<<<<<<< HEAD
             // txtFechaMatrcula
             // 
             this.txtFechaMatrcula.Location = new System.Drawing.Point(511, 182);
@@ -142,6 +151,8 @@
             this.txtFechaMatrcula.Size = new System.Drawing.Size(196, 22);
             this.txtFechaMatrcula.TabIndex = 7;
             // 
+=======
+>>>>>>> d69846e49f1b1a070f92197d78d501781ca436c1
             // label3
             // 
             this.label3.AutoSize = true;
@@ -221,6 +232,7 @@
             this.inglesCheck.TabIndex = 15;
             this.inglesCheck.Text = "Inglés";
             this.inglesCheck.UseVisualStyleBackColor = true;
+            this.inglesCheck.CheckedChanged += new System.EventHandler(this.inglesCheck_CheckedChanged);
             // 
             // francesCheck
             // 
@@ -233,6 +245,7 @@
             this.francesCheck.TabIndex = 16;
             this.francesCheck.Text = "Francés";
             this.francesCheck.UseVisualStyleBackColor = true;
+            this.francesCheck.CheckedChanged += new System.EventHandler(this.francesCheck_CheckedChanged);
             // 
             // label7
             // 
@@ -256,6 +269,7 @@
             this.siCheck.TabIndex = 18;
             this.siCheck.Text = "Sí";
             this.siCheck.UseVisualStyleBackColor = true;
+            this.siCheck.CheckedChanged += new System.EventHandler(this.siCheck_CheckedChanged);
             // 
             // noCheck
             // 
@@ -268,6 +282,28 @@
             this.noCheck.TabIndex = 19;
             this.noCheck.Text = "No";
             this.noCheck.UseVisualStyleBackColor = true;
+            this.noCheck.CheckedChanged += new System.EventHandler(this.noCheck_CheckedChanged);
+            // 
+            // fechaMatricula
+            // 
+            this.fechaMatricula.Location = new System.Drawing.Point(382, 147);
+            this.fechaMatricula.Name = "fechaMatricula";
+            this.fechaMatricula.Size = new System.Drawing.Size(200, 20);
+            this.fechaMatricula.TabIndex = 20;
+            // 
+            // generarBtn
+            // 
+            this.generarBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.generarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.generarBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.generarBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.generarBtn.Location = new System.Drawing.Point(258, 367);
+            this.generarBtn.Name = "generarBtn";
+            this.generarBtn.Size = new System.Drawing.Size(109, 23);
+            this.generarBtn.TabIndex = 21;
+            this.generarBtn.Text = "Generar";
+            this.generarBtn.UseVisualStyleBackColor = false;
+            this.generarBtn.Click += new System.EventHandler(this.generarBtn_Click);
             // 
             // btnAtras
             // 
@@ -302,9 +338,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(889, 506);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnAtras);
+=======
+            this.ClientSize = new System.Drawing.Size(667, 411);
+            this.Controls.Add(this.generarBtn);
+            this.Controls.Add(this.fechaMatricula);
+>>>>>>> d69846e49f1b1a070f92197d78d501781ca436c1
             this.Controls.Add(this.noCheck);
             this.Controls.Add(this.siCheck);
             this.Controls.Add(this.label7);
@@ -317,7 +359,10 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtNombreComp);
             this.Controls.Add(this.label3);
+<<<<<<< HEAD
             this.Controls.Add(this.txtFechaMatrcula);
+=======
+>>>>>>> d69846e49f1b1a070f92197d78d501781ca436c1
             this.Controls.Add(this.labelMatricula);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.nivelCbx);
@@ -343,7 +388,10 @@
         private System.Windows.Forms.ComboBox nivelCbx;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelMatricula;
+<<<<<<< HEAD
         private System.Windows.Forms.TextBox txtFechaMatrcula;
+=======
+>>>>>>> d69846e49f1b1a070f92197d78d501781ca436c1
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNombreComp;
         private System.Windows.Forms.Label label4;
@@ -356,7 +404,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox siCheck;
         private System.Windows.Forms.CheckBox noCheck;
+<<<<<<< HEAD
         private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.Button btnImprimir;
+=======
+        private System.Windows.Forms.DateTimePicker fechaMatricula;
+        private System.Windows.Forms.Button generarBtn;
+>>>>>>> d69846e49f1b1a070f92197d78d501781ca436c1
     }
 }
