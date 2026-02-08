@@ -29,7 +29,7 @@ namespace SistemaHojasDeMatricula
             abrirFormulario(new BuscarUsuarios());
         }
 
-        private void abrirFormulario(Form formulario)
+        public void abrirFormulario(Form formulario)
         {
             if (FormularioActivo!=null)
             {
@@ -52,7 +52,8 @@ namespace SistemaHojasDeMatricula
             if (true)
             {
                 MessageBox.Show("El estudiante existe en la base de datos");
-                abrirFormulario(new MatriculaExistenteFrm());
+                //abrirFormulario(new MatriculaExistenteFrm());
+                abrirFormulario(new FrmMatriculaNoExistente());
             }
             else
             {

@@ -19,11 +19,13 @@ namespace SistemaHojasDeMatricula
             FormularioActivo = null;
         }
 
-        private void cerrarSesionBtn_Click(object sender, EventArgs e)
+        private void cerrarSesionBtn_Click(object sender, EventArgs e)//hice cambios aqui
         {
-            this.Close();
+            abrirFormulario(new Login());
+
         }
-        private void abrirFormulario(Form formulario)
+        public void abrirFormulario(Form formulario)
+
         {
             if (FormularioActivo != null)
             {
@@ -40,6 +42,22 @@ namespace SistemaHojasDeMatricula
             formulario.BringToFront();
 
         }
+    /*  public void abrirFormulario(Form formulario) //CODIGO QUE ME DIÓ CHAT PORQUE DISQUE HAY QUE CAMBIAR EL DE ARRIBA PERO IGUAL NO ME FUNCIONÓ FOK
+        {
+            contenedor.Controls.Clear();
+
+            formulario.TopLevel = false;
+            formulario.Dock = DockStyle.Fill;
+            formulario.FormBorderStyle = FormBorderStyle.None;
+
+            FormularioActivo = formulario;
+            contenedor.Controls.Add(formulario);
+
+            formulario.Show();
+            formulario.BringToFront();
+        }*/
+
+
         private void estudiantesBtn_Click(object sender, EventArgs e)
         {
             abrirFormulario(new BuscarEstudiante());

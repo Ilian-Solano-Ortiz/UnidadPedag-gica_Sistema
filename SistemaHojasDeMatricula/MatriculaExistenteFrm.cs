@@ -18,77 +18,99 @@ namespace SistemaHojasDeMatricula
             InitializeComponent();
             
         }
-
+//modifiqué los check
         private void preescolarCheck_CheckedChanged(object sender, EventArgs e)
         {
-            CheckBox checkPrescolar = (CheckBox)sender;
-            String estado = checkPrescolar.CheckState + "";
-            if (estado.Equals("Checked"))
+            if (preescolarCheck.Checked)
             {
                 primariaCheck.Enabled = false;
                 secundariaCheck.Enabled = false;
-                nivelCbx.Items.AddRange(new object[] {
-                 "Materno",
-                 "Kinder"});
-                MessageBox.Show("Está seleccionado");
+
+                nivelCbx.Items.Clear();
+                nivelCbx.Items.AddRange(new object[]
+                {
+            "Materno",
+            "Kinder"
+                });
             }
             else
             {
                 primariaCheck.Enabled = true;
                 secundariaCheck.Enabled = true;
-                MessageBox.Show("No seleccionado");
+                nivelCbx.Items.Clear();
             }
         }
 
         private void primariaCheck_CheckedChanged(object sender, EventArgs e)
         {
-            CheckBox checkPrimaria = (CheckBox)sender;
-            String estado = checkPrimaria.CheckState + "";
-            if (estado.Equals("Checked"))
+            if (primariaCheck.Checked)
             {
                 preescolarCheck.Enabled = false;
                 secundariaCheck.Enabled = false;
-                nivelCbx.Items.AddRange(new object[] {
-                 "Primero",
-                 "Segundo",
-                 "Tercero",
-                 "Cuarto",
-                 "Quinto",
-                 "Sexto"});
-                MessageBox.Show("Está seleccionado");
+
+                nivelCbx.Items.Clear();
+                nivelCbx.Items.AddRange(new object[]
+                {
+            "Primero",
+            "Segundo",
+            "Tercero",
+            "Cuarto",
+            "Quinto",
+            "Sexto"
+                });
             }
             else
             {
                 preescolarCheck.Enabled = true;
                 secundariaCheck.Enabled = true;
-                MessageBox.Show("No seleccionado");
+                nivelCbx.Items.Clear();
             }
         }
 
         private void secundariaCheck_CheckedChanged(object sender, EventArgs e)
         {
-            CheckBox checkSecundaria = (CheckBox)sender;
-            String estado = checkSecundaria.CheckState + "";
-            if (estado.Equals("Checked"))
+            if (secundariaCheck.Checked)
             {
                 preescolarCheck.Enabled = false;
                 primariaCheck.Enabled = false;
-                nivelCbx.Items.AddRange(new object[] {
-                 "Séptimo",
-                 "Octavo",
-                 "Noveno",
-                 "Décimo",
-                 "Undécimo"});
-                MessageBox.Show("Está seleccionado ");
+
+                nivelCbx.Items.Clear();
+                nivelCbx.Items.AddRange(new object[]
+                {
+            "Séptimo",
+            "Octavo",
+            "Noveno",
+            "Décimo",
+            "Undécimo"
+                });
             }
             else
             {
                 preescolarCheck.Enabled = true;
                 primariaCheck.Enabled = true;
-                MessageBox.Show("No seleccionado");
+                nivelCbx.Items.Clear();
             }
         }
 
-        
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void nivelCbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MatriculaExistenteFrm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

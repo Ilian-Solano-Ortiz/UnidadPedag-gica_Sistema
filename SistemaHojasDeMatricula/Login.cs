@@ -41,5 +41,12 @@ namespace SistemaHojasDeMatricula
         {
             abrirFormulario(new Registrarse());
         }
+
+ 
+
+        private void contraseñaTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

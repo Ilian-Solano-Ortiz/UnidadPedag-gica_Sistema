@@ -64,11 +64,29 @@
     <Compile Include="CambioContra.Designer.cs">
       <DependentUpon>CambioContra.cs</DependentUpon>
     </Compile>
+    <Compile Include="DatosPadres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatosPadres.Designer.cs">
+      <DependentUpon>DatosPadres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCondicionSocieconomica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCondicionSocieconomica.Designer.cs">
+      <DependentUpon>FrmCondicionSocieconomica.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmContenedor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmContenedor.Designer.cs">
       <DependentUpon>FrmContenedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMatriculaNoExistente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMatriculaNoExistente.Designer.cs">
+      <DependentUpon>FrmMatriculaNoExistente.cs</DependentUpon>
     </Compile>
     <Compile Include="MatriculaExistenteFrm.cs">
       <SubType>Form</SubType>
@@ -99,8 +117,17 @@
     <EmbeddedResource Include="CambioContra.resx">
       <DependentUpon>CambioContra.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DatosPadres.resx">
+      <DependentUpon>DatosPadres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCondicionSocieconomica.resx">
+      <DependentUpon>FrmCondicionSocieconomica.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmContenedor.resx">
       <DependentUpon>FrmContenedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMatriculaNoExistente.resx">
+      <DependentUpon>FrmMatriculaNoExistente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
