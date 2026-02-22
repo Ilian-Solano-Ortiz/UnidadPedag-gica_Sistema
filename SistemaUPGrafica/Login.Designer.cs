@@ -28,143 +28,155 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.contenedor = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.registrarseBtn = new System.Windows.Forms.Button();
-            this.contraseñaTxt = new System.Windows.Forms.TextBox();
-            this.usuarioTxt = new System.Windows.Forms.TextBox();
-            this.ingresarBtn = new System.Windows.Forms.Button();
-            this.contrasenalbl = new System.Windows.Forms.Label();
-            this.usuariolbl = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.contenedor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            contenedor = new Panel();
+            label2 = new Label();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
+            registrarseBtn = new Button();
+            contraseñaTxt = new TextBox();
+            usuarioTxt = new TextBox();
+            ingresarBtn = new Button();
+            contrasenalbl = new Label();
+            usuariolbl = new Label();
+            contenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // contenedor
             // 
-            this.contenedor.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.contenedor.Controls.Add(this.label2);
-            this.contenedor.Controls.Add(this.label1);
-            this.contenedor.Controls.Add(this.pictureBox1);
-            this.contenedor.Controls.Add(this.registrarseBtn);
-            this.contenedor.Controls.Add(this.contraseñaTxt);
-            this.contenedor.Controls.Add(this.usuarioTxt);
-            this.contenedor.Controls.Add(this.ingresarBtn);
-            this.contenedor.Controls.Add(this.contrasenalbl);
-            this.contenedor.Controls.Add(this.usuariolbl);
-            this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contenedor.Location = new System.Drawing.Point(0, 0);
-            this.contenedor.Name = "contenedor";
-            this.contenedor.Size = new System.Drawing.Size(800, 450);
-            this.contenedor.TabIndex = 0;
-            this.contenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            contenedor.BackColor = SystemColors.ButtonHighlight;
+            contenedor.Controls.Add(label2);
+            contenedor.Controls.Add(label1);
+            contenedor.Controls.Add(pictureBox1);
+            contenedor.Controls.Add(registrarseBtn);
+            contenedor.Controls.Add(contraseñaTxt);
+            contenedor.Controls.Add(usuarioTxt);
+            contenedor.Controls.Add(ingresarBtn);
+            contenedor.Controls.Add(contrasenalbl);
+            contenedor.Controls.Add(usuariolbl);
+            contenedor.Dock = DockStyle.Fill;
+            contenedor.Location = new Point(0, 0);
+            contenedor.Margin = new Padding(4, 5, 4, 5);
+            contenedor.Name = "contenedor";
+            contenedor.Size = new Size(1067, 692);
+            contenedor.TabIndex = 0;
+            contenedor.Paint += panel1_Paint;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(284, 65);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(253, 18);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Sistema Formulario de Matrícula";
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(379, 100);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(310, 24);
+            label2.TabIndex = 8;
+            label2.Text = "Sistema Formulario de Matrícula";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(41, 283);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(176, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Unidad Pedagógica Río Cuba";
-            // 
-            // registrarseBtn
-            // 
-            this.registrarseBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.registrarseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.registrarseBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registrarseBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.registrarseBtn.Location = new System.Drawing.Point(383, 277);
-            this.registrarseBtn.Name = "registrarseBtn";
-            this.registrarseBtn.Size = new System.Drawing.Size(152, 28);
-            this.registrarseBtn.TabIndex = 5;
-            this.registrarseBtn.Text = "Registrarse";
-            this.registrarseBtn.UseVisualStyleBackColor = false;
-            this.registrarseBtn.Click += new System.EventHandler(this.registrarseBtn_Click);
-            // 
-            // contraseñaTxt
-            // 
-            this.contraseñaTxt.Location = new System.Drawing.Point(383, 195);
-            this.contraseñaTxt.Name = "contraseñaTxt";
-            this.contraseñaTxt.Size = new System.Drawing.Size(152, 20);
-            this.contraseñaTxt.TabIndex = 4;
-            // 
-            // usuarioTxt
-            // 
-            this.usuarioTxt.Location = new System.Drawing.Point(383, 153);
-            this.usuarioTxt.Name = "usuarioTxt";
-            this.usuarioTxt.Size = new System.Drawing.Size(152, 20);
-            this.usuarioTxt.TabIndex = 3;
-            // 
-            // ingresarBtn
-            // 
-            this.ingresarBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ingresarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ingresarBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ingresarBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ingresarBtn.Location = new System.Drawing.Point(383, 244);
-            this.ingresarBtn.Name = "ingresarBtn";
-            this.ingresarBtn.Size = new System.Drawing.Size(152, 27);
-            this.ingresarBtn.TabIndex = 2;
-            this.ingresarBtn.Text = "Ingresar";
-            this.ingresarBtn.UseVisualStyleBackColor = false;
-            this.ingresarBtn.Click += new System.EventHandler(this.ingresarBtn_Click);
-            // 
-            // contrasenalbl
-            // 
-            this.contrasenalbl.AutoSize = true;
-            this.contrasenalbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contrasenalbl.Location = new System.Drawing.Point(284, 199);
-            this.contrasenalbl.Name = "contrasenalbl";
-            this.contrasenalbl.Size = new System.Drawing.Size(76, 16);
-            this.contrasenalbl.TabIndex = 1;
-            this.contrasenalbl.Text = "Contraseña";
-            // 
-            // usuariolbl
-            // 
-            this.usuariolbl.AutoSize = true;
-            this.usuariolbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usuariolbl.Location = new System.Drawing.Point(284, 157);
-            this.usuariolbl.Name = "usuariolbl";
-            this.usuariolbl.Size = new System.Drawing.Size(54, 16);
-            this.usuariolbl.TabIndex = 0;
-            this.usuariolbl.Text = "Usuario";
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(55, 435);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(220, 17);
+            label1.TabIndex = 7;
+            label1.Text = "Unidad Pedagógica Río Cuba";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::SistemaUPGrafica.Properties.Resources.UPLogo;
-            this.pictureBox1.Location = new System.Drawing.Point(29, 83);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(188, 197);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Image = Properties.Resources.UPLogo;
+            pictureBox1.Location = new Point(39, 128);
+            pictureBox1.Margin = new Padding(4, 5, 4, 5);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(251, 303);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
+            // 
+            // registrarseBtn
+            // 
+            registrarseBtn.BackColor = SystemColors.ActiveCaptionText;
+            registrarseBtn.FlatStyle = FlatStyle.Popup;
+            registrarseBtn.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            registrarseBtn.ForeColor = SystemColors.ButtonHighlight;
+            registrarseBtn.Location = new Point(511, 426);
+            registrarseBtn.Margin = new Padding(4, 5, 4, 5);
+            registrarseBtn.Name = "registrarseBtn";
+            registrarseBtn.Size = new Size(203, 43);
+            registrarseBtn.TabIndex = 5;
+            registrarseBtn.Text = "Registrarse";
+            registrarseBtn.UseVisualStyleBackColor = false;
+            registrarseBtn.Click += registrarseBtn_Click;
+            // 
+            // contraseñaTxt
+            // 
+            contraseñaTxt.Location = new Point(511, 300);
+            contraseñaTxt.Margin = new Padding(4, 5, 4, 5);
+            contraseñaTxt.Name = "contraseñaTxt";
+            contraseñaTxt.Size = new Size(201, 27);
+            contraseñaTxt.TabIndex = 4;
+            contraseñaTxt.UseSystemPasswordChar = true;
+            // 
+            // usuarioTxt
+            // 
+            usuarioTxt.Location = new Point(511, 235);
+            usuarioTxt.Margin = new Padding(4, 5, 4, 5);
+            usuarioTxt.Name = "usuarioTxt";
+            usuarioTxt.Size = new Size(201, 27);
+            usuarioTxt.TabIndex = 3;
+            // 
+            // ingresarBtn
+            // 
+            ingresarBtn.BackColor = SystemColors.ActiveCaptionText;
+            ingresarBtn.FlatStyle = FlatStyle.Popup;
+            ingresarBtn.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ingresarBtn.ForeColor = SystemColors.ButtonHighlight;
+            ingresarBtn.Location = new Point(511, 375);
+            ingresarBtn.Margin = new Padding(4, 5, 4, 5);
+            ingresarBtn.Name = "ingresarBtn";
+            ingresarBtn.Size = new Size(203, 42);
+            ingresarBtn.TabIndex = 2;
+            ingresarBtn.Text = "Ingresar";
+            ingresarBtn.UseVisualStyleBackColor = false;
+            ingresarBtn.Click += ingresarBtn_Click;
+            // 
+            // contrasenalbl
+            // 
+            contrasenalbl.AutoSize = true;
+            contrasenalbl.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            contrasenalbl.Location = new Point(379, 306);
+            contrasenalbl.Margin = new Padding(4, 0, 4, 0);
+            contrasenalbl.Name = "contrasenalbl";
+            contrasenalbl.Size = new Size(95, 20);
+            contrasenalbl.TabIndex = 1;
+            contrasenalbl.Text = "Contraseña";
+            // 
+            // usuariolbl
+            // 
+            usuariolbl.AutoSize = true;
+            usuariolbl.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            usuariolbl.Location = new Point(379, 242);
+            usuariolbl.Margin = new Padding(4, 0, 4, 0);
+            usuariolbl.Name = "usuariolbl";
+            usuariolbl.Size = new Size(67, 20);
+            usuariolbl.TabIndex = 0;
+            usuariolbl.Text = "Usuario";
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.contenedor);
-            this.Name = "Login";
-            this.Text = "Form1";
-            this.contenedor.ResumeLayout(false);
-            this.contenedor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1067, 692);
+            Controls.Add(contenedor);
+            Margin = new Padding(4, 5, 4, 5);
+            Name = "Login";
+            Text = "Form1";
+            contenedor.ResumeLayout(false);
+            contenedor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
 
         }
 

@@ -25,6 +25,7 @@ namespace SistemaUPGrafica
             this.Estudiante = Estudiante;
             this.Encargado = new Encargado();
             generarPanelCondicion();
+          
         }
 
         private void btnNext_Click(object sender, EventArgs e)

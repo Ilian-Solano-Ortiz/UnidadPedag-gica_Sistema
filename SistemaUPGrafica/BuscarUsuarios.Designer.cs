@@ -28,78 +28,86 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buscarBtn = new System.Windows.Forms.Button();
-            this.buscarTxt = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.SuspendLayout();
+            buscarBtn = new Button();
+            buscarTxt = new TextBox();
+            label1 = new Label();
+            label2 = new Label();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            SuspendLayout();
             // 
             // buscarBtn
             // 
-            this.buscarBtn.BackColor = System.Drawing.SystemColors.Highlight;
-            this.buscarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buscarBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buscarBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buscarBtn.Location = new System.Drawing.Point(458, 68);
-            this.buscarBtn.Name = "buscarBtn";
-            this.buscarBtn.Size = new System.Drawing.Size(75, 23);
-            this.buscarBtn.TabIndex = 0;
-            this.buscarBtn.Text = "Buscar";
-            this.buscarBtn.UseVisualStyleBackColor = false;
+            buscarBtn.BackColor = SystemColors.Highlight;
+            buscarBtn.FlatStyle = FlatStyle.Flat;
+            buscarBtn.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buscarBtn.ForeColor = SystemColors.ButtonHighlight;
+            buscarBtn.Location = new Point(611, 105);
+            buscarBtn.Margin = new Padding(4, 5, 4, 5);
+            buscarBtn.Name = "buscarBtn";
+            buscarBtn.Size = new Size(100, 35);
+            buscarBtn.TabIndex = 0;
+            buscarBtn.Text = "Buscar";
+            buscarBtn.UseVisualStyleBackColor = false;
+            buscarBtn.Click += buscarBtn_Click;
             // 
             // buscarTxt
             // 
-            this.buscarTxt.Location = new System.Drawing.Point(219, 68);
-            this.buscarTxt.Name = "buscarTxt";
-            this.buscarTxt.Size = new System.Drawing.Size(198, 20);
-            this.buscarTxt.TabIndex = 1;
+            buscarTxt.Location = new Point(292, 105);
+            buscarTxt.Margin = new Padding(4, 5, 4, 5);
+            buscarTxt.Name = "buscarTxt";
+            buscarTxt.Size = new Size(263, 27);
+            buscarTxt.TabIndex = 1;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(260, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Buscar Usuarios";
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(347, 48);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(150, 20);
+            label1.TabIndex = 2;
+            label1.Text = "Buscar Usuarios";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(274, 127);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 16);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Usuarios";
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(365, 195);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(84, 20);
+            label2.TabIndex = 3;
+            label2.Text = "Usuarios";
             // 
             // dataGridView1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(70, 146);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(506, 179);
-            this.dataGridView1.TabIndex = 4;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(93, 225);
+            dataGridView1.Margin = new Padding(4, 5, 4, 5);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(675, 275);
+            dataGridView1.TabIndex = 4;
             // 
             // BuscarUsuarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(666, 417);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.buscarTxt);
-            this.Controls.Add(this.buscarBtn);
-            this.Name = "BuscarUsuarios";
-            this.Text = "BuscarUsuarios";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonHighlight;
+            ClientSize = new Size(888, 642);
+            Controls.Add(dataGridView1);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(buscarTxt);
+            Controls.Add(buscarBtn);
+            Margin = new Padding(4, 5, 4, 5);
+            Name = "BuscarUsuarios";
+            Text = "BuscarUsuarios";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

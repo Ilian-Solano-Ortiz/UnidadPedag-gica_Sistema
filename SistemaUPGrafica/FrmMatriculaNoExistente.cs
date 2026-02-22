@@ -21,6 +21,7 @@ namespace SistemaUPGrafica
             this.Estudiante = new Estudiante();
             generarPanelPadres();
             habilitacionComponentes(false);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -33,10 +34,10 @@ namespace SistemaUPGrafica
 
             if (checkPreescolar.Checked)
             {
-                
+
                 checkPrimaria.Enabled = false;
                 checkSecundaria.Enabled = false;
-                
+
                 nivelCbx.Items.Clear();
                 nivelCbx.Items.AddRange(new object[]
                 {
@@ -46,14 +47,14 @@ namespace SistemaUPGrafica
 
                 habilitacionComponentes(true);
                 habilitacionInformacionSecundaria(false);
-                
-                
+
+
             }
             else
             {
                 checkPrimaria.Enabled = true;
                 checkSecundaria.Enabled = true;
-            
+
                 nivelCbx.Items.Clear();
                 habilitacionComponentes(false);
             }
@@ -63,10 +64,10 @@ namespace SistemaUPGrafica
         {
             if (checkPrimaria.Checked)
             {
-                
+
                 checkPreescolar.Enabled = false;
                 checkSecundaria.Enabled = false;
-              
+
                 nivelCbx.Items.Clear();
                 nivelCbx.Items.AddRange(new object[]
                 {
@@ -87,7 +88,7 @@ namespace SistemaUPGrafica
                 checkSecundaria.Enabled = true;
                 nivelCbx.Items.Clear();
                 habilitacionComponentes(false);
-             
+
             }
         }
 
@@ -96,10 +97,10 @@ namespace SistemaUPGrafica
         {
             if (checkSecundaria.Checked)
             {
-                
+
                 checkPreescolar.Enabled = false;
                 checkPrimaria.Enabled = false;
-              
+
                 nivelCbx.Items.Clear();
                 nivelCbx.Items.AddRange(new object[]
                 {
@@ -110,7 +111,7 @@ namespace SistemaUPGrafica
             "Undécimo"
                 });
                 habilitacionComponentes(true);
-                
+
             }
             else
             {
@@ -118,7 +119,7 @@ namespace SistemaUPGrafica
                 checkPrimaria.Enabled = true;
                 nivelCbx.Items.Clear();
                 habilitacionComponentes(false);
-              
+
             }
         }
 
@@ -129,7 +130,7 @@ namespace SistemaUPGrafica
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-   
+
             editarInformacionEstudiante();
             this.PanelPadres.Show();
             this.PanelPadres.BringToFront();
@@ -176,24 +177,24 @@ namespace SistemaUPGrafica
             this.Estudiante.EnfermedadEstudiante = enfermedadText.Text;
             this.Estudiante.TratamientoEstudiante = tratamientoMedText.Text;
             editarNivelSeleccionado();
-            
+
         }
 
         private void editarNivelSeleccionado()
         {
             if (checkPreescolar.Checked)
             {
-                
+
                 this.Estudiante.NivelSeleccionado = "Preescolar";
             }
             else if (checkPrimaria.Checked)
             {
-                
+
                 this.Estudiante.NivelSeleccionado = "Primaria";
             }
             else if (checkSecundaria.Checked)
             {
-                
+
                 this.Estudiante.NivelSeleccionado = "Secundaria";
             }
         }
@@ -311,6 +312,11 @@ namespace SistemaUPGrafica
             int posicionfecha = fecha.IndexOf(',');
             string fechaFinal = fecha.Substring(posicionfecha + 1);
             return fechaFinal.TrimStart();
+        }
+
+        private void txtAlergia_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

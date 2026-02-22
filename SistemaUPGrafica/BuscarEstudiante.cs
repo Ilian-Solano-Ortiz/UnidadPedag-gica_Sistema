@@ -20,6 +20,7 @@ namespace SistemaUPGrafica
         {
             InitializeComponent();
             FormularioActivo = null;
+           
         }
 
         private void cerrarSesionBtn_Click(object sender, EventArgs e)

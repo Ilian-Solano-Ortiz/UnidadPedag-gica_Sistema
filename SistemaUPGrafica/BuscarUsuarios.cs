@@ -15,6 +15,7 @@ namespace SistemaUPGrafica
         public BuscarUsuarios()
         {
             InitializeComponent();
+           
         }
 
         private void cerrarSesionBtn_Click(object sender, EventArgs e)
@@ -34,6 +35,11 @@ namespace SistemaUPGrafica
             formulario.FormBorderStyle = FormBorderStyle.None;
             formulario.BringToFront();
             this.Close();
+        }
+
+        private void buscarBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

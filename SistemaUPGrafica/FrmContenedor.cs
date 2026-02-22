@@ -17,10 +17,23 @@ namespace SistemaUPGrafica
         {
             InitializeComponent();
             FormularioActivo = null;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.MaximizeBox = false;   // Quita botón maximizar
+            this.MinimizeBox = false;   // Quita botón minimizar
         }
 
-        private void cerrarSesionBtn_Click(object sender, EventArgs e)
+        //CAMBIO DE CÓDIGO PARA QUE LIMPIE CAMPO DE USUARIO Y CONTRASEÑA AL CERRAR SESIÓN
+        private void cerrarSesionBtn_Click(object sender, EventArgs e) 
         {
+            //this.Close();
+            Login login = Application.OpenForms["Login"] as Login;
+
+            if (login != null)
+            {
+                login.LimpiarCampos();
+                login.Show();
+            }
+
             this.Close();
         }
         private void abrirFormulario(Form formulario)

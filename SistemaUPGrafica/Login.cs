@@ -15,6 +15,9 @@ namespace SistemaUPGrafica
         public Login()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.MaximizeBox = false;   // Quita botón maximizar
+            this.MinimizeBox = false;   // Quita botón minimizar
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -34,7 +37,18 @@ namespace SistemaUPGrafica
         }
         private void ingresarBtn_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new FrmContenedor());
+            //abrirFormulario(new FrmContenedor());
+            FrmContenedor principal = new FrmContenedor();
+            principal.Show();
+            this.Hide();
+        }
+
+        //AÑADÍ ESTO, LO QUE HACE ES LIMPIAR LOS CAMPOS DE USUARIO Y CONTRASEÑA CUANDO SE CIERRA SESIÓN
+        public void LimpiarCampos() 
+        {
+            usuarioTxt.Clear();
+            contraseñaTxt.Clear();
+            usuarioTxt.Focus();
         }
 
         private void registrarseBtn_Click(object sender, EventArgs e)
