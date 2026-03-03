@@ -130,6 +130,7 @@ namespace GenerarPDFUP.Services
 
             AgregarFilaConLinea(tabla, "¿Presenta alguna enfermedad?  Especifique:", es.EnfermedadEstudiante);
             AgregarFilaConLinea(tabla, "¿Tiene prescrito tratamiento médico?", es.TratamientoEstudiante);
+            AgregarFilaConLinea(tabla, "¿El estudiante es alérgico a algún medicamento", es.AlergicoMedicamento);
             documento.Add(tabla);
             
             Paragraph tituloEncargado = new Paragraph

@@ -30,5 +30,6 @@ namespace GenerarPDFUP.Models
         
         //Representa el nivel de educación (preescolar, primaria, secundaria)
         public string? NivelSeleccionado { get; set; }
+        public string? AlergicoMedicamento { get; set; }
     }
 }

@@ -66,9 +66,9 @@
             label1.Location = new Point(268, 31);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(137, 16);
+            label1.Size = new Size(222, 16);
             label1.TabIndex = 0;
-            label1.Text = "Matrícula Existente";
+            label1.Text = "Reafirmación hoja de matrícula";
             // 
             // preescolarCheck
             // 
@@ -381,12 +381,12 @@
             // 
             // montoPatronatoTxt
             // 
+            montoPatronatoTxt.Enabled = false;
             montoPatronatoTxt.Location = new Point(651, 437);
             montoPatronatoTxt.Margin = new Padding(4, 3, 4, 3);
             montoPatronatoTxt.Name = "montoPatronatoTxt";
             montoPatronatoTxt.Size = new Size(90, 23);
             montoPatronatoTxt.TabIndex = 29;
-            montoPatronatoTxt.Enabled = false;
             // 
             // MatriculaExistenteFrm
             // 

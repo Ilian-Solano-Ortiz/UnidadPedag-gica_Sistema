@@ -20,6 +20,8 @@ namespace SistemaUPGrafica
             this.StartPosition = FormStartPosition.CenterScreen;
             this.MaximizeBox = false;   // Quita botón maximizar
             this.MinimizeBox = false;   // Quita botón minimizar
+            this.FormClosing += (s, e) => Application.Exit();
+
         }
 
         //CAMBIO DE CÓDIGO PARA QUE LIMPIE CAMPO DE USUARIO Y CONTRASEÑA AL CERRAR SESIÓN

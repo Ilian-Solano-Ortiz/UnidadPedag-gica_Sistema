@@ -164,6 +164,7 @@ namespace SistemaUPGrafica
             siCheck2.Enabled = habilitar;
             noCheck2.Enabled = habilitar;
             btnNext.Enabled = habilitar;
+            txtAlergia.Enabled = habilitar;
         }
 
         private void editarInformacionEstudiante()
@@ -176,6 +177,7 @@ namespace SistemaUPGrafica
             this.Estudiante.Direccion = direccionText.Text;
             this.Estudiante.EnfermedadEstudiante = enfermedadText.Text;
             this.Estudiante.TratamientoEstudiante = tratamientoMedText.Text;
+            this.Estudiante.AlergicoMedicamento = txtAlergia.Text;
             editarNivelSeleccionado();
 
         }
