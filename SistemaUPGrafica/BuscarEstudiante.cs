@@ -20,7 +20,7 @@ namespace SistemaUPGrafica
         {
             InitializeComponent();
             FormularioActivo = null;
-           
+
         }
 
         private void cerrarSesionBtn_Click(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace SistemaUPGrafica
 
         private void abrirFormulario(Form formulario)
         {
-            if (FormularioActivo!=null)
+            if (FormularioActivo != null)
             {
                 FormularioActivo.Close();
             }
@@ -48,25 +48,49 @@ namespace SistemaUPGrafica
 
             formulario.Show();
             formulario.BringToFront();
-            
+
         }
 
+        /*   private void buscarBtn_Click(object sender, EventArgs e)
+           {
+               bool existeEstudiante = traerEstudiante();
+               bool existeEncargado = traerEncargado();
+               if (existeEstudiante)
+               {
+
+                   MessageBox.Show("El estudiante existe en la base de datos");
+                   abrirFormulario(new MatriculaExistenteFrm(Estudiante, Encargado));
+               }
+               else
+               {
+                   MessageBox.Show("El estudiante no existe en la base de datos, vuelva a intentarlo");
+                   abrirFormulario(new FrmMatriculaNoExistente());
+               }
+
+           }*/
         private void buscarBtn_Click(object sender, EventArgs e)
         {
             bool existeEstudiante = traerEstudiante();
             bool existeEncargado = traerEncargado();
-            if (false)
-            {
 
+            if (existeEstudiante)
+            {
                 MessageBox.Show("El estudiante existe en la base de datos");
-                abrirFormulario(new MatriculaExistenteFrm(Estudiante,Encargado));
+                abrirFormulario(new MatriculaExistenteFrm(Estudiante, Encargado));
             }
             else
             {
-                MessageBox.Show("El estudiante no existe en la base de datos");
-                abrirFormulario(new FrmMatriculaNoExistente());
+                DialogResult resultado = MessageBox.Show(
+                    "El estudiante no existe en la base de datos.\n¿Desea intentarlo nuevamente?",
+                    "Estudiante no encontrado",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (resultado == DialogResult.No)
+                {
+                    abrirFormulario(new FrmMatriculaNoExistente());
+                }
             }
-                
         }
 
 
@@ -86,7 +110,7 @@ namespace SistemaUPGrafica
                 Beca = "No",
                 TipoBeca = "No"
             };
-            return Estudiante!=null;
+            return Estudiante != null;
         }
         //Traera la información de los encargados de nuestra base de datos
         private bool traerEncargado()
@@ -99,7 +123,13 @@ namespace SistemaUPGrafica
                 TelefonoEncargado = "2344",
                 LugarTrabajo = "ICE"
             };
-            return Encargado!=null;
+            return Encargado != null;
+        }
+
+        //Boton agregado
+        private void btnNuevoEstudiante_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new FrmMatriculaNoExistente());
         }
     }
 }
