@@ -28,128 +28,137 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.navegacionPanel = new System.Windows.Forms.Panel();
-            this.cambiarContraBtn = new System.Windows.Forms.Button();
-            this.cerrarSesionBtn = new System.Windows.Forms.Button();
-            this.usuariosBtn = new System.Windows.Forms.Button();
-            this.estudiantesBtn = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.contenedor = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.navegacionPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            navegacionPanel = new Panel();
+            pictureBox1 = new PictureBox();
+            cambiarContraBtn = new Button();
+            cerrarSesionBtn = new Button();
+            usuariosBtn = new Button();
+            estudiantesBtn = new Button();
+            panel1 = new Panel();
+            contenedor = new Panel();
+            navegacionPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // navegacionPanel
             // 
-            this.navegacionPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.navegacionPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.navegacionPanel.Controls.Add(this.pictureBox1);
-            this.navegacionPanel.Controls.Add(this.cambiarContraBtn);
-            this.navegacionPanel.Controls.Add(this.cerrarSesionBtn);
-            this.navegacionPanel.Controls.Add(this.usuariosBtn);
-            this.navegacionPanel.Controls.Add(this.estudiantesBtn);
-            this.navegacionPanel.Controls.Add(this.panel1);
-            this.navegacionPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.navegacionPanel.Location = new System.Drawing.Point(0, 0);
-            this.navegacionPanel.Name = "navegacionPanel";
-            this.navegacionPanel.Size = new System.Drawing.Size(117, 450);
-            this.navegacionPanel.TabIndex = 0;
-            // 
-            // cambiarContraBtn
-            // 
-            this.cambiarContraBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cambiarContraBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cambiarContraBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cambiarContraBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cambiarContraBtn.Location = new System.Drawing.Point(3, 391);
-            this.cambiarContraBtn.Name = "cambiarContraBtn";
-            this.cambiarContraBtn.Size = new System.Drawing.Size(106, 23);
-            this.cambiarContraBtn.TabIndex = 4;
-            this.cambiarContraBtn.Text = "Cambiar contraseña";
-            this.cambiarContraBtn.UseVisualStyleBackColor = false;
-            this.cambiarContraBtn.Click += new System.EventHandler(this.cambiarContraBtn_Click);
-            // 
-            // cerrarSesionBtn
-            // 
-            this.cerrarSesionBtn.BackColor = System.Drawing.Color.Red;
-            this.cerrarSesionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cerrarSesionBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cerrarSesionBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cerrarSesionBtn.Location = new System.Drawing.Point(3, 420);
-            this.cerrarSesionBtn.Name = "cerrarSesionBtn";
-            this.cerrarSesionBtn.Size = new System.Drawing.Size(106, 23);
-            this.cerrarSesionBtn.TabIndex = 3;
-            this.cerrarSesionBtn.Text = "Cerrar Sesión";
-            this.cerrarSesionBtn.UseVisualStyleBackColor = false;
-            this.cerrarSesionBtn.Click += new System.EventHandler(this.cerrarSesionBtn_Click);
-            // 
-            // usuariosBtn
-            // 
-            this.usuariosBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.usuariosBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.usuariosBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usuariosBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.usuariosBtn.Location = new System.Drawing.Point(4, 159);
-            this.usuariosBtn.Name = "usuariosBtn";
-            this.usuariosBtn.Size = new System.Drawing.Size(106, 23);
-            this.usuariosBtn.TabIndex = 2;
-            this.usuariosBtn.Text = "Usuarios";
-            this.usuariosBtn.UseVisualStyleBackColor = false;
-            this.usuariosBtn.Click += new System.EventHandler(this.usuariosBtn_Click);
-            // 
-            // estudiantesBtn
-            // 
-            this.estudiantesBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.estudiantesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.estudiantesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.estudiantesBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.estudiantesBtn.Location = new System.Drawing.Point(4, 121);
-            this.estudiantesBtn.Name = "estudiantesBtn";
-            this.estudiantesBtn.Size = new System.Drawing.Size(106, 23);
-            this.estudiantesBtn.TabIndex = 0;
-            this.estudiantesBtn.Text = "Estudiantes";
-            this.estudiantesBtn.UseVisualStyleBackColor = false;
-            this.estudiantesBtn.Click += new System.EventHandler(this.estudiantesBtn_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(123, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(676, 450);
-            this.panel1.TabIndex = 1;
-            // 
-            // contenedor
-            // 
-            this.contenedor.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contenedor.Location = new System.Drawing.Point(117, 0);
-            this.contenedor.Name = "contenedor";
-            this.contenedor.Size = new System.Drawing.Size(683, 450);
-            this.contenedor.TabIndex = 1;
+            navegacionPanel.BackColor = SystemColors.ButtonHighlight;
+            navegacionPanel.BorderStyle = BorderStyle.Fixed3D;
+            navegacionPanel.Controls.Add(pictureBox1);
+            navegacionPanel.Controls.Add(cambiarContraBtn);
+            navegacionPanel.Controls.Add(cerrarSesionBtn);
+            navegacionPanel.Controls.Add(usuariosBtn);
+            navegacionPanel.Controls.Add(estudiantesBtn);
+            navegacionPanel.Controls.Add(panel1);
+            navegacionPanel.Dock = DockStyle.Left;
+            navegacionPanel.Location = new Point(0, 0);
+            navegacionPanel.Margin = new Padding(4, 3, 4, 3);
+            navegacionPanel.Name = "navegacionPanel";
+            navegacionPanel.Size = new Size(136, 519);
+            navegacionPanel.TabIndex = 0;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::SistemaUPGrafica.Properties.Resources.UPLogo;
-            this.pictureBox1.Location = new System.Drawing.Point(9, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 105);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Image = Properties.Resources.UPLogo;
+            pictureBox1.Location = new Point(10, 12);
+            pictureBox1.Margin = new Padding(4, 3, 4, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(117, 121);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
+            // 
+            // cambiarContraBtn
+            // 
+            cambiarContraBtn.BackColor = SystemColors.ActiveCaptionText;
+            cambiarContraBtn.FlatStyle = FlatStyle.Flat;
+            cambiarContraBtn.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cambiarContraBtn.ForeColor = SystemColors.ButtonHighlight;
+            cambiarContraBtn.Location = new Point(4, 451);
+            cambiarContraBtn.Margin = new Padding(4, 3, 4, 3);
+            cambiarContraBtn.Name = "cambiarContraBtn";
+            cambiarContraBtn.Size = new Size(124, 27);
+            cambiarContraBtn.TabIndex = 4;
+            cambiarContraBtn.Text = "Contraseña";
+            cambiarContraBtn.UseVisualStyleBackColor = false;
+            cambiarContraBtn.Click += cambiarContraBtn_Click;
+            // 
+            // cerrarSesionBtn
+            // 
+            cerrarSesionBtn.BackColor = Color.Red;
+            cerrarSesionBtn.FlatStyle = FlatStyle.Flat;
+            cerrarSesionBtn.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cerrarSesionBtn.ForeColor = SystemColors.ButtonHighlight;
+            cerrarSesionBtn.Location = new Point(4, 485);
+            cerrarSesionBtn.Margin = new Padding(4, 3, 4, 3);
+            cerrarSesionBtn.Name = "cerrarSesionBtn";
+            cerrarSesionBtn.Size = new Size(124, 27);
+            cerrarSesionBtn.TabIndex = 3;
+            cerrarSesionBtn.Text = "Cerrar Sesión";
+            cerrarSesionBtn.UseVisualStyleBackColor = false;
+            cerrarSesionBtn.Click += cerrarSesionBtn_Click;
+            // 
+            // usuariosBtn
+            // 
+            usuariosBtn.BackColor = SystemColors.ActiveCaptionText;
+            usuariosBtn.FlatStyle = FlatStyle.Flat;
+            usuariosBtn.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            usuariosBtn.ForeColor = SystemColors.ButtonHighlight;
+            usuariosBtn.Location = new Point(4, 173);
+            usuariosBtn.Margin = new Padding(4, 3, 4, 3);
+            usuariosBtn.Name = "usuariosBtn";
+            usuariosBtn.Size = new Size(124, 27);
+            usuariosBtn.TabIndex = 2;
+            usuariosBtn.Text = "Usuarios";
+            usuariosBtn.UseVisualStyleBackColor = false;
+            usuariosBtn.Click += usuariosBtn_Click;
+            // 
+            // estudiantesBtn
+            // 
+            estudiantesBtn.BackColor = SystemColors.ActiveCaptionText;
+            estudiantesBtn.FlatStyle = FlatStyle.Flat;
+            estudiantesBtn.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            estudiantesBtn.ForeColor = SystemColors.ButtonHighlight;
+            estudiantesBtn.Location = new Point(5, 140);
+            estudiantesBtn.Margin = new Padding(4, 3, 4, 3);
+            estudiantesBtn.Name = "estudiantesBtn";
+            estudiantesBtn.Size = new Size(124, 27);
+            estudiantesBtn.TabIndex = 0;
+            estudiantesBtn.Text = "Estudiantes";
+            estudiantesBtn.UseVisualStyleBackColor = false;
+            estudiantesBtn.Click += estudiantesBtn_Click;
+            // 
+            // panel1
+            // 
+            panel1.Location = new Point(144, 0);
+            panel1.Margin = new Padding(4, 3, 4, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(789, 519);
+            panel1.TabIndex = 1;
+            // 
+            // contenedor
+            // 
+            contenedor.BackColor = SystemColors.ButtonHighlight;
+            contenedor.Dock = DockStyle.Fill;
+            contenedor.Location = new Point(136, 0);
+            contenedor.Margin = new Padding(4, 3, 4, 3);
+            contenedor.Name = "contenedor";
+            contenedor.Size = new Size(797, 519);
+            contenedor.TabIndex = 1;
             // 
             // FrmContenedor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.contenedor);
-            this.Controls.Add(this.navegacionPanel);
-            this.Name = "FrmContenedor";
-            this.Text = "Form1";
-            this.navegacionPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(933, 519);
+            Controls.Add(contenedor);
+            Controls.Add(navegacionPanel);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "FrmContenedor";
+            Text = "Form1";
+            navegacionPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
 
         }
 

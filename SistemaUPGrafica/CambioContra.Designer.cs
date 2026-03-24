@@ -28,121 +28,183 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.confirmarBtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            textBox3 = new TextBox();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            confirmarBtn = new Button();
+            label5 = new Label();
+            button2 = new Button();
+            button1 = new Button();
+            button3 = new Button();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::SistemaUPGrafica.Properties.Resources.Captura_de_pantalla_2026_01_26_230308;
-            this.pictureBox1.Location = new System.Drawing.Point(235, 51);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(165, 115);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Image = Properties.Resources.Captura_de_pantalla_2026_01_26_230308;
+            pictureBox1.Location = new Point(274, 59);
+            pictureBox1.Margin = new Padding(4, 3, 4, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(182, 121);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(243, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Cambiar Contraseña";
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(13, 9);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(148, 16);
+            label1.TabIndex = 1;
+            label1.Text = "Cambiar Contraseña";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(235, 250);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(165, 20);
-            this.textBox1.TabIndex = 2;
+            textBox1.Location = new Point(274, 288);
+            textBox1.Margin = new Padding(4, 3, 4, 3);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(192, 23);
+            textBox1.TabIndex = 2;
+            textBox1.UseSystemPasswordChar = true;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(235, 203);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(165, 20);
-            this.textBox2.TabIndex = 3;
+            textBox2.Location = new Point(274, 234);
+            textBox2.Margin = new Padding(4, 3, 4, 3);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(192, 23);
+            textBox2.TabIndex = 3;
+            textBox2.UseSystemPasswordChar = true;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(235, 297);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(165, 20);
-            this.textBox3.TabIndex = 4;
+            textBox3.Location = new Point(274, 343);
+            textBox3.Margin = new Padding(4, 3, 4, 3);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(192, 23);
+            textBox3.TabIndex = 4;
+            textBox3.UseSystemPasswordChar = true;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(256, 187);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Contraseña Anterior";
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(299, 216);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(125, 16);
+            label2.TabIndex = 5;
+            label2.Text = "Contraseña Anterior";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(256, 234);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Contraseña Nueva";
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(299, 270);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(119, 16);
+            label3.TabIndex = 6;
+            label3.Text = "Contraseña Nueva";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(253, 281);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Confirmar Contraseña";
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(295, 324);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(136, 16);
+            label4.TabIndex = 7;
+            label4.Text = "Confirmar Contraseña";
             // 
             // confirmarBtn
             // 
-            this.confirmarBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.confirmarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.confirmarBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmarBtn.ForeColor = System.Drawing.Color.White;
-            this.confirmarBtn.Location = new System.Drawing.Point(235, 334);
-            this.confirmarBtn.Name = "confirmarBtn";
-            this.confirmarBtn.Size = new System.Drawing.Size(165, 23);
-            this.confirmarBtn.TabIndex = 8;
-            this.confirmarBtn.Text = "Confirmar";
-            this.confirmarBtn.UseVisualStyleBackColor = false;
+            confirmarBtn.BackColor = SystemColors.ActiveCaptionText;
+            confirmarBtn.FlatStyle = FlatStyle.Flat;
+            confirmarBtn.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            confirmarBtn.ForeColor = Color.White;
+            confirmarBtn.Location = new Point(274, 385);
+            confirmarBtn.Margin = new Padding(4, 3, 4, 3);
+            confirmarBtn.Name = "confirmarBtn";
+            confirmarBtn.Size = new Size(192, 27);
+            confirmarBtn.TabIndex = 8;
+            confirmarBtn.Text = "Confirmar";
+            confirmarBtn.UseVisualStyleBackColor = false;
+            confirmarBtn.Click += confirmarBtn_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(321, 27);
+            label5.Name = "label5";
+            label5.Size = new Size(71, 20);
+            label5.TabIndex = 9;
+            label5.Text = "Usuario: ";
+            // 
+            // button2
+            // 
+            button2.Location = new Point(473, 234);
+            button2.Name = "button2";
+            button2.Size = new Size(61, 23);
+            button2.TabIndex = 15;
+            button2.Text = "Ver";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(473, 288);
+            button1.Name = "button1";
+            button1.Size = new Size(61, 23);
+            button1.TabIndex = 16;
+            button1.Text = "Ver";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(473, 343);
+            button3.Name = "button3";
+            button3.Size = new Size(61, 23);
+            button3.TabIndex = 17;
+            button3.Text = "Ver";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // CambioContra
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(667, 411);
-            this.Controls.Add(this.confirmarBtn);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
-            this.Name = "CambioContra";
-            this.Text = "CambioContra";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonHighlight;
+            ClientSize = new Size(778, 474);
+            Controls.Add(button3);
+            Controls.Add(button1);
+            Controls.Add(button2);
+            Controls.Add(label5);
+            Controls.Add(confirmarBtn);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(textBox3);
+            Controls.Add(textBox2);
+            Controls.Add(textBox1);
+            Controls.Add(label1);
+            Controls.Add(pictureBox1);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "CambioContra";
+            Text = "CambioContra";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
@@ -157,5 +219,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button confirmarBtn;
+        private Label label5;
+        private Button button2;
+        private Button button1;
+        private Button button3;
     }
 }

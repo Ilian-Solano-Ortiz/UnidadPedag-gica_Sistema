@@ -28,138 +28,176 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.nombreTxt = new System.Windows.Forms.TextBox();
-            this.contrasenaTxt = new System.Windows.Forms.TextBox();
-            this.confirmarContraTxt = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.atrasBtn = new System.Windows.Forms.Button();
-            this.registrarseBtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label5 = new Label();
+            nombreTxt = new TextBox();
+            contrasenaTxt = new TextBox();
+            confirmarContraTxt = new TextBox();
+            pictureBox1 = new PictureBox();
+            atrasBtn = new Button();
+            registrarseBtn = new Button();
+            button1 = new Button();
+            button2 = new Button();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(421, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Registrarse";
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(491, 54);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(95, 18);
+            label1.TabIndex = 0;
+            label1.Text = "Registrarse";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(265, 110);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 16);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Nombre";
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(309, 127);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(56, 16);
+            label2.TabIndex = 1;
+            label2.Text = "Nombre";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(265, 160);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 16);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Contraseña";
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(309, 185);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(76, 16);
+            label3.TabIndex = 2;
+            label3.Text = "Contraseña";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(265, 212);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(132, 16);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Confimar Contraseña";
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(309, 245);
+            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(132, 16);
+            label5.TabIndex = 4;
+            label5.Text = "Confimar Contraseña";
             // 
             // nombreTxt
             // 
-            this.nombreTxt.Location = new System.Drawing.Point(403, 109);
-            this.nombreTxt.Name = "nombreTxt";
-            this.nombreTxt.Size = new System.Drawing.Size(158, 20);
-            this.nombreTxt.TabIndex = 5;
+            nombreTxt.Location = new Point(470, 126);
+            nombreTxt.Margin = new Padding(4, 3, 4, 3);
+            nombreTxt.Name = "nombreTxt";
+            nombreTxt.Size = new Size(184, 23);
+            nombreTxt.TabIndex = 5;
             // 
             // contrasenaTxt
             // 
-            this.contrasenaTxt.Location = new System.Drawing.Point(403, 159);
-            this.contrasenaTxt.Name = "contrasenaTxt";
-            this.contrasenaTxt.Size = new System.Drawing.Size(158, 20);
-            this.contrasenaTxt.TabIndex = 7;
+            contrasenaTxt.Location = new Point(470, 183);
+            contrasenaTxt.Margin = new Padding(4, 3, 4, 3);
+            contrasenaTxt.Name = "contrasenaTxt";
+            contrasenaTxt.Size = new Size(184, 23);
+            contrasenaTxt.TabIndex = 7;
+            contrasenaTxt.UseSystemPasswordChar = true;
             // 
             // confirmarContraTxt
             // 
-            this.confirmarContraTxt.Location = new System.Drawing.Point(403, 208);
-            this.confirmarContraTxt.Name = "confirmarContraTxt";
-            this.confirmarContraTxt.Size = new System.Drawing.Size(158, 20);
-            this.confirmarContraTxt.TabIndex = 8;
+            confirmarContraTxt.Location = new Point(470, 240);
+            confirmarContraTxt.Margin = new Padding(4, 3, 4, 3);
+            confirmarContraTxt.Name = "confirmarContraTxt";
+            confirmarContraTxt.Size = new Size(184, 23);
+            confirmarContraTxt.TabIndex = 8;
+            confirmarContraTxt.UseSystemPasswordChar = true;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::SistemaUPGrafica.Properties.Resources.UPLogo;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(169, 160);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Image = Properties.Resources.UPLogo;
+            pictureBox1.Location = new Point(4, 14);
+            pictureBox1.Margin = new Padding(4, 3, 4, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(197, 185);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
             // 
             // atrasBtn
             // 
-            this.atrasBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.atrasBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.atrasBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.atrasBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.atrasBtn.Location = new System.Drawing.Point(3, 424);
-            this.atrasBtn.Name = "atrasBtn";
-            this.atrasBtn.Size = new System.Drawing.Size(75, 23);
-            this.atrasBtn.TabIndex = 10;
-            this.atrasBtn.Text = "Atrás";
-            this.atrasBtn.UseVisualStyleBackColor = false;
-            this.atrasBtn.Click += new System.EventHandler(this.button1_Click);
+            atrasBtn.BackColor = SystemColors.ActiveCaptionText;
+            atrasBtn.FlatStyle = FlatStyle.Flat;
+            atrasBtn.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            atrasBtn.ForeColor = SystemColors.ButtonHighlight;
+            atrasBtn.Location = new Point(4, 489);
+            atrasBtn.Margin = new Padding(4, 3, 4, 3);
+            atrasBtn.Name = "atrasBtn";
+            atrasBtn.Size = new Size(88, 27);
+            atrasBtn.TabIndex = 10;
+            atrasBtn.Text = "Atrás";
+            atrasBtn.UseVisualStyleBackColor = false;
+            atrasBtn.Click += button1_Click;
             // 
             // registrarseBtn
             // 
-            this.registrarseBtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.registrarseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.registrarseBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registrarseBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.registrarseBtn.Location = new System.Drawing.Point(403, 273);
-            this.registrarseBtn.Name = "registrarseBtn";
-            this.registrarseBtn.Size = new System.Drawing.Size(158, 23);
-            this.registrarseBtn.TabIndex = 11;
-            this.registrarseBtn.Text = "Registrarse";
-            this.registrarseBtn.UseVisualStyleBackColor = false;
+            registrarseBtn.BackColor = SystemColors.ActiveCaptionText;
+            registrarseBtn.FlatStyle = FlatStyle.Flat;
+            registrarseBtn.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            registrarseBtn.ForeColor = SystemColors.ButtonHighlight;
+            registrarseBtn.Location = new Point(470, 315);
+            registrarseBtn.Margin = new Padding(4, 3, 4, 3);
+            registrarseBtn.Name = "registrarseBtn";
+            registrarseBtn.Size = new Size(184, 27);
+            registrarseBtn.TabIndex = 11;
+            registrarseBtn.Text = "Registrarse";
+            registrarseBtn.UseVisualStyleBackColor = false;
+            registrarseBtn.Click += registrarseBtn_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(673, 183);
+            button1.Name = "button1";
+            button1.Size = new Size(52, 23);
+            button1.TabIndex = 12;
+            button1.Text = "Ver";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(673, 242);
+            button2.Name = "button2";
+            button2.Size = new Size(52, 23);
+            button2.TabIndex = 13;
+            button2.Text = "Ver";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // Registrarse
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.registrarseBtn);
-            this.Controls.Add(this.atrasBtn);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.confirmarContraTxt);
-            this.Controls.Add(this.contrasenaTxt);
-            this.Controls.Add(this.nombreTxt);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Name = "Registrarse";
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonHighlight;
+            ClientSize = new Size(933, 519);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Controls.Add(registrarseBtn);
+            Controls.Add(atrasBtn);
+            Controls.Add(pictureBox1);
+            Controls.Add(confirmarContraTxt);
+            Controls.Add(contrasenaTxt);
+            Controls.Add(nombreTxt);
+            Controls.Add(label5);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "Registrarse";
+            Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
@@ -175,5 +213,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button atrasBtn;
         private System.Windows.Forms.Button registrarseBtn;
+        private Button button1;
+        private Button button2;
     }
 }

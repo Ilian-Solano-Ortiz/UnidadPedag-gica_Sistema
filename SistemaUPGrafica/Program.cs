@@ -1,3 +1,8 @@
+using GenerarPDFUP.Data;
+using GenerarPDFUP.Services;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace SistemaUPGrafica
 {
     internal static class Program
@@ -8,10 +13,24 @@ namespace SistemaUPGrafica
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            //Creacion de coleccion de servicios
+            var services = new ServiceCollection();
+
+            //Configuración de la cadena de conexión
+            services.AddDbContext<MatriculasContext>(options =>
+            options.UseMySql(
+              "Server=localhost;Database=BDUnidadPedagogicaSistema;User Id=root;Password=Ilian29*;",
+              new MySqlServerVersion(new Version(8, 0, 21))
+            ));
+
+            //Agregar todos los servicios
+            services.AddTransient<EstudianteService>();
+            services.AddTransient<UsuarioService>();
+            var provider= services.BuildServiceProvider();
+
             ApplicationConfiguration.Initialize();
-            Application.Run(new Login());
+            Application.Run(new Login(provider));
+
         }
     }
 }

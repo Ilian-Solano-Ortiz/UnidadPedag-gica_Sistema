@@ -25,12 +25,12 @@ namespace SistemaUPGrafica
 
         private void cerrarSesionBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+           // this.Close();
         }
 
         private void usuariosBtn_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new BuscarUsuarios());
+            //abrirFormulario(new BuscarUsuarios());
         }
 
         private void abrirFormulario(Form formulario)
@@ -51,23 +51,7 @@ namespace SistemaUPGrafica
 
         }
 
-        /*   private void buscarBtn_Click(object sender, EventArgs e)
-           {
-               bool existeEstudiante = traerEstudiante();
-               bool existeEncargado = traerEncargado();
-               if (existeEstudiante)
-               {
-
-                   MessageBox.Show("El estudiante existe en la base de datos");
-                   abrirFormulario(new MatriculaExistenteFrm(Estudiante, Encargado));
-               }
-               else
-               {
-                   MessageBox.Show("El estudiante no existe en la base de datos, vuelva a intentarlo");
-                   abrirFormulario(new FrmMatriculaNoExistente());
-               }
-
-           }*/
+       
         private void buscarBtn_Click(object sender, EventArgs e)
         {
             bool existeEstudiante = traerEstudiante();
