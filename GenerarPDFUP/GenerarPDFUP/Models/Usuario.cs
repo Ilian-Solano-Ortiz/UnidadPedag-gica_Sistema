@@ -17,6 +17,8 @@ namespace GenerarPDFUP.Models
         public string? ContrasenaUsuario { get; set; }
         public string? RolUsuario { get; set; }
         public string? CondicionAceptacion { get; set; }
-        public string? Estado { get; set; }
+        public string? CondicionLogin { get; set; }
+
+        public string? CedulaUsuario { get; set; }
     }
 }

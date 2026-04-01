@@ -88,7 +88,7 @@ namespace GenerarPDFUP.Services
                     ContrasenaUsuario = contrasena,
                     RolUsuario = "funcionario",
                     CondicionAceptacion = "En espera",
-                    Estado="Disponible"
+                    CondicionLogin="Disponible"
                 };
                 Context.Usuarios.Add(usuarioNuevo);
                 Context.SaveChanges();
@@ -125,7 +125,7 @@ namespace GenerarPDFUP.Services
                 
                 if (propiedad.Equals("Estado"))
                 {
-                    usuario.Estado = valorPropiedad;
+                    usuario.CondicionLogin = valorPropiedad;
                 }
                 else if (propiedad.Equals("Condicion"))
                 {

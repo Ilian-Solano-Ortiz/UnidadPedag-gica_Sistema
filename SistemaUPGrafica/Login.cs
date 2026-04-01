@@ -53,7 +53,7 @@ namespace SistemaUPGrafica
                 if (usuarioService.ExisteUsuario(usuarioIngresado))
                 {
                     usuarioIngresado = usuarioService.RetornarUsuario(usuarioIngresado);
-                    string estadoUsuario = usuarioIngresado.Estado.Trim().ToLower();
+                    string estadoUsuario = usuarioIngresado.CondicionLogin.Trim().ToLower();
                     string condicionUsuario = usuarioIngresado.CondicionAceptacion.Trim().ToLower();
 
                     if (condicionUsuario.Equals("aceptado") || usuarioIngresado.RolUsuario.Equals("Administrador"))
@@ -68,7 +68,7 @@ namespace SistemaUPGrafica
                         }
                         else
                         {
-                            MessageBox.Show($"No se pudo ingresar debido al estado del usuario: ({usuarioIngresado.Estado})".ToUpper(), "Error",
+                            MessageBox.Show($"No se pudo ingresar debido al estado del usuario: ({usuarioIngresado.CondicionLogin})".ToUpper(), "Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }

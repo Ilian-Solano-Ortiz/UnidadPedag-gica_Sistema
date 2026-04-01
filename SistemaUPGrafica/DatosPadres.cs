@@ -57,8 +57,8 @@ namespace SistemaUPGrafica
             this.Encargado.LugarTrabajo = txtTrabajo.Text;
             this.Encargado.Parentesco = textParentesco.Text;
             this.Encargado.TelefonoEncargado = textTel.Text;
-            this.Encargado.ComunicacionEmergencia = txtEmergencia1.Text+","+txtEmergencia2.Text;
-            this.Encargado.TelefonoEmergencia = txtTelEmer1.Text+","+txtTelEmer2.Text;
+            this.Encargado.NombreContactoEmergencia = txtEmergencia1.Text+","+txtEmergencia2.Text;
+            this.Encargado.TelefonoContactoEmergencia = txtTelEmer1.Text+","+txtTelEmer2.Text;
         }
     }
 }

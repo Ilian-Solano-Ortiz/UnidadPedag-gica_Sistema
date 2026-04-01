@@ -501,12 +501,12 @@ Firma Encargado Legal: _________________________________________________";
 
         private void separarCasoEmergencia(Encargado en)
         {
-            this.EnCasoEmergencia=en.ComunicacionEmergencia.Split(',');
+            this.EnCasoEmergencia=en.NombreContactoEmergencia.Split(',');
         }
 
         private void separarTelefonoEmergencia(Encargado en)
         {
-            this.TelofonoEmergencia = en.TelefonoEmergencia.Split(',');
+            this.TelofonoEmergencia = en.TelefonoContactoEmergencia.Split(',');
         }
     }//FIN DE LA CLASE
 }

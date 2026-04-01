@@ -19,9 +19,9 @@ namespace GenerarPDFUP.Models
 
         public string? Correo { get; set; }
 
-        public string? ComunicacionEmergencia { get; set; }
+        public string? NombreContactoEmergencia { get; set; }
 
-        public string? TelefonoEmergencia { get; set; }
+        public string? TelefonoContactoEmergencia { get; set; }
         [Key]
         public int IdEncargado { get; set; }
     }
