@@ -18,6 +18,14 @@ namespace GenerarPDFUP.Data
         public DbSet<Estudiante> Estudiantes { get; set; }
         public DbSet<Encargado> Encargados { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<ResultadoDto> ResultadoDto { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<ResultadoDto>().HasNoKey();
+        }
+
     }
 
 }
