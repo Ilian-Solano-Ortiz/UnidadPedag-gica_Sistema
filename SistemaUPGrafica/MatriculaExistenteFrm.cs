@@ -233,6 +233,7 @@ namespace SistemaUPGrafica
             nombreCompletoTxt.Text = Estudiante.NombreEstudiante;
             cedulaTxt.Text = Estudiante.CedulaEstudiante;
             telefonoEncargadoTxt.Text = Encargado.TelefonoEncargado;
+            correoEncargadoTxt.Text = Encargado.Correo;
             llenarCheckNiveles();
             nivelCbx.SelectedItem = Estudiante.NivelEstudiante;
         }
@@ -282,7 +283,7 @@ namespace SistemaUPGrafica
             this.Estudiante.FechaMatricula = construirFecha(fechaMatricula.Text);
             editarNivelSeleccionado();
             this.Encargado.TelefonoEncargado = telefonoEncargadoTxt.Text;
-
+            this.Encargado.Correo = correoEncargadoTxt.Text;
 
         }
 
@@ -400,7 +401,7 @@ namespace SistemaUPGrafica
             siCheckTC.Enabled = habilitar;
             siCheckAdecuacion.Enabled = habilitar;
             noCheckAdecuacion.Enabled = habilitar;
-            
+            correoEncargadoTxt.Enabled = habilitar;
             siCheckPatronato.Enabled = habilitar;
             noCheckPatronato.Enabled = habilitar;
             generarBtn.Enabled = habilitar;

@@ -287,7 +287,7 @@
             // 
             noCheck2.AutoSize = true;
             noCheck2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            noCheck2.Location = new Point(489, 294);
+            noCheck2.Location = new Point(489, 286);
             noCheck2.Name = "noCheck2";
             noCheck2.Size = new Size(45, 21);
             noCheck2.TabIndex = 23;

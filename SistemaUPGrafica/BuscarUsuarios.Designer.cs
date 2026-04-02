@@ -61,7 +61,7 @@
             buscarTxt.Location = new Point(256, 79);
             buscarTxt.Margin = new Padding(4);
             buscarTxt.Name = "buscarTxt";
-            buscarTxt.PlaceholderText = "Ingrese el nombre de usuario";
+            buscarTxt.PlaceholderText = "Ingrese la cédula del usuario";
             buscarTxt.Size = new Size(231, 23);
             buscarTxt.TabIndex = 1;
             // 
@@ -96,7 +96,8 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(591, 206);
             dataGridView1.TabIndex = 4;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
+            
             // 
             // btnAceptar
             // 

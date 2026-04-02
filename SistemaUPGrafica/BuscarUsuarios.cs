@@ -17,7 +17,7 @@ namespace SistemaUPGrafica
         private readonly IServiceProvider ServiceProvider;
         public Usuario Usuario { get; set; }
 
-        private int IdUsuarioSeleccionado;
+        private string CedulaUsuarioSeleccionado;
 
         private List<Usuario> usuarios;
         public BuscarUsuarios(Usuario usuario, IServiceProvider serviceProvider)
@@ -60,8 +60,9 @@ namespace SistemaUPGrafica
             {
                 return;
             }
+            var usuarioServicio = ServiceProvider.GetService<UsuarioService>();
             List<Usuario> nuevaLista = new List<Usuario>();
-            Usuario usuario=usuarios.Find(u=>u.NombreUsuario.Equals(buscarTxt.Text.Trim()));
+            Usuario usuario = usuarioServicio.BuscarUsuario(buscarTxt.Text.Trim());
             nuevaLista.Add(usuario);
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = nuevaLista;
@@ -83,45 +84,72 @@ namespace SistemaUPGrafica
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-            var idUsuario = dataGridView1.Rows[e.RowIndex].Cells["IdUsuario"].Value;
+            var cedulaUsuario = dataGridView1.Rows[e.RowIndex].Cells["CedulaUsuario"].Value;
 
-            if (idUsuario != null)
+            if (cedulaUsuario != null)
             {
-                
-                IdUsuarioSeleccionado = Convert.ToInt32(idUsuario);
-                
+                CedulaUsuarioSeleccionado = Convert.ToString(cedulaUsuario);
             }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             var servicioUsuario = ServiceProvider.GetService<UsuarioService>();
-            MessageBox.Show("El usuario ha sido aceptado".ToUpper(), "Usuario aceptado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            servicioUsuario.ActualizarPropiedadUsuario(this.IdUsuarioSeleccionado, "Condicion", "Aceptado");
-            CargarDatos();
+            int resultado= servicioUsuario.AceptarUsuario(this.CedulaUsuarioSeleccionado);
+            switch (resultado)
+            {
+                case 0:
+                    MessageBox.Show("El usuario no existe".ToUpper(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                case 1:
+                    MessageBox.Show("El usuario ha sido aceptado".ToUpper(), "Usuario aceptado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarDatos();
+                    break;
+                default:
+                    MessageBox.Show("Ocurrió un error en la base de datos".ToUpper(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+            }
+   
         }
 
         private void rechazarBtn_Click(object sender, EventArgs e)
         {
             var servicioUsuario = ServiceProvider.GetService<UsuarioService>();
-            MessageBox.Show("El usuario ha sido rechazado".ToUpper(), "Usuario rechazado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            servicioUsuario.ActualizarPropiedadUsuario(this.IdUsuarioSeleccionado, "Condicion", "Rechazado");
-            CargarDatos();
+            int resultado = servicioUsuario.RechazarUsuario(this.CedulaUsuarioSeleccionado);
+            
+            switch (resultado)
+            {
+                case 0:
+                    MessageBox.Show("El usuario no existe".ToUpper(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                case 1:
+                    MessageBox.Show("El usuario ha sido rechazado".ToUpper(), "Usuario rechazado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarDatos();
+                    break;
+                default:
+                    MessageBox.Show("Ocurrió un error en la base de datos".ToUpper(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+            }
+           
         }
 
         private void refrescarBtn_Click(object sender, EventArgs e)
         {
             var servicioUsuario = ServiceProvider.GetService<UsuarioService>();
-            if (this.IdUsuarioSeleccionado < 0)
+            int resultado = servicioUsuario.ResetearContrasena(this.CedulaUsuarioSeleccionado);
+            switch (resultado)
             {
-                return;
+                case 0:
+                    MessageBox.Show("El usuario no existe".ToUpper(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                case 1:
+                    MessageBox.Show("Se ha restablecido la contraseña".ToUpper(), "Contraseña restablecida", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarDatos();
+                    break;
+                default:
+                    MessageBox.Show("Ocurrió un error en la base de datos".ToUpper(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
             }
-
-            Usuario usuarioEncontrado = usuarios.Find(u => u.IdUsuario == IdUsuarioSeleccionado);
-            servicioUsuario.ActualizarPropiedadUsuario(this.IdUsuarioSeleccionado, "Contraseña", usuarioEncontrado.NombreUsuario + usuarioEncontrado.RolUsuario);
-            MessageBox.Show("Se ha restablecido la contraseña del usuario (Nombre + rol)".ToUpper(), "Cambio correcto",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-            CargarDatos();
         }
 
         private void CargarDatos()
@@ -138,7 +166,7 @@ namespace SistemaUPGrafica
             usuarios.Clear();
             var servicioUsuario = ServiceProvider.GetService<UsuarioService>();
             usuarios = servicioUsuario.ObtenerUsuarios();
-            usuarios.Remove(this.Usuario);
+            usuarios.RemoveAll(u => u.CedulaUsuario == this.Usuario.CedulaUsuario);
         }
 
         private void btnRefrescarLista_Click(object sender, EventArgs e)
@@ -149,13 +177,35 @@ namespace SistemaUPGrafica
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             var servicioUsuario = ServiceProvider.GetService<UsuarioService>();
-            if (servicioUsuario.EliminarUsuario(IdUsuarioSeleccionado))
+            int resultado = servicioUsuario.EliminarUsuario(this.CedulaUsuarioSeleccionado);
+            switch (resultado)
             {
-                MessageBox.Show("Usuario eliminado correctamente.", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CargarDatos();
+                case 0:
+                    MessageBox.Show("No se pudo eliminar el usuario.\nEl usuario no existe en la base de datos".ToUpper(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                case 1:
+                    MessageBox.Show("Usuario eliminado correctamente.".ToUpper(), "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarDatos();
+                    break;
+                case 2:
+                    MessageBox.Show("No se pudo eliminar el usuario.\nEl usuario está conectado".ToUpper(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                default:
+                    MessageBox.Show("Ocurrió un error en la base de datos".ToUpper(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
             }
-            else
-                MessageBox.Show("No se pudo eliminar el usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0) return;
+
+            var cedula = dataGridView1.SelectedRows[0].Cells["CedulaUsuario"].Value;
+
+            if (cedula != null)
+            {
+                CedulaUsuarioSeleccionado = Convert.ToString(cedula);
+            }
         }
     }
 }

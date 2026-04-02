@@ -148,9 +148,8 @@ namespace GenerarPDFUP.Services
             AgregarFilaConLinea(tabla, "Teléfono:", en.TelefonoEncargado);
             AgregarFilaConLinea(tabla, "Lugar de trabajo:", en.LugarTrabajo);
             AgregarFilaConLinea(tabla, "Correo:", en.Correo);
+            AgregarFilaConLinea(tabla, "En caso de emergencia comunicarse con:", this.EnCasoEmergencia[0]);
 
-            
-            AgregarFilaDosLineas(tabla, "En caso de emergencia comunicarse con:", this.EnCasoEmergencia[0], this.EnCasoEmergencia[1]);
             AgregarFilaDosLineas(tabla, "Teléfono emergencia:", this.TelofonoEmergencia[0], this.TelofonoEmergencia[1]);
 
             documento.Add(tabla);

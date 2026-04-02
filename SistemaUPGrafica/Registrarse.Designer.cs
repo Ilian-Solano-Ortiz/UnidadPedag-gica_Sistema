@@ -40,6 +40,8 @@
             registrarseBtn = new Button();
             button1 = new Button();
             button2 = new Button();
+            label4 = new Label();
+            cedulaTxt = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -69,7 +71,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(309, 185);
+            label3.Location = new Point(309, 240);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(76, 16);
@@ -80,7 +82,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(309, 245);
+            label5.Location = new Point(309, 291);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(132, 16);
@@ -97,7 +99,7 @@
             // 
             // contrasenaTxt
             // 
-            contrasenaTxt.Location = new Point(470, 183);
+            contrasenaTxt.Location = new Point(470, 233);
             contrasenaTxt.Margin = new Padding(4, 3, 4, 3);
             contrasenaTxt.Name = "contrasenaTxt";
             contrasenaTxt.Size = new Size(184, 23);
@@ -106,7 +108,7 @@
             // 
             // confirmarContraTxt
             // 
-            confirmarContraTxt.Location = new Point(470, 240);
+            confirmarContraTxt.Location = new Point(470, 284);
             confirmarContraTxt.Margin = new Padding(4, 3, 4, 3);
             confirmarContraTxt.Name = "confirmarContraTxt";
             confirmarContraTxt.Size = new Size(184, 23);
@@ -145,7 +147,7 @@
             registrarseBtn.FlatStyle = FlatStyle.Flat;
             registrarseBtn.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             registrarseBtn.ForeColor = SystemColors.ButtonHighlight;
-            registrarseBtn.Location = new Point(470, 315);
+            registrarseBtn.Location = new Point(470, 352);
             registrarseBtn.Margin = new Padding(4, 3, 4, 3);
             registrarseBtn.Name = "registrarseBtn";
             registrarseBtn.Size = new Size(184, 27);
@@ -156,7 +158,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(673, 183);
+            button1.Location = new Point(673, 233);
             button1.Name = "button1";
             button1.Size = new Size(52, 23);
             button1.TabIndex = 12;
@@ -166,7 +168,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(673, 242);
+            button2.Location = new Point(673, 284);
             button2.Name = "button2";
             button2.Size = new Size(52, 23);
             button2.TabIndex = 13;
@@ -174,12 +176,33 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(309, 183);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(50, 16);
+            label4.TabIndex = 14;
+            label4.Text = "Cédula";
+            // 
+            // cedulaTxt
+            // 
+            cedulaTxt.Location = new Point(470, 183);
+            cedulaTxt.Margin = new Padding(4, 3, 4, 3);
+            cedulaTxt.Name = "cedulaTxt";
+            cedulaTxt.Size = new Size(184, 23);
+            cedulaTxt.TabIndex = 15;
+            // 
             // Registrarse
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(933, 519);
+            Controls.Add(cedulaTxt);
+            Controls.Add(label4);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(registrarseBtn);
@@ -195,6 +218,7 @@
             Margin = new Padding(4, 3, 4, 3);
             Name = "Registrarse";
             Text = "Form1";
+            Load += Registrarse_Load_1;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -215,5 +239,7 @@
         private System.Windows.Forms.Button registrarseBtn;
         private Button button1;
         private Button button2;
+        private Label label4;
+        private TextBox cedulaTxt;
     }
 }

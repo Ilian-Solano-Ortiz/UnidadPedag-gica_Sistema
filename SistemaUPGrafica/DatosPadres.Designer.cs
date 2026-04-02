@@ -47,7 +47,6 @@
             btnAtras = new Button();
             label9 = new Label();
             correoTxt = new TextBox();
-            txtEmergencia2 = new TextBox();
             txtTelEmer2 = new TextBox();
             SuspendLayout();
             // 
@@ -225,13 +224,6 @@
             correoTxt.Size = new Size(186, 23);
             correoTxt.TabIndex = 18;
             // 
-            // txtEmergencia2
-            // 
-            txtEmergencia2.Location = new Point(511, 254);
-            txtEmergencia2.Name = "txtEmergencia2";
-            txtEmergencia2.Size = new Size(177, 23);
-            txtEmergencia2.TabIndex = 19;
-            // 
             // txtTelEmer2
             // 
             txtTelEmer2.Location = new Point(511, 301);
@@ -246,7 +238,6 @@
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(782, 475);
             Controls.Add(txtTelEmer2);
-            Controls.Add(txtEmergencia2);
             Controls.Add(correoTxt);
             Controls.Add(label9);
             Controls.Add(btnAtras);
@@ -294,7 +285,6 @@
         private System.Windows.Forms.Button btnAtras;
         private Label label9;
         private TextBox correoTxt;
-        private TextBox txtEmergencia2;
         private TextBox txtTelEmer2;
     }
 }

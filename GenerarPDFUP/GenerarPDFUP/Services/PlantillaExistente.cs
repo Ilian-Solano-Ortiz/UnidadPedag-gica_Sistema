@@ -173,6 +173,7 @@ namespace GenerarPDFUP.Services
             AgregarFilaConLinea(tabla, "Nombre Completo del Estudiante:", es.NombreEstudiante);
             AgregarFilaConLinea(tabla, "Cédula:", es.CedulaEstudiante);
             AgregarFilaConLinea(tabla, "Teléfono del encargado:", en.TelefonoEncargado);
+            AgregarFilaConLinea(tabla, "Correo del encargado:", en.Correo);
 
             AgregarFilaChecks(tabla, "Si cursa el nivel de 10° elija el idioma (10°):",
                 ("Inglés", string.Equals(es.IdiomaElegido, "Inglés", StringComparison.OrdinalIgnoreCase)),

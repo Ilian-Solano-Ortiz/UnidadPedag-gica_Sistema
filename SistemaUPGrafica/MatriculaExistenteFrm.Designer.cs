@@ -57,6 +57,8 @@
             noCheckPatronato = new CheckBox();
             label10 = new Label();
             montoPatronatoTxt = new TextBox();
+            label11 = new Label();
+            correoEncargadoTxt = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -112,7 +114,7 @@
             // nivelCbx
             // 
             nivelCbx.FormattingEnabled = true;
-            nivelCbx.Location = new Point(92, 170);
+            nivelCbx.Location = new Point(92, 149);
             nivelCbx.Margin = new Padding(4, 3, 4, 3);
             nivelCbx.Name = "nivelCbx";
             nivelCbx.Size = new Size(140, 23);
@@ -122,7 +124,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(41, 171);
+            label2.Location = new Point(30, 150);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(38, 16);
@@ -133,7 +135,7 @@
             // 
             labelMatricula.AutoSize = true;
             labelMatricula.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelMatricula.Location = new Point(287, 171);
+            labelMatricula.Location = new Point(286, 151);
             labelMatricula.Margin = new Padding(4, 0, 4, 0);
             labelMatricula.Name = "labelMatricula";
             labelMatricula.Size = new Size(121, 16);
@@ -144,7 +146,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(30, 226);
+            label3.Location = new Point(30, 197);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(202, 16);
@@ -153,7 +155,7 @@
             // 
             // nombreCompletoTxt
             // 
-            nombreCompletoTxt.Location = new Point(290, 222);
+            nombreCompletoTxt.Location = new Point(286, 190);
             nombreCompletoTxt.Margin = new Padding(4, 3, 4, 3);
             nombreCompletoTxt.Name = "nombreCompletoTxt";
             nombreCompletoTxt.Size = new Size(328, 23);
@@ -163,7 +165,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(30, 270);
+            label4.Location = new Point(30, 241);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(50, 16);
@@ -172,7 +174,7 @@
             // 
             // cedulaTxt
             // 
-            cedulaTxt.Location = new Point(99, 270);
+            cedulaTxt.Location = new Point(102, 234);
             cedulaTxt.Margin = new Padding(4, 3, 4, 3);
             cedulaTxt.Name = "cedulaTxt";
             cedulaTxt.Size = new Size(182, 23);
@@ -182,7 +184,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(312, 270);
+            label5.Location = new Point(312, 241);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(152, 16);
@@ -191,7 +193,7 @@
             // 
             // telefonoEncargadoTxt
             // 
-            telefonoEncargadoTxt.Location = new Point(496, 270);
+            telefonoEncargadoTxt.Location = new Point(496, 234);
             telefonoEncargadoTxt.Margin = new Padding(4, 3, 4, 3);
             telefonoEncargadoTxt.Name = "telefonoEncargadoTxt";
             telefonoEncargadoTxt.Size = new Size(182, 23);
@@ -273,7 +275,7 @@
             // 
             // fechaMatricula
             // 
-            fechaMatricula.Location = new Point(446, 170);
+            fechaMatricula.Location = new Point(445, 150);
             fechaMatricula.Margin = new Padding(4, 3, 4, 3);
             fechaMatricula.Name = "fechaMatricula";
             fechaMatricula.Size = new Size(233, 23);
@@ -388,12 +390,33 @@
             montoPatronatoTxt.Size = new Size(90, 23);
             montoPatronatoTxt.TabIndex = 29;
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label11.Location = new Point(30, 279);
+            label11.Margin = new Padding(4, 0, 4, 0);
+            label11.Name = "label11";
+            label11.Size = new Size(139, 16);
+            label11.TabIndex = 30;
+            label11.Text = "Correo del encargado";
+            // 
+            // correoEncargadoTxt
+            // 
+            correoEncargadoTxt.Location = new Point(189, 272);
+            correoEncargadoTxt.Margin = new Padding(4, 3, 4, 3);
+            correoEncargadoTxt.Name = "correoEncargadoTxt";
+            correoEncargadoTxt.Size = new Size(182, 23);
+            correoEncargadoTxt.TabIndex = 31;
+            // 
             // MatriculaExistenteFrm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(778, 505);
+            Controls.Add(correoEncargadoTxt);
+            Controls.Add(label11);
             Controls.Add(montoPatronatoTxt);
             Controls.Add(label10);
             Controls.Add(noCheckPatronato);
@@ -462,5 +485,7 @@
         private CheckBox noCheckPatronato;
         private Label label10;
         private TextBox montoPatronatoTxt;
+        private Label label11;
+        private TextBox correoEncargadoTxt;
     }
 }

@@ -35,7 +35,7 @@
             pictureBox1 = new PictureBox();
             registrarseBtn = new Button();
             contraseñaTxt = new TextBox();
-            usuarioTxt = new TextBox();
+            cedulaTxt = new TextBox();
             ingresarBtn = new Button();
             contrasenalbl = new Label();
             usuariolbl = new Label();
@@ -52,7 +52,7 @@
             contenedor.Controls.Add(pictureBox1);
             contenedor.Controls.Add(registrarseBtn);
             contenedor.Controls.Add(contraseñaTxt);
-            contenedor.Controls.Add(usuarioTxt);
+            contenedor.Controls.Add(cedulaTxt);
             contenedor.Controls.Add(ingresarBtn);
             contenedor.Controls.Add(contrasenalbl);
             contenedor.Controls.Add(usuariolbl);
@@ -131,13 +131,13 @@
             contraseñaTxt.TabIndex = 4;
             contraseñaTxt.UseSystemPasswordChar = true;
             // 
-            // usuarioTxt
+            // cedulaTxt
             // 
-            usuarioTxt.Location = new Point(447, 176);
-            usuarioTxt.Margin = new Padding(4);
-            usuarioTxt.Name = "usuarioTxt";
-            usuarioTxt.Size = new Size(176, 23);
-            usuarioTxt.TabIndex = 3;
+            cedulaTxt.Location = new Point(447, 176);
+            cedulaTxt.Margin = new Padding(4);
+            cedulaTxt.Name = "cedulaTxt";
+            cedulaTxt.Size = new Size(176, 23);
+            cedulaTxt.TabIndex = 3;
             // 
             // ingresarBtn
             // 
@@ -172,9 +172,9 @@
             usuariolbl.Location = new Point(332, 182);
             usuariolbl.Margin = new Padding(4, 0, 4, 0);
             usuariolbl.Name = "usuariolbl";
-            usuariolbl.Size = new Size(54, 16);
+            usuariolbl.Size = new Size(50, 16);
             usuariolbl.TabIndex = 0;
-            usuariolbl.Text = "Usuario";
+            usuariolbl.Text = "Cédula";
             // 
             // Login
             // 
@@ -185,6 +185,7 @@
             Margin = new Padding(4);
             Name = "Login";
             Text = "Form1";
+            Load += Login_Load;
             contenedor.ResumeLayout(false);
             contenedor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -198,7 +199,7 @@
         private System.Windows.Forms.Label contrasenalbl;
         private System.Windows.Forms.Label usuariolbl;
         private System.Windows.Forms.TextBox contraseñaTxt;
-        private System.Windows.Forms.TextBox usuarioTxt;
+        private System.Windows.Forms.TextBox cedulaTxt;
         private System.Windows.Forms.Button ingresarBtn;
         private System.Windows.Forms.Button registrarseBtn;
         private System.Windows.Forms.PictureBox pictureBox1;

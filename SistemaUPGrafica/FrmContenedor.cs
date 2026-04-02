@@ -35,7 +35,8 @@ namespace SistemaUPGrafica
                 if (!_cerrandoSesion) 
                 {
                    var usuarioServicio= _serviceProvider.GetService<UsuarioService>();
-                   usuarioServicio.ActualizarPropiedadUsuario(this.Usuario.IdUsuario,"Estado","Disponible"); 
+                    usuarioServicio.LogoutUsuario(this.Usuario.CedulaUsuario);
+                   //usuarioServicio.ActualizarPropiedadUsuario(this.Usuario.IdUsuario,"Estado","Disponible"); 
                     Application.Exit();
                 }
             };
@@ -60,7 +61,8 @@ namespace SistemaUPGrafica
                   login.Show();
               }
             var usuarioServicio = _serviceProvider.GetService<UsuarioService>();
-            usuarioServicio.ActualizarPropiedadUsuario(this.Usuario.IdUsuario,"Estado","Disponible");
+            usuarioServicio.LogoutUsuario(this.Usuario.CedulaUsuario);
+            
             this.Close();
         }
         private void abrirFormulario(Form formulario)
