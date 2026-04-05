@@ -25,7 +25,7 @@ namespace SistemaUPGrafica
 
         private void cerrarSesionBtn_Click(object sender, EventArgs e)
         {
-           // this.Close();
+            // this.Close();
         }
 
         private void usuariosBtn_Click(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace SistemaUPGrafica
 
         }
 
-       
+
         private void buscarBtn_Click(object sender, EventArgs e)
         {
             bool existeEstudiante = traerEstudiante();
@@ -114,6 +114,11 @@ namespace SistemaUPGrafica
         private void btnNuevoEstudiante_Click(object sender, EventArgs e)
         {
             abrirFormulario(new FrmMatriculaNoExistente());
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -367,7 +367,6 @@ DELIMITER ;
 -- 1 = Actualizado
 -- 2 = Cedula nueva ya existe
 -- =====================================================
-
 DELIMITER $$
 
 CREATE PROCEDURE ModificarUsuario(
@@ -389,23 +388,18 @@ BEGIN
 
         SELECT 0 AS Resultado;
 
+    ELSEIF pNuevaCedula IS NOT NULL 
+        AND pNuevaCedula <> ''
+        AND EXISTS (
+            SELECT 1 
+            FROM Usuario 
+            WHERE CedulaUsuario = pNuevaCedula
+            AND CedulaUsuario <> pCedulaActual
+        ) THEN
+
+        SELECT 2 AS Resultado;
+
     ELSE
-
-        IF pNuevaCedula IS NOT NULL AND pNuevaCedula <> '' THEN
-
-            IF EXISTS (
-                SELECT 1 
-                FROM Usuario 
-                WHERE CedulaUsuario = pNuevaCedula
-                AND CedulaUsuario <> pCedulaActual
-            ) THEN
-
-                SELECT 2 AS Resultado;
-                LEAVE proc;
-
-            END IF;
-
-        END IF;
 
         UPDATE Usuario
         SET
@@ -421,6 +415,8 @@ BEGIN
 END $$
 
 DELIMITER ;
+
+
 
 
 -- =====================================================

@@ -151,5 +151,7 @@ namespace SistemaUPGrafica
         {
             AplicarRestriccionesATodos(this);
         }
+
+
     }
 }

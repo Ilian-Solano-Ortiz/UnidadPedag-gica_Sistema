@@ -18,10 +18,7 @@ namespace GenerarPDFUP.Services
             this.matriculasContext = context;
         }
 
-        public List<Estudiante> ObtenerTodosEstudiantes()
-        {
-            return matriculasContext.Estudiantes.ToList();
-        }
+        
 
         public ResultadoMatriculaDto RegistrarMatricula(
             int idUsuario,
@@ -74,6 +71,38 @@ namespace GenerarPDFUP.Services
             {
                 Console.WriteLine("Error inesperado: " + e.ToString());
                 return new ResultadoMatriculaDto { Resultado = 2 };
+            }
+        }
+        public ResultadoDto registrarEstudianteExcel(
+            string cedulaEstudiante,
+            string nombreEstudiante,
+            string cedulaEncargado,
+            string nombreEncargado,
+            string telefonoEncargado,
+            string direccion
+            )
+        {
+            try
+            {
+                var resultado = matriculasContext.ResultadoDto
+                    .FromSqlRaw(
+                        "CALL RegistrarEstudianteExcel({0},{1},{2},{3},{4},{5})",
+                        cedulaEstudiante,
+                        nombreEstudiante,
+                        direccion,
+                        cedulaEncargado,
+                        nombreEncargado,
+                        telefonoEncargado)
+                    .AsNoTracking()
+                    .AsEnumerable()
+                    .FirstOrDefault();
+
+                return resultado;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error inesperado: " + e.ToString());
+                return new ResultadoDto { Resultado = 3 };
             }
         }
     }

@@ -8,7 +8,6 @@
 -- 0 = estudiante no existe o estudiante existe pero no tiene encargados
 -- estudiante existe y tiene encargados
 -- =====================================================
-
 DELIMITER $$
 
 CREATE PROCEDURE ObtenerEncargadosPorCedula(
@@ -65,4 +64,48 @@ BEGIN
 END $$
 
 DELIMITER ;
+
+-- =====================================================
+-- SP - Obterner datos estudiante
+-- 0 = estudiante no existe o estudiante existe pero no tiene encargados
+-- estudiante existe y tiene encargados
+-- =====================================================
+
+DELIMITER $$
+
+CREATE PROCEDURE ObtenerEstudiante(
+    IN pCedulaEstudiante VARCHAR(20)
+)
+BEGIN
+
+    DECLARE vExiste INT;
+
+    -- Verificar existencia
+    SELECT COUNT(*)
+    INTO vExiste
+    FROM Estudiante
+    WHERE CedulaEstudiante = pCedulaEstudiante;
+
+    IF vExiste = 0 THEN
+
+        SELECT 0 AS Resultado;
+
+    ELSE
+
+        SELECT 
+            IdEstudiante,
+            CedulaEstudiante,
+            NombreEstudiante,
+            FechaNacimiento,
+            Direccion
+        FROM Estudiante
+        WHERE CedulaEstudiante = pCedulaEstudiante;
+
+    END IF;
+
+END $$
+
+DELIMITER ;
+
+
 

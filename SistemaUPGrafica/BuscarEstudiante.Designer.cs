@@ -41,10 +41,10 @@
             // label1
             // 
             label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(309, 88);
+            label1.Location = new Point(270, 66);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(213, 31);
+            label1.Size = new Size(186, 23);
             label1.TabIndex = 0;
             label1.Text = "Buscar Estudiante";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -52,20 +52,20 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.Captura_de_pantalla_2026_01_26_124651;
-            pictureBox1.Location = new Point(296, 140);
-            pictureBox1.Margin = new Padding(4, 5, 4, 5);
+            pictureBox1.Location = new Point(259, 105);
+            pictureBox1.Margin = new Padding(4, 4, 4, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(241, 205);
+            pictureBox1.Size = new Size(211, 154);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(296, 372);
-            textBox1.Margin = new Padding(4, 5, 4, 5);
+            textBox1.Location = new Point(259, 279);
+            textBox1.Margin = new Padding(4, 4, 4, 4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(240, 27);
+            textBox1.Size = new Size(210, 23);
             textBox1.TabIndex = 3;
             // 
             // buscarBtn
@@ -74,10 +74,10 @@
             buscarBtn.FlatStyle = FlatStyle.Flat;
             buscarBtn.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buscarBtn.ForeColor = SystemColors.ButtonHighlight;
-            buscarBtn.Location = new Point(575, 372);
-            buscarBtn.Margin = new Padding(4, 5, 4, 5);
+            buscarBtn.Location = new Point(503, 279);
+            buscarBtn.Margin = new Padding(4, 4, 4, 4);
             buscarBtn.Name = "buscarBtn";
-            buscarBtn.Size = new Size(100, 35);
+            buscarBtn.Size = new Size(88, 26);
             buscarBtn.TabIndex = 4;
             buscarBtn.Text = "Buscar";
             buscarBtn.UseVisualStyleBackColor = false;
@@ -92,9 +92,9 @@
             contenedor.Controls.Add(textBox1);
             contenedor.Dock = DockStyle.Fill;
             contenedor.Location = new Point(0, 0);
-            contenedor.Margin = new Padding(4, 5, 4, 5);
+            contenedor.Margin = new Padding(4, 4, 4, 4);
             contenedor.Name = "contenedor";
-            contenedor.Size = new Size(889, 632);
+            contenedor.Size = new Size(778, 474);
             contenedor.TabIndex = 7;
             // 
             // btnNuevoEstudiante
@@ -103,9 +103,10 @@
             btnNuevoEstudiante.FlatStyle = FlatStyle.Flat;
             btnNuevoEstudiante.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNuevoEstudiante.ForeColor = SystemColors.ControlLightLight;
-            btnNuevoEstudiante.Location = new Point(302, 433);
+            btnNuevoEstudiante.Location = new Point(264, 325);
+            btnNuevoEstudiante.Margin = new Padding(3, 2, 3, 2);
             btnNuevoEstudiante.Name = "btnNuevoEstudiante";
-            btnNuevoEstudiante.Size = new Size(234, 49);
+            btnNuevoEstudiante.Size = new Size(205, 37);
             btnNuevoEstudiante.TabIndex = 5;
             btnNuevoEstudiante.Text = "Ingresar nuevo estudiante";
             btnNuevoEstudiante.UseVisualStyleBackColor = false;
@@ -113,12 +114,12 @@
             // 
             // BuscarEstudiante
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(889, 632);
+            ClientSize = new Size(778, 474);
             Controls.Add(contenedor);
-            Margin = new Padding(4, 5, 4, 5);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "BuscarEstudiante";
             Text = "BuscarEstudiante";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

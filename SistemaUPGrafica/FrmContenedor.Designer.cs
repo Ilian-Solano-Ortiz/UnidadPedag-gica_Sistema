@@ -36,6 +36,7 @@
             estudiantesBtn = new Button();
             panel1 = new Panel();
             contenedor = new Panel();
+            cargarExcelBtn = new Button();
             navegacionPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -44,6 +45,7 @@
             // 
             navegacionPanel.BackColor = SystemColors.ButtonHighlight;
             navegacionPanel.BorderStyle = BorderStyle.Fixed3D;
+            navegacionPanel.Controls.Add(cargarExcelBtn);
             navegacionPanel.Controls.Add(pictureBox1);
             navegacionPanel.Controls.Add(cambiarContraBtn);
             navegacionPanel.Controls.Add(cerrarSesionBtn);
@@ -146,6 +148,21 @@
             contenedor.Size = new Size(797, 519);
             contenedor.TabIndex = 1;
             // 
+            // cargarExcelBtn
+            // 
+            cargarExcelBtn.BackColor = SystemColors.ActiveCaptionText;
+            cargarExcelBtn.FlatStyle = FlatStyle.Flat;
+            cargarExcelBtn.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cargarExcelBtn.ForeColor = SystemColors.ButtonHighlight;
+            cargarExcelBtn.Location = new Point(5, 206);
+            cargarExcelBtn.Margin = new Padding(4, 3, 4, 3);
+            cargarExcelBtn.Name = "cargarExcelBtn";
+            cargarExcelBtn.Size = new Size(124, 27);
+            cargarExcelBtn.TabIndex = 6;
+            cargarExcelBtn.Text = "Cargar Excel";
+            cargarExcelBtn.UseVisualStyleBackColor = false;
+            cargarExcelBtn.Click += button1_Click;
+            // 
             // FrmContenedor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -172,5 +189,6 @@
         private System.Windows.Forms.Panel contenedor;
         private System.Windows.Forms.Button cambiarContraBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private Button cargarExcelBtn;
     }
 }
