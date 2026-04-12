@@ -27,8 +27,7 @@ CREATE TABLE Estudiante (
 );
 
 -- =========================================
--- TABLA ENCARGADO (CORREGIDA)
--- Se elimina relación directa con Estudiante
+-- TABLA ENCARGADO
 -- =========================================
 CREATE TABLE Encargado (
     IdEncargado INT AUTO_INCREMENT PRIMARY KEY,

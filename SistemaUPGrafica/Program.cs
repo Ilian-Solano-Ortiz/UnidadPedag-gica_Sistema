@@ -16,10 +16,10 @@ namespace SistemaUPGrafica
             //Creacion de coleccion de servicios
             var services = new ServiceCollection();
 
-            //Configuración de la cadena de conexión
+            //Configuraciï¿½n de la cadena de conexiï¿½n
             services.AddDbContext<MatriculasContext>(options =>
             options.UseMySql(
-              "Server=localhost;Database=BD_Unidad_Pedagogica_Sistema;User Id=root;Password=Ilian29*;",
+              "Server=localhost;Database=BD_Unidad_Pedagogica_Sistema;User Id=root;Password=Keylor18;",
               new MySqlServerVersion(new Version(8, 0, 21))
             ));
 

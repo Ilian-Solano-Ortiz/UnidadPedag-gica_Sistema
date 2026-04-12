@@ -1,4 +1,7 @@
-﻿using System;
+﻿using GenerarPDFUP.Models;
+using GenerarPDFUP.Services;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,20 +10,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GenerarPDFUP.Models;
 namespace SistemaUPGrafica
 {
     public partial class BuscarEstudiante : Form
     {
-        public Form? FormularioActivo { get; set; }
-        public Estudiante? Estudiante { get; set; }
-        public Encargado? Encargado { get; set; }
+        private readonly IServiceProvider _serviceProvider;
+        public Form FormularioActivo { get; set; }
 
-        public BuscarEstudiante()
+        public BuscarEstudiante(IServiceProvider serviceProvider)
         {
             InitializeComponent();
-            FormularioActivo = null;
-
+            this._serviceProvider = serviceProvider;
         }
 
         private void cerrarSesionBtn_Click(object sender, EventArgs e)
@@ -54,13 +54,19 @@ namespace SistemaUPGrafica
 
         private void buscarBtn_Click(object sender, EventArgs e)
         {
-            bool existeEstudiante = traerEstudiante();
-            bool existeEncargado = traerEncargado();
-
-            if (existeEstudiante)
+            if (string.IsNullOrWhiteSpace(cedulaEstudianteTxt.Text))
             {
-                MessageBox.Show("El estudiante existe en la base de datos");
-                abrirFormulario(new MatriculaExistenteFrm(Estudiante, Encargado));
+                MessageBox.Show("Debe ingresar la cédula del estudiante.".ToUpper(),
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Estudiante estudiante = traerEstudiante(cedulaEstudianteTxt.Text.Trim());
+
+            if (estudiante != null)
+            {
+                List<Encargado> encargados = traerEncargado(cedulaEstudianteTxt.Text.Trim());
+                abrirFormulario(new MatriculaExistenteFrm(estudiante, encargados, this._serviceProvider));
             }
             else
             {
@@ -71,43 +77,37 @@ namespace SistemaUPGrafica
                     MessageBoxIcon.Question);
 
                 if (resultado == DialogResult.No)
-                {
                     abrirFormulario(new FrmMatriculaNoExistente());
-                }
             }
         }
 
 
         //Traera la información de los estudiantes de nuestra base de datos
-        private bool traerEstudiante()
+        private Estudiante traerEstudiante(String cedulaEstudiante)
         {
-            this.Estudiante = new Estudiante
+            var estudianteService = _serviceProvider.GetService<EstudianteService>();
+            if (estudianteService == null)
             {
-                NombreEstudiante = "Ilian",
-                CedulaEstudiante = "2343",
-                FechaNacimiento = "29/08/2004",
-                Direccion = "cariari",
-                NivelEstudiante = "Décimo",
-                AdecuacionEstudiante = "No",
-                EnfermedadEstudiante = "No",
-                TratamientoEstudiante = "No",
-                Beca = "No",
-                TipoBeca = "No"
-            };
-            return Estudiante != null;
+                MessageBox.Show("Ocurrió un error inesperado con la base de datos".ToUpper(),
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+
+            return estudianteService.obtenerEstudiante(cedulaEstudiante);
+
         }
         //Traera la información de los encargados de nuestra base de datos
-        private bool traerEncargado()
+        private List<Encargado> traerEncargado(String cedulaEstudiante)
         {
-            Encargado = new Encargado
+            var estudianteService = _serviceProvider.GetService<EstudianteService>();
+            if (estudianteService == null)
             {
-                NombreEncargado = "Juan",
-                CedulaEncargado = "32432",
-                Parentesco = "Padre",
-                TelefonoEncargado = "2344",
-                LugarTrabajo = "ICE"
-            };
-            return Encargado != null;
+                MessageBox.Show("Ocurrió un error inesperado con la base de datos".ToUpper(),
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+
+            return estudianteService.obtenerEncargadosEstudiante(cedulaEstudiante);
         }
 
         //Boton agregado

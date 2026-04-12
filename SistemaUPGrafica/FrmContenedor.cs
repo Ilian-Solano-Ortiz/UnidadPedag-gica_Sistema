@@ -42,7 +42,6 @@ namespace SistemaUPGrafica
                     Application.Exit();
                 }
             };
-            _serviceProvider = serviceProvider;
             this.Usuario = usuario;
 
             if (this.Usuario.RolUsuario.Equals("Administrador"))
@@ -86,7 +85,7 @@ namespace SistemaUPGrafica
         }
         private void estudiantesBtn_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new BuscarEstudiante());
+            abrirFormulario(new BuscarEstudiante(this._serviceProvider));
         }
 
         private void usuariosBtn_Click(object sender, EventArgs e)

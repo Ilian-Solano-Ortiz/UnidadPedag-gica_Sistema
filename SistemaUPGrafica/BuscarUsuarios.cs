@@ -42,7 +42,7 @@ namespace SistemaUPGrafica
 
         private void estudiantesBtn_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new BuscarEstudiante());
+            abrirFormulario(new BuscarEstudiante(this.ServiceProvider));
         }
 
         private void abrirFormulario(Form formulario)

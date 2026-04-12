@@ -30,7 +30,7 @@
         {
             label1 = new Label();
             pictureBox1 = new PictureBox();
-            textBox1 = new TextBox();
+            cedulaEstudianteTxt = new TextBox();
             buscarBtn = new Button();
             contenedor = new Panel();
             btnNuevoEstudiante = new Button();
@@ -53,20 +53,20 @@
             // 
             pictureBox1.Image = Properties.Resources.Captura_de_pantalla_2026_01_26_124651;
             pictureBox1.Location = new Point(259, 105);
-            pictureBox1.Margin = new Padding(4, 4, 4, 4);
+            pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(211, 154);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
-            // textBox1
+            // cedulaEstudianteTxt
             // 
-            textBox1.Location = new Point(259, 279);
-            textBox1.Margin = new Padding(4, 4, 4, 4);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(210, 23);
-            textBox1.TabIndex = 3;
+            cedulaEstudianteTxt.Location = new Point(259, 279);
+            cedulaEstudianteTxt.Margin = new Padding(4);
+            cedulaEstudianteTxt.Name = "cedulaEstudianteTxt";
+            cedulaEstudianteTxt.Size = new Size(210, 23);
+            cedulaEstudianteTxt.TabIndex = 3;
             // 
             // buscarBtn
             // 
@@ -75,7 +75,7 @@
             buscarBtn.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buscarBtn.ForeColor = SystemColors.ButtonHighlight;
             buscarBtn.Location = new Point(503, 279);
-            buscarBtn.Margin = new Padding(4, 4, 4, 4);
+            buscarBtn.Margin = new Padding(4);
             buscarBtn.Name = "buscarBtn";
             buscarBtn.Size = new Size(88, 26);
             buscarBtn.TabIndex = 4;
@@ -89,10 +89,10 @@
             contenedor.Controls.Add(buscarBtn);
             contenedor.Controls.Add(label1);
             contenedor.Controls.Add(pictureBox1);
-            contenedor.Controls.Add(textBox1);
+            contenedor.Controls.Add(cedulaEstudianteTxt);
             contenedor.Dock = DockStyle.Fill;
             contenedor.Location = new Point(0, 0);
-            contenedor.Margin = new Padding(4, 4, 4, 4);
+            contenedor.Margin = new Padding(4);
             contenedor.Name = "contenedor";
             contenedor.Size = new Size(778, 474);
             contenedor.TabIndex = 7;
@@ -119,7 +119,7 @@
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(778, 474);
             Controls.Add(contenedor);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "BuscarEstudiante";
             Text = "BuscarEstudiante";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -133,7 +133,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox cedulaEstudianteTxt;
         private System.Windows.Forms.Button buscarBtn;
         private System.Windows.Forms.Panel contenedor;
         private Button btnNuevoEstudiante;
