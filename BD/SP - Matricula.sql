@@ -476,3 +476,186 @@ END $$
 
 DELIMITER ;
 
+DELIMITER $$
+
+CREATE PROCEDURE MatriculaEstudianteExistente(
+
+    -- USUARIO
+    IN pIdUsuario INT,
+
+    -- ESTUDIANTE (3 parámetros + ID)
+    IN pIdEstudiante INT,
+    IN pCedulaEstudiante VARCHAR(20),
+    IN pNombreEstudiante VARCHAR(100),
+
+    -- ENCARGADO (5 parámetros + ID opcional)
+    IN pIdEncargado INT,
+    IN pCedulaEncargado VARCHAR(20),
+    IN pNombreEncargado VARCHAR(100),
+    IN pTelefonoEncargado VARCHAR(15),
+    IN pCorreo VARCHAR(100),
+
+    -- DATOS MATRÍCULA
+    IN pFechaMatricula VARCHAR(50),
+    IN pAnnoLectivo VARCHAR(10),
+    IN pNivelSeleccionado VARCHAR(50),
+    IN pIdiomaElegido VARCHAR(50)
+
+)
+BEGIN
+
+    DECLARE vExisteMatricula INT;
+    DECLARE vNuevoId BIGINT;
+    DECLARE vBase BIGINT;
+
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        ROLLBACK;
+        SELECT 3 AS Resultado; -- Error general
+    END;
+
+    START TRANSACTION;
+
+    -- =========================================
+    -- VALIDAR ESTUDIANTE
+    -- =========================================
+    IF pIdEstudiante IS NULL THEN
+        ROLLBACK;
+        SELECT 4 AS Resultado; -- Estudiante no válido
+    ELSE
+
+        UPDATE Estudiante
+        SET 
+            CedulaEstudiante = pCedulaEstudiante,
+            NombreEstudiante = pNombreEstudiante
+        WHERE IdEstudiante = pIdEstudiante;
+
+    END IF;
+
+
+    -- =========================================
+    -- MANEJO ENCARGADO
+    -- =========================================
+    IF pIdEncargado IS NULL OR pIdEncargado = 0 THEN
+
+        -- Crear nuevo encargado
+        INSERT INTO Encargado(
+            CedulaEncargado,
+            NombreEncargado,
+            TelefonoEncargado,
+            Parentesco,
+            LugarTrabajo,
+            Correo,
+            NombreContactoEmergencia,
+            TelefonoContactoEmergencia
+        )
+        VALUES(
+            pCedulaEncargado,
+            pNombreEncargado,
+            pTelefonoEncargado,
+            'No especificado',
+            'No especificado',
+            pCorreo,
+            'No especificado',
+            '00000000'
+        );
+
+        SET pIdEncargado = LAST_INSERT_ID();
+
+    ELSE
+
+        -- Actualizar encargado existente
+        UPDATE Encargado
+        SET 
+            CedulaEncargado = pCedulaEncargado,
+            NombreEncargado = pNombreEncargado,
+            TelefonoEncargado = pTelefonoEncargado,
+            Correo = pCorreo
+        WHERE IdEncargado = pIdEncargado;
+
+    END IF;
+
+
+    -- =========================================
+    -- RELACION ESTUDIANTE - ENCARGADO
+    -- =========================================
+    IF NOT EXISTS (
+        SELECT 1
+        FROM EstudianteEncargado
+        WHERE IdEstudiante = pIdEstudiante
+        AND IdEncargado = pIdEncargado
+    ) THEN
+
+        INSERT INTO EstudianteEncargado(
+            IdEstudiante,
+            IdEncargado
+        )
+        VALUES(
+            pIdEstudiante,
+            pIdEncargado
+        );
+
+    END IF;
+
+
+    -- =========================================
+    -- VALIDAR MATRÍCULA EXISTENTE
+    -- =========================================
+    SELECT COUNT(*)
+    INTO vExisteMatricula
+    FROM Matricula
+    WHERE IdEstudiante = pIdEstudiante
+    AND AnnoLectivo = pAnnoLectivo;
+
+    IF vExisteMatricula > 0 THEN
+
+        ROLLBACK;
+        SELECT 0 AS Resultado; -- Ya existe matrícula
+
+    ELSE
+
+        -- =========================================
+        -- GENERAR ID MATRÍCULA
+        -- =========================================
+        SET vBase = CAST(pAnnoLectivo AS UNSIGNED) * 100000;
+
+        SELECT IFNULL(MAX(IdMatricula), vBase)
+        INTO vNuevoId
+        FROM Matricula
+        WHERE AnnoLectivo = pAnnoLectivo;
+
+        SET vNuevoId = vNuevoId + 1;
+
+        -- =========================================
+        -- INSERTAR MATRÍCULA
+        -- =========================================
+        INSERT INTO Matricula(
+            IdMatricula,
+            IdUsuario,
+            IdEstudiante,
+            FechaMatricula,
+            AnnoLectivo,
+            NivelSeleccionado,
+            IdiomaElegido
+        )
+        VALUES(
+            vNuevoId,
+            pIdUsuario,
+            pIdEstudiante,
+            pFechaMatricula,
+            pAnnoLectivo,
+            pNivelSeleccionado,
+            pIdiomaElegido
+        );
+
+        COMMIT;
+
+        SELECT 
+            1 AS Resultado,
+            vNuevoId AS IdMatricula;
+
+    END IF;
+
+END $$
+
+DELIMITER ;
