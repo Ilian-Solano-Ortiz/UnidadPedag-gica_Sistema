@@ -29,8 +29,7 @@ namespace SistemaUPGrafica
             usuariosBtn.Visible = false;
             FormularioActivo = null;
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.MaximizeBox = true;   // Quita botón maximizar
-            this.MinimizeBox = true;   // Quita botón minimizar
+            
             this.FormClosing += (s, e) =>
             {
 
@@ -38,7 +37,7 @@ namespace SistemaUPGrafica
                 {
                     var usuarioServicio = _serviceProvider.GetService<UsuarioService>();
                     usuarioServicio.LogoutUsuario(this.Usuario.CedulaUsuario);
-                    //usuarioServicio.ActualizarPropiedadUsuario(this.Usuario.IdUsuario,"Estado","Disponible"); 
+                     
                     Application.Exit();
                 }
             };
@@ -85,7 +84,7 @@ namespace SistemaUPGrafica
         }
         private void estudiantesBtn_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new BuscarEstudiante(this._serviceProvider));
+            abrirFormulario(new BuscarEstudiante(this._serviceProvider, this.Usuario));
         }
 
         private void usuariosBtn_Click(object sender, EventArgs e)

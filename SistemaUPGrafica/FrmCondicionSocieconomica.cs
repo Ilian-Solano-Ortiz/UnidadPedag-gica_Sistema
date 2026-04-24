@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GenerarPDFUP.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace SistemaUPGrafica
 {
@@ -17,18 +18,19 @@ namespace SistemaUPGrafica
         public Estudiante? Estudiante { get; set; }
         public Encargado? Encargado { get; set; }
         public CondicionSocioEconomica? CondicionSocioEconomica { get; set; }
+        private readonly IServiceProvider _serviceProvider;
+        public Usuario Usuario { get; set; }
 
-
-
-        public FrmCondicionSocieconomica(Estudiante estudiante, Encargado encargado)
+        public FrmCondicionSocieconomica(Estudiante estudiante, Encargado encargado, IServiceProvider serviceProvider, Usuario usuario)
         {
             InitializeComponent();
+            this._serviceProvider = serviceProvider;
             this.Estudiante = estudiante;
             this.Encargado = encargado;
             this.CondicionSocioEconomica = new CondicionSocioEconomica();
             this.montoTxt.Enabled = false;
             habilitacionTiposBecas(false);
-            
+            this.Usuario = usuario;
         }
 
         private void checkComedor_CheckedChanged(object sender, EventArgs e)
@@ -51,9 +53,7 @@ namespace SistemaUPGrafica
         }
 
         private void FrmCondicionSocieconomica_Load(object sender, EventArgs e)
-        {
-
-        }
+        { }
 
         private void label4_Click(object sender, EventArgs e)
         {
@@ -72,7 +72,7 @@ namespace SistemaUPGrafica
                 checkSecundariaInc.Enabled = false;
 
 
-                this.CondicionSocioEconomica.EducacionEncargado="Universitaria";
+                this.CondicionSocioEconomica.EducacionEncargado = "Universitaria";
             }
             else
             {
@@ -80,7 +80,7 @@ namespace SistemaUPGrafica
                 checkPrimariaCom.Enabled = true;
                 checkSecundariaCom.Enabled = true;
                 checkSecundariaInc.Enabled = true;
-                this.CondicionSocioEconomica.EducacionEncargado="";
+                this.CondicionSocioEconomica.EducacionEncargado = "";
             }
         }
 
@@ -110,6 +110,7 @@ namespace SistemaUPGrafica
                     string rutaSeleccionada = rutaGuardar.FileName;
                     plantilla.CrearFormulario(rutaSeleccionada, Estudiante, Encargado, CondicionSocioEconomica);
                     MessageBox.Show("Se ha generado la hoja de matrícula con éxito".ToUpper(), "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RegistroEstudianteBaseDatos();
                 }
                 else
                 {
@@ -346,7 +347,7 @@ namespace SistemaUPGrafica
                 checkSecundariaCom.Enabled = false;
                 checkSecundariaInc.Enabled = false;
                 checkUniversidad.Enabled = false;
-                this.CondicionSocioEconomica.EducacionEncargado="Primaria incompleta";
+                this.CondicionSocioEconomica.EducacionEncargado = "Primaria incompleta";
 
             }
             else
@@ -355,7 +356,7 @@ namespace SistemaUPGrafica
                 checkSecundariaCom.Enabled = true;
                 checkSecundariaInc.Enabled = true;
                 checkUniversidad.Enabled = true;
-                this.CondicionSocioEconomica.EducacionEncargado="";
+                this.CondicionSocioEconomica.EducacionEncargado = "";
             }
         }
 
@@ -369,7 +370,7 @@ namespace SistemaUPGrafica
                 checkSecundariaCom.Enabled = false;
                 checkSecundariaInc.Enabled = false;
                 checkUniversidad.Enabled = false;
-                this.CondicionSocioEconomica.EducacionEncargado="Primaria completa";
+                this.CondicionSocioEconomica.EducacionEncargado = "Primaria completa";
 
             }
             else
@@ -379,7 +380,7 @@ namespace SistemaUPGrafica
                 checkSecundariaInc.Enabled = true;
                 checkUniversidad.Enabled = true;
 
-                this.CondicionSocioEconomica.EducacionEncargado="";
+                this.CondicionSocioEconomica.EducacionEncargado = "";
             }
         }
 
@@ -394,8 +395,8 @@ namespace SistemaUPGrafica
                 checkSecundariaCom.Enabled = false;
                 checkUniversidad.Enabled = false;
 
-       
-                this.CondicionSocioEconomica.EducacionEncargado="Secundaria incompleta";
+
+                this.CondicionSocioEconomica.EducacionEncargado = "Secundaria incompleta";
             }
             else
             {
@@ -403,7 +404,7 @@ namespace SistemaUPGrafica
                 checkPrimariaCom.Enabled = true;
                 checkSecundariaCom.Enabled = true;
                 checkUniversidad.Enabled = true;
-                this.CondicionSocioEconomica.EducacionEncargado="";
+                this.CondicionSocioEconomica.EducacionEncargado = "";
             }
         }
 
@@ -417,7 +418,7 @@ namespace SistemaUPGrafica
                 checkPrimariaCom.Enabled = false;
                 checkSecundariaInc.Enabled = false;
                 checkUniversidad.Enabled = false;
-                this.CondicionSocioEconomica.EducacionEncargado="Secundaria completa";
+                this.CondicionSocioEconomica.EducacionEncargado = "Secundaria completa";
             }
             else
             {
@@ -425,13 +426,41 @@ namespace SistemaUPGrafica
                 checkPrimariaCom.Enabled = true;
                 checkSecundariaInc.Enabled = true;
                 checkUniversidad.Enabled = true;
-                this.CondicionSocioEconomica.EducacionEncargado="";
+                this.CondicionSocioEconomica.EducacionEncargado = "";
             }
         }
 
-       
+        private void RegistroEstudianteBaseDatos()
+        {
+            var servicioEstudiante = this._serviceProvider.GetService<EstudianteService>();
+            servicioEstudiante.RegistrarMatricula(
+                    this.Usuario.IdUsuario,
+                    this.Estudiante.CedulaEstudiante,
+                    this.Estudiante.NombreEstudiante,
+                    this.Estudiante.FechaNacimiento,
+                    this.Estudiante.Direccion,
+                    this.Encargado.CedulaEncargado,
+                    this.Encargado.NombreEncargado,
+                    this.Encargado.TelefonoEncargado,
+                    this.Encargado.Parentesco,
+                    this.Encargado.LugarTrabajo,
+                    this.Encargado.Correo,
+                    this.Encargado.NombreContactoEmergencia,
+                    this.Encargado.TelefonoContactoEmergencia,
+                    this.Estudiante.FechaMatricula,
+                    ObtenerAnnoActual(),
+                    Estudiante.NivelSeleccionado,
+                    Estudiante.IdiomaElegido
+                );
+        }
 
-        
+
+        public string ObtenerAnnoActual()
+        {
+            return DateTime.Now.Year.ToString();
+        }
+
+
 
     }
 }

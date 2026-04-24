@@ -17,20 +17,23 @@ namespace SistemaUPGrafica
         private readonly IServiceProvider _serviceProvider;
         public Form FormularioActivo { get; set; }
 
-        public BuscarEstudiante(IServiceProvider serviceProvider)
+        public Usuario Usuario { get; set; }
+
+        public BuscarEstudiante(IServiceProvider serviceProvider, Usuario usuario)
         {
             InitializeComponent();
             this._serviceProvider = serviceProvider;
+            this.Usuario = usuario;
         }
 
         private void cerrarSesionBtn_Click(object sender, EventArgs e)
         {
-            // this.Close();
+            
         }
 
         private void usuariosBtn_Click(object sender, EventArgs e)
         {
-            //abrirFormulario(new BuscarUsuarios());
+            
         }
 
         private void abrirFormulario(Form formulario)
@@ -77,7 +80,7 @@ namespace SistemaUPGrafica
                     MessageBoxIcon.Question);
 
                 if (resultado == DialogResult.No)
-                    abrirFormulario(new FrmMatriculaNoExistente());
+                    abrirFormulario(new FrmMatriculaNoExistente(this._serviceProvider, this.Usuario));
             }
         }
 
@@ -113,7 +116,7 @@ namespace SistemaUPGrafica
         //Boton agregado
         private void btnNuevoEstudiante_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new FrmMatriculaNoExistente());
+            abrirFormulario(new FrmMatriculaNoExistente(this._serviceProvider, this.Usuario));
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

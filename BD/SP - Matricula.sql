@@ -18,7 +18,7 @@ CREATE PROCEDURE RegistrarMatricula(
 
     IN pCedulaEstudiante VARCHAR(20),
     IN pNombreEstudiante VARCHAR(100),
-    IN pFechaNacimiento DATE,
+    IN pFechaNacimiento VARCHAR(30),
     IN pDireccion VARCHAR(200),
 
     IN pCedulaEncargado VARCHAR(20),
@@ -93,7 +93,7 @@ BEGIN
             LugarTrabajo,
             Correo,
             NombreContactoEmergencia,
-            TelefonoEmergencia
+            TelefonoContactoEmergencia 
         )
         VALUES(
             pCedulaEncargado,

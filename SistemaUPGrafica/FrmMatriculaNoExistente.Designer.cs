@@ -60,6 +60,8 @@
             francesCheck = new CheckBox();
             label9 = new Label();
             txtAlergia = new TextBox();
+            label8 = new Label();
+            observacionesTxt = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -173,7 +175,7 @@
             cedula.Name = "cedula";
             cedula.Size = new Size(52, 17);
             cedula.TabIndex = 11;
-            cedula.Text = "Cedula";
+            cedula.Text = "Cédula";
             // 
             // dateFechNac
             // 
@@ -383,12 +385,32 @@
             txtAlergia.TabIndex = 33;
             txtAlergia.TextChanged += txtAlergia_TextChanged;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(66, 430);
+            label8.Name = "label8";
+            label8.Size = new Size(103, 17);
+            label8.TabIndex = 34;
+            label8.Text = "Observaciones";
+            // 
+            // observacionesTxt
+            // 
+            observacionesTxt.Location = new Point(172, 429);
+            observacionesTxt.Margin = new Padding(3, 2, 3, 2);
+            observacionesTxt.Name = "observacionesTxt";
+            observacionesTxt.Size = new Size(470, 23);
+            observacionesTxt.TabIndex = 35;
+            // 
             // FrmMatriculaNoExistente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(782, 475);
+            Controls.Add(observacionesTxt);
+            Controls.Add(label8);
             Controls.Add(txtAlergia);
             Controls.Add(label9);
             Controls.Add(francesCheck);
@@ -462,5 +484,7 @@
         private CheckBox francesCheck;
         private Label label9;
         private TextBox txtAlergia;
+        private Label label8;
+        private TextBox observacionesTxt;
     }
 }

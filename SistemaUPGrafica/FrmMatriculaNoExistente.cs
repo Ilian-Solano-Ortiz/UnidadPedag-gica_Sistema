@@ -8,16 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Microsoft.Extensions.DependencyInjection;
 namespace SistemaUPGrafica
 {
     public partial class FrmMatriculaNoExistente : Form
     {
         public Form PanelPadres { get; set; }
         public Estudiante? Estudiante { get; set; }
-        public FrmMatriculaNoExistente()
+
+        private readonly IServiceProvider _serviceProvider;
+        public Usuario Usuario { get; set; }
+
+        public FrmMatriculaNoExistente(IServiceProvider serviceProvider, Usuario usuario)
         {
             InitializeComponent();
+            this._serviceProvider = serviceProvider;
+            this.Usuario = usuario;
             this.Estudiante = new Estudiante();
             generarPanelPadres();
             habilitacionComponentes(false);
@@ -130,6 +136,18 @@ namespace SistemaUPGrafica
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            
+            if (txtNombreEst.Text.Equals(""))
+            {
+                MessageBox.Show("Debe llenar el campo de nombre del estudiante", "Campo vacío", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (txtCedula.Text.Equals(""))
+            {
+                MessageBox.Show("Debe llenar el campo de cédula", "Campo vacío", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             editarInformacionEstudiante();
             this.PanelPadres.Show();
@@ -140,7 +158,7 @@ namespace SistemaUPGrafica
 
         private void generarPanelPadres()
         {
-            this.PanelPadres = new DatosPadres(this.Estudiante);
+            this.PanelPadres = new DatosPadres(this.Estudiante, this._serviceProvider, this.Usuario);
             this.PanelPadres.TopLevel = false;
             this.PanelPadres.FormBorderStyle = FormBorderStyle.None;
             this.PanelPadres.Dock = DockStyle.Fill;
@@ -178,6 +196,7 @@ namespace SistemaUPGrafica
             this.Estudiante.EnfermedadEstudiante = enfermedadText.Text;
             this.Estudiante.TratamientoEstudiante = tratamientoMedText.Text;
             this.Estudiante.AlergicoMedicamento = txtAlergia.Text;
+            this.Estudiante.Observaciones = observacionesTxt.Text;
             editarNivelSeleccionado();
 
         }

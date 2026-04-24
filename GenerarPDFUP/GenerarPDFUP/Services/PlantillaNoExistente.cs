@@ -150,10 +150,10 @@ namespace GenerarPDFUP.Services
             AgregarFilaConLinea(tabla, "Correo:", en.Correo);
             AgregarFilaConLinea(tabla, "En caso de emergencia comunicarse con:", this.EnCasoEmergencia[0]);
 
-            AgregarFilaDosLineas(tabla, "Teléfono emergencia:", this.TelofonoEmergencia[0], this.TelofonoEmergencia[1]);
+            AgregarFilaDosLineas(tabla, "Teléfono emergencia:", this.TelofonoEmergencia[0], this.TelofonoEmergencia[1]);  
 
             documento.Add(tabla);
-            AgregarInfoBeca(con);
+            AgregarInfoBeca(con, es);
             AgregarActaDeCompromiso(this.documento);
         }
 
@@ -385,7 +385,7 @@ namespace GenerarPDFUP.Services
             return espacio;
         }
 
-        private void AgregarInfoBeca(CondicionSocioEconomica condicionSocioEconomica)
+        private void AgregarInfoBeca(CondicionSocioEconomica condicionSocioEconomica, Estudiante es)
         {
             AgregarEncabezado();
             Chunk subtituloSubrayado = new Chunk("Condición Socioeconómica", new Font(Font.TIMES_ROMAN, 12, Font.BOLD));
@@ -433,6 +433,7 @@ namespace GenerarPDFUP.Services
             );
 
             AgregarFilaConLinea(tablaBeca, "Monto: ", condicionSocioEconomica.Monto);
+            AgregarFilaConLinea(tablaBeca, "Observaciones:", es.Observaciones);
             documento.Add(tablaBeca);
         }
 

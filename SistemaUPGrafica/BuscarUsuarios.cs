@@ -37,12 +37,12 @@ namespace SistemaUPGrafica
 
         private void cerrarSesionBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
         }
 
         private void estudiantesBtn_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new BuscarEstudiante(this.ServiceProvider));
+            //abrirFormulario(new BuscarEstudiante(this.ServiceProvider));
         }
 
         private void abrirFormulario(Form formulario)

@@ -159,14 +159,15 @@
             // 
             txtEmergencia1.Location = new Point(310, 254);
             txtEmergencia1.Name = "txtEmergencia1";
-            txtEmergencia1.Size = new Size(177, 23);
+            txtEmergencia1.PlaceholderText = "Nombre del contacto de emergencia";
+            txtEmergencia1.Size = new Size(203, 23);
             txtEmergencia1.TabIndex = 12;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(24, 302);
+            label8.Location = new Point(21, 301);
             label8.Name = "label8";
             label8.Size = new Size(162, 17);
             label8.TabIndex = 13;
@@ -176,6 +177,7 @@
             // 
             txtTelEmer1.Location = new Point(310, 301);
             txtTelEmer1.Name = "txtTelEmer1";
+            txtTelEmer1.PlaceholderText = "Teléfono de emergencia 1";
             txtTelEmer1.Size = new Size(177, 23);
             txtTelEmer1.TabIndex = 14;
             // 
@@ -185,7 +187,7 @@
             btnNext.FlatStyle = FlatStyle.Flat;
             btnNext.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNext.ForeColor = SystemColors.ButtonHighlight;
-            btnNext.Location = new Point(638, 381);
+            btnNext.Location = new Point(634, 400);
             btnNext.Name = "btnNext";
             btnNext.Size = new Size(98, 40);
             btnNext.TabIndex = 15;
@@ -199,7 +201,7 @@
             btnAtras.FlatStyle = FlatStyle.Flat;
             btnAtras.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAtras.ForeColor = SystemColors.ButtonHighlight;
-            btnAtras.Location = new Point(24, 369);
+            btnAtras.Location = new Point(21, 400);
             btnAtras.Name = "btnAtras";
             btnAtras.Size = new Size(98, 40);
             btnAtras.TabIndex = 16;
@@ -228,6 +230,7 @@
             // 
             txtTelEmer2.Location = new Point(511, 301);
             txtTelEmer2.Name = "txtTelEmer2";
+            txtTelEmer2.PlaceholderText = "Teléfono de emergencia 2";
             txtTelEmer2.Size = new Size(177, 23);
             txtTelEmer2.TabIndex = 20;
             // 

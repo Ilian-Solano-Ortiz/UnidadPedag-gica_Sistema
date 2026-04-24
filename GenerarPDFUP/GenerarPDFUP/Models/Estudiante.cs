@@ -54,6 +54,9 @@ namespace GenerarPDFUP.Models
         [NotMapped]
         public string? AlergicoMedicamento { get; set; }
 
+        [NotMapped]
+        public string? Observaciones { get; set; }
+
         [Key]
         public int IdEstudiante { get; set; }
     }
