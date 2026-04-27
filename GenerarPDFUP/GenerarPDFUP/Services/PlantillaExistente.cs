@@ -31,18 +31,17 @@ namespace GenerarPDFUP.Services
             documento.Open();
         }
 
-        public void CrearFormulario(string ruta, Estudiante es, Encargado en,
-            string pagoPatronato, string monto)
+        public void CrearFormulario(long idMatricula, string ruta, Estudiante es, Encargado en, string pagoPatronato, string monto)
         {
             InicializarDocumento(ruta);
-            AgregarEncabezado();
+            AgregarEncabezado(idMatricula);
             AgregarTitulo(es);
-            AgregarCuerpo(es, en,pagoPatronato,monto);
+            AgregarCuerpo(es, en, pagoPatronato, monto);
             AgregarPieDePagina();
             CerrarDocumento();
         }
 
-        private void AgregarEncabezado()
+        private void AgregarEncabezado(long idMatricula)
         {
             PdfPTable encabezado = new PdfPTable(3);
             encabezado.WidthPercentage = 100;
@@ -53,7 +52,8 @@ namespace GenerarPDFUP.Services
                 "Unidad Pedagógica Río Cuba\n" +
                 "Código Presupuestario 3360 / 5683\n" +
                 "Tel. 2797 8265\n" +
-                "Correo: upe.riocuba@mep.go.cr",
+                "Correo: upe.riocuba@mep.go.cr\n" +
+                "Matricula número:" + idMatricula + "\n",
                 new Font(Font.TIMES_ROMAN, 11, Font.BOLD)
             ));
             texto.HorizontalAlignment = Element.ALIGN_CENTER;
@@ -152,15 +152,15 @@ namespace GenerarPDFUP.Services
             PdfPCell espacio = new PdfPCell(new Phrase("\n"))
             {
                 Border = Rectangle.NO_BORDER,
-                Colspan = 2,  
-                FixedHeight = 5f 
+                Colspan = 2,
+                FixedHeight = 5f
             };
             return espacio;
         }
 
         private void AgregarPieDePagina()
         {
-            documento.Add(new Paragraph("\nFirma del funcionario que hace la matrícula: ___________________________", new Font(Font.TIMES_ROMAN, 12)));  
+            documento.Add(new Paragraph("\nFirma del funcionario que hace la matrícula: ___________________________", new Font(Font.TIMES_ROMAN, 12)));
         }
 
         public void AgregarCuerpo(Estudiante es, Encargado en, string pagoPatronato, string monto)
@@ -182,7 +182,7 @@ namespace GenerarPDFUP.Services
 
 
             AgregarFilaChecks(tabla, "Si cursa el nivel de 11° indique si ya realizó horas TC:",
-                ("Sí", string.Equals(es.HorasTC+"","true",StringComparison.OrdinalIgnoreCase)),
+                ("Sí", string.Equals(es.HorasTC + "", "true", StringComparison.OrdinalIgnoreCase)),
                 ("No", string.Equals(es.HorasTC + "", "false", StringComparison.OrdinalIgnoreCase))
             );
 
@@ -237,9 +237,9 @@ namespace GenerarPDFUP.Services
                 BorderWidthTop = 0,
 
                 //Ajustes para alinear el texto justo encima de la línea
-                PaddingTop = 0f,          
-                PaddingBottom = 2f,       
-                FixedHeight = 20f,        
+                PaddingTop = 0f,
+                PaddingBottom = 2f,
+                FixedHeight = 20f,
                 VerticalAlignment = Element.ALIGN_BOTTOM
             };
 
@@ -266,13 +266,13 @@ namespace GenerarPDFUP.Services
                 WidthPercentage = 100
             };
 
-            
+
             float[] widths = new float[totalCols];
             for (int i = 0; i < totalCols; i++)
-                widths[i] = (i % 2 == 0) ? 4f : 20f; 
+                widths[i] = (i % 2 == 0) ? 4f : 20f;
             inner.SetWidths(widths);
 
-            float checkSize = 16f; 
+            float checkSize = 16f;
 
             foreach (var op in opciones)
             {
@@ -296,7 +296,7 @@ namespace GenerarPDFUP.Services
                     FixedHeight = checkSize
                 };
 
-                
+
                 textCell.NoWrap = false;
                 textCell.UseAscender = true;
                 inner.AddCell(textCell);

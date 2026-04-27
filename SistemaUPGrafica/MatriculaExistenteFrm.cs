@@ -131,7 +131,7 @@ namespace SistemaUPGrafica
                 habilitacionComponentes(false);
                 quitarChecks(false);
                 habilitacionInformacionSecundaria(false);
-                
+
             }
         }
 
@@ -254,7 +254,7 @@ namespace SistemaUPGrafica
                 switch (resultado?.Resultado)
                 {
                     case 1:
-                        GenerarPDF();
+                        GenerarPDF(resultado.IdMatricula);
                         break;
                     case 0:
                         MessageBox.Show(
@@ -267,9 +267,12 @@ namespace SistemaUPGrafica
                             "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                     default:
-                        MessageBox.Show(
-                            "Ocurrió un error al registrar la matrícula.".ToUpper(),
-                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error" + resultado?.Resultado,
+
+    "Error",
+    MessageBoxButtons.OK,
+    MessageBoxIcon.Error
+);
                         break;
                 }
             }
@@ -282,7 +285,7 @@ namespace SistemaUPGrafica
         }
 
         // ── Generación del PDF separada ───────────────────────────
-        private void GenerarPDF()
+        private void GenerarPDF(long idMatricula)
         {
             PlantillaExistente plantilla = new PlantillaExistente();
             SaveFileDialog rutaGuardar = new SaveFileDialog
@@ -311,6 +314,7 @@ namespace SistemaUPGrafica
                 };
 
                 plantilla.CrearFormulario(
+                    idMatricula,
                     rutaGuardar.FileName,
                     this.Estudiante,
                     encargadoFinal,
@@ -400,21 +404,21 @@ namespace SistemaUPGrafica
                         {
 
                             preescolarCheck.Checked = true;
-                            
+
                             return;
                         }
                         else if (i == 1)
                         {
 
                             primariaCheck.Checked = true;
-                            
+
                             return;
                         }
                         else
                         {
 
                             secundariaCheck.Checked = true;
-                            
+
                             return;
                         }
 
@@ -517,13 +521,13 @@ namespace SistemaUPGrafica
             {
                 siCheckPatronato.Enabled = false;
                 this.PagoPatronato = "false";
-                
+
             }
             else
             {
                 siCheckPatronato.Enabled = true;
                 this.PagoPatronato = "";
-                
+
             }
         }
 
@@ -534,7 +538,7 @@ namespace SistemaUPGrafica
             siCheckTC.Enabled = habilitar;
             noCheckTC.Enabled = habilitar;
 
-            
+
         }
 
         private void quitarChecks(bool habilitar)
@@ -571,48 +575,48 @@ namespace SistemaUPGrafica
         }
 
         private void nuevoEncargadoCheck_CheckedChanged(object sender, EventArgs e)
-{
-    if (nuevoEncargadoCheck.Checked)
-    {
-        // Limpiar campos y habilitar para ingresar nuevo encargado
-        this.EncargadoSeleccionado = null; // null = encargado nuevo
-        encargadosCb.Enabled = false;
-        HabilitarCamposEncargado(true);
-        LimpiarCamposEncargado();
-    }
-    else
-    {
-        // Volver al encargado seleccionado en el ComboBox
-        encargadosCb.Enabled = true;
-        HabilitarCamposEncargado(false);
-
-        // Restaurar datos del encargado que estaba seleccionado
-        if (this.Encargados != null && this.Encargados.Count > 0)
         {
-            var encargado = encargadosCb.Visible
-                ? (encargadosCb.SelectedItem as Encargado ?? this.Encargados[0])
-                : this.Encargados[0];
+            if (nuevoEncargadoCheck.Checked)
+            {
+                // Limpiar campos y habilitar para ingresar nuevo encargado
+                this.EncargadoSeleccionado = null; // null = encargado nuevo
+                encargadosCb.Enabled = false;
+                HabilitarCamposEncargado(true);
+                LimpiarCamposEncargado();
+            }
+            else
+            {
+                // Volver al encargado seleccionado en el ComboBox
+                encargadosCb.Enabled = true;
+                HabilitarCamposEncargado(false);
 
-            this.EncargadoSeleccionado = encargado;
-            CargarDatosEncargado(encargado);
+                // Restaurar datos del encargado que estaba seleccionado
+                if (this.Encargados != null && this.Encargados.Count > 0)
+                {
+                    var encargado = encargadosCb.Visible
+                        ? (encargadosCb.SelectedItem as Encargado ?? this.Encargados[0])
+                        : this.Encargados[0];
+
+                    this.EncargadoSeleccionado = encargado;
+                    CargarDatosEncargado(encargado);
+                }
+            }
         }
-    }
-}
 
-private void HabilitarCamposEncargado(bool habilitar)
-{
-    cedulaEncargadoTxt.Enabled   = habilitar;
-    nombreEncargadoTxt.Enabled   = habilitar;
-    telefonoEncargadoTxt.Enabled = habilitar;
-    correoEncargadoTxt.Enabled   = habilitar;
-}
+        private void HabilitarCamposEncargado(bool habilitar)
+        {
+            cedulaEncargadoTxt.Enabled = habilitar;
+            nombreEncargadoTxt.Enabled = habilitar;
+            telefonoEncargadoTxt.Enabled = habilitar;
+            correoEncargadoTxt.Enabled = habilitar;
+        }
 
-private void LimpiarCamposEncargado()
-{
-    cedulaEncargadoTxt.Text   = string.Empty;
-    nombreEncargadoTxt.Text   = string.Empty;
-    telefonoEncargadoTxt.Text = string.Empty;
-    correoEncargadoTxt.Text   = string.Empty;
-}
+        private void LimpiarCamposEncargado()
+        {
+            cedulaEncargadoTxt.Text = string.Empty;
+            nombreEncargadoTxt.Text = string.Empty;
+            telefonoEncargadoTxt.Text = string.Empty;
+            correoEncargadoTxt.Text = string.Empty;
+        }
     }
 }

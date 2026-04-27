@@ -119,12 +119,12 @@ namespace GenerarPDFUP.Services
                     .AsEnumerable()
                     .FirstOrDefault();
 
-                // Si EF mapeó la fila del "SELECT 0 AS Resultado",
-                // el IdEstudiante será 0 y CedulaEstudiante será null
-                if (estudiante == null || estudiante.IdEstudiante == 0)
-                    return null;
+                        // Si EF mapeó la fila del "SELECT 0 AS Resultado",
+                        // el IdEstudiante será 0 y CedulaEstudiante será null
+                        if (estudiante == null || estudiante.IdEstudiante == 0)
+                        return null;
 
-                return estudiante;
+                        return estudiante;
             }
             catch (Exception e)
             {
@@ -174,12 +174,13 @@ namespace GenerarPDFUP.Services
             {
                 var resultado = matriculasContext.ResultadoMatriculaDto
                     .FromSqlRaw(
-                        "CALL MatriculaEstudianteExistente({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13})",
+                        "CALL MatriculaEstudianteExistente({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12})",
                         idUsuario,
                         idEstudiante,
                         CedulaEstudiante,
                         NombreEstudiante,
                         idEncargado,
+                        cedulaEncargado,   // ✅ agregado correctamente
                         nombreEncargado,
                         telefonoEncargado,
                         correo,
