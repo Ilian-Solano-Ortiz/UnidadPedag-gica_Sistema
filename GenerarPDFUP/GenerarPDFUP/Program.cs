@@ -2,13 +2,13 @@
 using GenerarPDFUP.Services;
 using Microsoft.VisualBasic;
 
-Encargado en = new Encargado 
-{ 
-    NombreEncargado = "Juan", 
-    CedulaEncargado="32432",
-    Parentesco="Padre", 
-    TelefonoEncargado="2344",
-    LugarTrabajo="ICE"
+Encargado en = new Encargado
+{
+    NombreEncargado = "Juan",
+    CedulaEncargado = "32432",
+    Parentesco = "Padre",
+    TelefonoEncargado = "2344",
+    LugarTrabajo = "ICE"
 };
 
 Estudiante es = new Estudiante
@@ -22,8 +22,8 @@ Estudiante es = new Estudiante
     EnfermedadEstudiante = "No",
     TratamientoEstudiante = "No",
     Beca = "No",
-    TipoBeca ="No",
-    FechaMatricula="Hoy"
+    TipoBeca = "No",
+    FechaMatricula = "Hoy"
 };
 
 es.IdiomaElegido = "";
@@ -35,7 +35,7 @@ es.NivelSeleccionado = "Secundaria";
 //PlantillaNoExistente plantilla = new PlantillaNoExistente();
 PlantillaExistente plantilla2 = new PlantillaExistente();
 //plantilla.CrearFormulario("FormularioMatricula.pdf", es, en);
-plantilla2.CrearFormulario("FormularioMatricula2.pdf", es, en, "true", "1000");
+plantilla2.CrearFormulario(1, "FormularioMatricula2.pdf", es, en, "true", "1000");
 
 
 
