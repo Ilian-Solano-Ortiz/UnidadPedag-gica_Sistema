@@ -20,6 +20,7 @@ namespace SistemaUPGrafica
         public CondicionSocioEconomica? CondicionSocioEconomica { get; set; }
         private readonly IServiceProvider _serviceProvider;
         public Usuario Usuario { get; set; }
+        private readonly Action _volverABuscarEstudiante;
 
         public FrmCondicionSocieconomica(Estudiante estudiante, Encargado encargado, IServiceProvider serviceProvider, Usuario usuario)
         {
@@ -432,8 +433,9 @@ namespace SistemaUPGrafica
 
         private void RegistroEstudianteBaseDatos()
         {
+            
             var servicioEstudiante = this._serviceProvider.GetService<EstudianteService>();
-            servicioEstudiante.RegistrarMatricula(
+            var resultado = servicioEstudiante.RegistrarMatricula(
                     this.Usuario.IdUsuario,
                     this.Estudiante.CedulaEstudiante,
                     this.Estudiante.NombreEstudiante,
@@ -452,6 +454,22 @@ namespace SistemaUPGrafica
                     Estudiante.NivelSeleccionado,
                     Estudiante.IdiomaElegido
                 );
+
+            switch (resultado.Resultado)
+            {
+                case 0:
+                    MessageBox.Show("El estudiante ya tiene matrícula en este año lectivo.\nLa hoja fue generada pero no se guardó en la base de datos.".ToUpper(),
+                        "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    break;
+                case 1:
+                    MessageBox.Show("Matrícula registrada correctamente en la base de datos.".ToUpper(),
+                        "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                case 2:
+                    MessageBox.Show("Ocurrió un error en la base de datos.\nLa hoja fue generada pero no se guardó en la base de datos.".ToUpper(),
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+            }
         }
 
 

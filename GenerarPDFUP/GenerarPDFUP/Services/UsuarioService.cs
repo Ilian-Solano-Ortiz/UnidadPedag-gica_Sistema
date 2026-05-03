@@ -260,6 +260,33 @@ namespace GenerarPDFUP.Services
             }
         }
 
+        // =====================================================
+        // ACTUALIZAR CONDICION LOGIN
+        // Retorna: 0 = no existe | 1 = actualizado correctamente
+        // =====================================================
+        public int ActualizarCondicionLogin(string cedula, string condicionLogin)
+        {
+            try
+            {
+                var usuario = Context.Usuarios.FirstOrDefault(u => u.CedulaUsuario == cedula);
+
+                if (usuario == null)
+                {
+                    Console.WriteLine("No se encontró el usuario con cédula: " + cedula);
+                    return 0;
+                }
+
+                usuario.CondicionLogin = condicionLogin;
+                Context.SaveChanges();
+                return 1;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error inesperado: " + e.Message);
+                return -1;
+            }
+        }
+
 
     }
 }

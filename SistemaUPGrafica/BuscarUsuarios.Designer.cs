@@ -38,6 +38,7 @@
             refrescarBtn = new Button();
             btnRefrescarLista = new Button();
             btnEliminar = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -97,14 +98,13 @@
             dataGridView1.Size = new Size(591, 206);
             dataGridView1.TabIndex = 4;
             dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
-            
             // 
             // btnAceptar
             // 
             btnAceptar.BackColor = Color.Lime;
             btnAceptar.FlatStyle = FlatStyle.Flat;
             btnAceptar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAceptar.Location = new Point(106, 382);
+            btnAceptar.Location = new Point(86, 382);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(114, 23);
             btnAceptar.TabIndex = 5;
@@ -117,7 +117,7 @@
             rechazarBtn.BackColor = Color.FromArgb(192, 0, 0);
             rechazarBtn.FlatStyle = FlatStyle.Flat;
             rechazarBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            rechazarBtn.Location = new Point(237, 382);
+            rechazarBtn.Location = new Point(417, 382);
             rechazarBtn.Name = "rechazarBtn";
             rechazarBtn.RightToLeft = RightToLeft.Yes;
             rechazarBtn.Size = new Size(114, 23);
@@ -131,12 +131,12 @@
             refrescarBtn.BackColor = Color.Yellow;
             refrescarBtn.FlatStyle = FlatStyle.Flat;
             refrescarBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            refrescarBtn.Location = new Point(376, 382);
+            refrescarBtn.Location = new Point(241, 382);
             refrescarBtn.Name = "refrescarBtn";
             refrescarBtn.RightToLeft = RightToLeft.Yes;
-            refrescarBtn.Size = new Size(146, 23);
+            refrescarBtn.Size = new Size(143, 23);
             refrescarBtn.TabIndex = 8;
-            refrescarBtn.Text = "Refrescar contraseña";
+            refrescarBtn.Text = "Resetear contraseña";
             refrescarBtn.UseVisualStyleBackColor = false;
             refrescarBtn.Click += refrescarBtn_Click;
             // 
@@ -146,11 +146,11 @@
             btnRefrescarLista.FlatStyle = FlatStyle.Flat;
             btnRefrescarLista.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRefrescarLista.ForeColor = SystemColors.Control;
-            btnRefrescarLista.Location = new Point(81, 139);
+            btnRefrescarLista.Location = new Point(81, 134);
             btnRefrescarLista.Name = "btnRefrescarLista";
-            btnRefrescarLista.Size = new Size(119, 23);
+            btnRefrescarLista.Size = new Size(119, 28);
             btnRefrescarLista.TabIndex = 9;
-            btnRefrescarLista.Text = "Refrescar Lista";
+            btnRefrescarLista.Text = "Recargar Lista";
             btnRefrescarLista.UseVisualStyleBackColor = false;
             btnRefrescarLista.Click += btnRefrescarLista_Click;
             // 
@@ -159,7 +159,7 @@
             btnEliminar.BackColor = Color.FromArgb(192, 0, 0);
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEliminar.Location = new Point(545, 382);
+            btnEliminar.Location = new Point(558, 382);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.RightToLeft = RightToLeft.Yes;
             btnEliminar.Size = new Size(114, 23);
@@ -168,12 +168,27 @@
             btnEliminar.UseVisualStyleBackColor = false;
             btnEliminar.Click += btnEliminar_Click;
             // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.Highlight;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = SystemColors.Control;
+            button1.Location = new Point(531, 134);
+            button1.Name = "button1";
+            button1.Size = new Size(141, 28);
+            button1.TabIndex = 11;
+            button1.Text = "Desconectar usuario";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // BuscarUsuarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(777, 482);
+            Controls.Add(button1);
             Controls.Add(btnEliminar);
             Controls.Add(btnRefrescarLista);
             Controls.Add(refrescarBtn);
@@ -205,5 +220,6 @@
         private Button refrescarBtn;
         private Button btnRefrescarLista;
         private Button btnEliminar;
+        private Button button1;
     }
 }

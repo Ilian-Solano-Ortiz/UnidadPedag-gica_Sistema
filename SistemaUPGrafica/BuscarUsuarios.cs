@@ -95,7 +95,7 @@ namespace SistemaUPGrafica
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             var servicioUsuario = ServiceProvider.GetService<UsuarioService>();
-            int resultado= servicioUsuario.AceptarUsuario(this.CedulaUsuarioSeleccionado);
+            int resultado = servicioUsuario.AceptarUsuario(this.CedulaUsuarioSeleccionado);
             switch (resultado)
             {
                 case 0:
@@ -109,14 +109,14 @@ namespace SistemaUPGrafica
                     MessageBox.Show("Ocurrió un error en la base de datos".ToUpper(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
             }
-   
+
         }
 
         private void rechazarBtn_Click(object sender, EventArgs e)
         {
             var servicioUsuario = ServiceProvider.GetService<UsuarioService>();
             int resultado = servicioUsuario.RechazarUsuario(this.CedulaUsuarioSeleccionado);
-            
+
             switch (resultado)
             {
                 case 0:
@@ -130,7 +130,7 @@ namespace SistemaUPGrafica
                     MessageBox.Show("Ocurrió un error en la base de datos".ToUpper(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
             }
-           
+
         }
 
         private void refrescarBtn_Click(object sender, EventArgs e)
@@ -205,6 +205,26 @@ namespace SistemaUPGrafica
             if (cedula != null)
             {
                 CedulaUsuarioSeleccionado = Convert.ToString(cedula);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var servicioUsuario = ServiceProvider.GetService<UsuarioService>();
+            int resultado = servicioUsuario.ActualizarCondicionLogin(this.CedulaUsuarioSeleccionado, "DESCONECTADO");
+
+            switch (resultado)
+            {
+                case 0:
+                    MessageBox.Show("El usuario no existe".ToUpper(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                case 1:
+                    MessageBox.Show("Condición actualizada correctamente".ToUpper(), "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarDatos();
+                    break;
+                default:
+                    MessageBox.Show("Ocurrió un error en la base de datos".ToUpper(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
             }
         }
     }

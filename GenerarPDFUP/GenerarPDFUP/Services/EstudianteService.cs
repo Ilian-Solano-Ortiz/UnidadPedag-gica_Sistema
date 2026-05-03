@@ -21,25 +21,25 @@ namespace GenerarPDFUP.Services
 
 
 
-        public ResultadoMatriculaDto RegistrarMatricula(
-            int idUsuario,
-            string cedulaEstudiante,
-            string nombreEstudiante,
-            string fechaNacimiento,
-            string direccion,
-            string cedulaEncargado,
-            string nombreEncargado,
-            string telefonoEncargado,
-            string parentesco,
-            string lugarTrabajo,
-            string correo,
-            string nombreContactoEmergencia,
-            string telefonoEmergencia,
-            string fechaMatricula,
-            string annoLectivo,
-            string nivelSeleccionado,
-            string idiomaElegido)
-        {
+   public ResultadoMatriculaDto RegistrarMatricula(
+    int idUsuario,
+    string cedulaEstudiante,
+    string nombreEstudiante,
+    string fechaNacimiento,
+    string direccion,
+    string cedulaEncargado,
+    string nombreEncargado,
+    string telefonoEncargado,
+    string parentesco,
+    string lugarTrabajo,
+    string correo,
+    string nombreContactoEmergencia,
+    string telefonoEmergencia,
+    string fechaMatricula,
+    string annoLectivo,
+    string nivelSeleccionado,
+    string idiomaElegido)
+   {
             try
             {
                 var resultado = matriculasContext.ResultadoMatriculaDto
@@ -73,7 +73,7 @@ namespace GenerarPDFUP.Services
                 Console.WriteLine("Error inesperado: " + e.ToString());
                 return new ResultadoMatriculaDto { Resultado = 2 };
             }
-        }
+   }
         public ResultadoDto registrarEstudianteExcel(
             string cedulaEstudiante,
             string nombreEstudiante,

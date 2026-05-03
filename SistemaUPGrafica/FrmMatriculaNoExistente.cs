@@ -28,6 +28,7 @@ namespace SistemaUPGrafica
             generarPanelPadres();
             habilitacionComponentes(false);
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.Estudiante.IdiomaElegido = "";
         }
 
         private void label1_Click(object sender, EventArgs e)
