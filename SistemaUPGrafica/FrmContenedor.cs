@@ -84,7 +84,10 @@ namespace SistemaUPGrafica
         }
         private void estudiantesBtn_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new BuscarEstudiante(this._serviceProvider, this.Usuario));
+            Action volverABuscarEstudiante = null;
+            volverABuscarEstudiante = () => abrirFormulario(new BuscarEstudiante(this._serviceProvider, this.Usuario, volverABuscarEstudiante));
+            abrirFormulario(new BuscarEstudiante(this._serviceProvider, this.Usuario, volverABuscarEstudiante));
+            
         }
 
         private void usuariosBtn_Click(object sender, EventArgs e)

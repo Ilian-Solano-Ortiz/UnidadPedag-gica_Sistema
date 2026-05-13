@@ -22,7 +22,8 @@ namespace SistemaUPGrafica
         public Usuario Usuario { get; set; }
         private readonly Action _volverABuscarEstudiante;
 
-        public FrmCondicionSocieconomica(Estudiante estudiante, Encargado encargado, IServiceProvider serviceProvider, Usuario usuario)
+        public FrmCondicionSocieconomica(Estudiante estudiante, Encargado encargado,
+            IServiceProvider serviceProvider, Usuario usuario, Action volverABuscarEstudiante)
         {
             InitializeComponent();
             this._serviceProvider = serviceProvider;
@@ -32,6 +33,7 @@ namespace SistemaUPGrafica
             this.montoTxt.Enabled = false;
             habilitacionTiposBecas(false);
             this.Usuario = usuario;
+            this._volverABuscarEstudiante = volverABuscarEstudiante;
         }
 
         private void checkComedor_CheckedChanged(object sender, EventArgs e)
@@ -464,6 +466,12 @@ namespace SistemaUPGrafica
                 case 1:
                     MessageBox.Show("Matrícula registrada correctamente en la base de datos.".ToUpper(),
                         "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   
+                    this.Estudiante = new Estudiante() { IdiomaElegido = "" };
+                    this.Encargado = new Encargado();
+                    this.CondicionSocioEconomica = new CondicionSocioEconomica();
+                    _volverABuscarEstudiante(); 
+                   
                     break;
                 case 2:
                     MessageBox.Show("Ocurrió un error en la base de datos.\nLa hoja fue generada pero no se guardó en la base de datos.".ToUpper(),

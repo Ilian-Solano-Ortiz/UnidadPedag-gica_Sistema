@@ -19,7 +19,7 @@ namespace SistemaUPGrafica
             //Configuraci�n de la cadena de conexi�n
             services.AddDbContext<MatriculasContext>(options =>
             options.UseMySql(
-              "Server=localhost;Database=BD_Unidad_Pedagogica_Sistema;User Id=root;Password=Keylor18;",
+              "Server=localhost;Database=BD_Unidad_Pedagogica_Sistema;User Id=root;Password=Ilian29*;",
               new MySqlServerVersion(new Version(8, 0, 21))
             ));
 

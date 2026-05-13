@@ -18,17 +18,20 @@ namespace SistemaUPGrafica
 
         private readonly IServiceProvider _serviceProvider;
         public Usuario Usuario { get; set; }
+        private readonly Action _volverABuscarEstudiante;
 
-        public FrmMatriculaNoExistente(IServiceProvider serviceProvider, Usuario usuario)
+        public FrmMatriculaNoExistente(IServiceProvider serviceProvider, Usuario usuario, Action volverABuscarEstudiante)
         {
             InitializeComponent();
             this._serviceProvider = serviceProvider;
             this.Usuario = usuario;
             this.Estudiante = new Estudiante();
+            this._volverABuscarEstudiante = volverABuscarEstudiante;
             generarPanelPadres();
             habilitacionComponentes(false);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Estudiante.IdiomaElegido = "";
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -159,7 +162,7 @@ namespace SistemaUPGrafica
 
         private void generarPanelPadres()
         {
-            this.PanelPadres = new DatosPadres(this.Estudiante, this._serviceProvider, this.Usuario);
+            this.PanelPadres = new DatosPadres(this.Estudiante, this._serviceProvider, this.Usuario, this._volverABuscarEstudiante);
             this.PanelPadres.TopLevel = false;
             this.PanelPadres.FormBorderStyle = FormBorderStyle.None;
             this.PanelPadres.Dock = DockStyle.Fill;

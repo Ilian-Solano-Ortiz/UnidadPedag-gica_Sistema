@@ -21,13 +21,17 @@ namespace SistemaUPGrafica
 
         private readonly IServiceProvider _serviceProvider;
         public Usuario Usuario { get; set; }
-        public DatosPadres(Estudiante Estudiante, IServiceProvider serviceProvider, Usuario usuario)
+
+        private readonly Action _volverABuscarEstudiante;
+        public DatosPadres(Estudiante Estudiante, IServiceProvider serviceProvider, Usuario usuario, Action volverABuscarEstudiante)
         {
             InitializeComponent();
             this._serviceProvider = serviceProvider;
             this.Estudiante = Estudiante;
             this.Usuario = usuario;
             this.Encargado = new Encargado();
+            
+            this._volverABuscarEstudiante = volverABuscarEstudiante;
             generarPanelCondicion();
         }
 
@@ -113,7 +117,7 @@ namespace SistemaUPGrafica
 
         private void generarPanelCondicion()
         {
-            this.PanelCondicion = new FrmCondicionSocieconomica(this.Estudiante, this.Encargado, this._serviceProvider, this.Usuario);
+            this.PanelCondicion = new FrmCondicionSocieconomica(this.Estudiante, this.Encargado, this._serviceProvider, this.Usuario, this._volverABuscarEstudiante);
             this.PanelCondicion.FormBorderStyle = FormBorderStyle.None;
             this.PanelCondicion.TopLevel = false;
             this.PanelCondicion.Dock = DockStyle.None;

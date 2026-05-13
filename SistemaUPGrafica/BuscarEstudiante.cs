@@ -19,11 +19,13 @@ namespace SistemaUPGrafica
 
         public Usuario Usuario { get; set; }
 
-        public BuscarEstudiante(IServiceProvider serviceProvider, Usuario usuario)
+        private readonly Action _volverABuscarEstudiante;
+        public BuscarEstudiante(IServiceProvider serviceProvider, Usuario usuario, Action volverABuscarEstudiante)
         {
             InitializeComponent();
             this._serviceProvider = serviceProvider;
             this.Usuario = usuario;
+            this._volverABuscarEstudiante = volverABuscarEstudiante;
         }
 
         private void cerrarSesionBtn_Click(object sender, EventArgs e)
@@ -80,7 +82,7 @@ namespace SistemaUPGrafica
                     MessageBoxIcon.Question);
 
                 if (resultado == DialogResult.No)
-                    abrirFormulario(new FrmMatriculaNoExistente(this._serviceProvider, this.Usuario));
+                    abrirFormulario(new FrmMatriculaNoExistente(this._serviceProvider, this.Usuario, this._volverABuscarEstudiante));
             }
         }
 
@@ -113,10 +115,10 @@ namespace SistemaUPGrafica
             return estudianteService.obtenerEncargadosEstudiante(cedulaEstudiante);
         }
 
-        //Boton agregado
+        
         private void btnNuevoEstudiante_Click(object sender, EventArgs e)
         {
-            abrirFormulario(new FrmMatriculaNoExistente(this._serviceProvider, this.Usuario));
+            abrirFormulario(new FrmMatriculaNoExistente(this._serviceProvider, this.Usuario, this._volverABuscarEstudiante));
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
