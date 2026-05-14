@@ -9,7 +9,7 @@ namespace GenerarPDFUP.Models
     public class ResultadoMatriculaDto
     {
         public int Resultado { get; set; }
-        public long IdMatricula { get; set; }
+        public long? IdMatricula { get; set; }
 
     }
 }

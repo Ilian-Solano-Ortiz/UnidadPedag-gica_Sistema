@@ -180,7 +180,7 @@ namespace GenerarPDFUP.Services
                         CedulaEstudiante,
                         NombreEstudiante,
                         idEncargado,
-                        cedulaEncargado,   // ✅ agregado correctamente
+                        cedulaEncargado,   
                         nombreEncargado,
                         telefonoEncargado,
                         correo,
@@ -199,5 +199,32 @@ namespace GenerarPDFUP.Services
                 return new ResultadoMatriculaDto { Resultado = 2 };
             }
         }
+
+
+        // =====================================================
+        // ELIMINAR MATRICULA
+        // Retorna: 0 = no existe | 1 = eliminada | 2 = error
+        // =====================================================
+        public int EliminarMatricula(long idMatricula)
+        {
+            try
+            {
+                var resultado = matriculasContext.ResultadoDto
+                    .FromSqlRaw("CALL EliminarMatricula({0}, NULL)", idMatricula)
+                    .AsNoTracking()
+                    .AsEnumerable()
+                    .FirstOrDefault();
+
+                return resultado?.Resultado ?? -1;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error inesperado: " + e.ToString());
+                return -1;
+            }
+        }
+
+
+
     }
 }

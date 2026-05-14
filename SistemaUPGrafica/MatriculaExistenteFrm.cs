@@ -254,7 +254,7 @@ namespace SistemaUPGrafica
                 switch (resultado?.Resultado)
                 {
                     case 1:
-                        GenerarPDF(resultado.IdMatricula);
+                        GenerarPDF(resultado.IdMatricula??0);
                         break;
                     case 0:
                         MessageBox.Show(
