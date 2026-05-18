@@ -26,14 +26,14 @@ namespace GenerarPDFUP.Services
         public string[]? EnCasoEmergencia { get; set; }
         public string[]? TelofonoEmergencia { get; set; }
         //Método principal para crear la hoja de matricula
-        public void CrearFormulario(string ruta, Estudiante es, Encargado en, CondicionSocioEconomica con)
+        public void CrearFormulario(string ruta, Estudiante es, Encargado en, CondicionSocioEconomica con, long idMatricula)
         {
             InicializarDocumento(ruta);
             separarCasoEmergencia(en);
             separarTelefonoEmergencia(en);
 
             AgregarEncabezado();
-            AgregarTitulo(es);
+            AgregarTitulo(es, idMatricula);
             AgregarCuerpo(es, en, con);
             AgregarPieDePagina();
             CerrarDocumento();
@@ -76,15 +76,16 @@ namespace GenerarPDFUP.Services
             encabezado.AddCell(texto);
             encabezado.AddCell(ObtenerCeldaImagen("UPLogo.png", Element.ALIGN_RIGHT, 80f, 80f));
             documento.Add(encabezado);
-            documento.Add(new Paragraph("\n"));
+            
         }
 
         //Método para agregar el titulo en el pdf
-        private void AgregarTitulo(Estudiante es)
+        private void AgregarTitulo(Estudiante es, long idMatricula)
         {
-            Paragraph titulo = new Paragraph($"Hoja De Matrícula\nCurso Lectivo: {GenerarAño()}\n\n",
-                new Font(Font.TIMES_ROMAN, 11, Font.BOLD));
-            
+       
+            Paragraph titulo = new Paragraph(
+            $"Hoja De Matrícula\nCurso Lectivo: {GenerarAño()}\nN° Matrícula: {idMatricula}\n",
+             new Font(Font.TIMES_ROMAN, 11, Font.BOLD));
             AgregarNivelConChecks(es.NivelSeleccionado);
             titulo.Alignment = Element.ALIGN_CENTER;
            
@@ -251,7 +252,35 @@ namespace GenerarPDFUP.Services
             tabla.AddCell(espacio);
         }
 
-        
+        private void AgregarFilaConLineaExpandible(PdfPTable tabla, string etiqueta, string valor)
+        {
+            var celdaEtiqueta = new PdfPCell(new Phrase(etiqueta, fEtiqueta))
+            {
+                Border = Rectangle.NO_BORDER,
+                PaddingTop = 0f,
+                PaddingBottom = 2f,
+                VerticalAlignment = Element.ALIGN_BOTTOM
+            };
+
+            
+            var celdaValor = new PdfPCell(new Phrase(valor ?? "", fValor))
+            {
+                Border = Rectangle.BOTTOM_BORDER,
+                BorderWidthBottom = GRUESO_LINEA,
+                BorderWidthLeft = 0,
+                BorderWidthRight = 0,
+                BorderWidthTop = 0,
+                PaddingTop = 0f,
+                PaddingBottom = 2f,
+                
+            };
+
+            tabla.AddCell(celdaEtiqueta);
+            tabla.AddCell(celdaValor);
+
+            PdfPCell espacio = AgregarEspacio();
+            tabla.AddCell(espacio);
+        }
         private PdfPCell CeldaCheck(bool marcado)
         {
             var c = new PdfPCell(new Phrase(marcado ? "X" : " ", fValor))
@@ -387,6 +416,7 @@ namespace GenerarPDFUP.Services
 
         private void AgregarInfoBeca(CondicionSocioEconomica condicionSocioEconomica, Estudiante es)
         {
+            documento.NewPage();
             AgregarEncabezado();
             Chunk subtituloSubrayado = new Chunk("Condición Socioeconómica", new Font(Font.TIMES_ROMAN, 12, Font.BOLD));
             subtituloSubrayado.SetUnderline(0.5f, -2f);
@@ -433,7 +463,7 @@ namespace GenerarPDFUP.Services
             );
 
             AgregarFilaConLinea(tablaBeca, "Monto: ", condicionSocioEconomica.Monto);
-            AgregarFilaConLinea(tablaBeca, "Observaciones:", es.Observaciones);
+            AgregarFilaConLineaExpandible(tablaBeca, "Observaciones:", es.Observaciones);
             documento.Add(tablaBeca);
         }
 
