@@ -71,7 +71,7 @@ namespace SistemaUPGrafica
             if (estudiante != null)
             {
                 List<Encargado> encargados = traerEncargado(cedulaEstudianteTxt.Text.Trim());
-                abrirFormulario(new MatriculaExistenteFrm(estudiante, encargados, this._serviceProvider));
+                abrirFormulario(new MatriculaExistenteFrm(this.Usuario,estudiante, encargados, this._serviceProvider,this._volverABuscarEstudiante));
             }
             else
             {

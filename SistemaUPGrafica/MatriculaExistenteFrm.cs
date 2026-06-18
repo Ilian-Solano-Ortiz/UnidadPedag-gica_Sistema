@@ -1,23 +1,16 @@
 ﻿using GenerarPDFUP.Models;
 using GenerarPDFUP.Services;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SistemaUPGrafica
 {
     public partial class MatriculaExistenteFrm : Form
     {
         private readonly IServiceProvider _serviceProvider;
+        private readonly Action _volverABuscarEstudiante;
         public Estudiante? Estudiante { get; set; }
         public List<Encargado> Encargados;
+        public Usuario? Usuario { get; set; }
         public Encargado? EncargadoSeleccionado { get; set; }
         public List<List<String>> Grados = new List<List<String>>{
             new List<string>{"materno","kinder" },
@@ -25,12 +18,18 @@ namespace SistemaUPGrafica
             new List<string>{"séptimo","octavo","noveno","décimo","undécimo"}
         };
         public string PagoPatronato { get; set; } = "";
-        public MatriculaExistenteFrm(Estudiante estudiante, List<Encargado> encargados, IServiceProvider serviceProvider)
+
+        public MatriculaExistenteFrm(Usuario usuario,Estudiante estudiante,List<Encargado> encargados,IServiceProvider serviceProvider,Action volverABuscarEstudiante)
         {
             InitializeComponent();
+
             this._serviceProvider = serviceProvider;
+            this._volverABuscarEstudiante = volverABuscarEstudiante;
+
             this.Estudiante = estudiante;
             this.Encargados = encargados;
+            this.Usuario = usuario;
+
             llenarCampos();
         }
 
@@ -201,7 +200,7 @@ namespace SistemaUPGrafica
 
         private void generarBtn_Click(object sender, EventArgs e)
         {
-            // ── Validaciones básicas ──────────────────────────────
+           
             if (string.IsNullOrWhiteSpace(annoLectivoTxt.Text))
             {
                 MessageBox.Show("Debe ingresar el año lectivo.".ToUpper(),
@@ -229,13 +228,11 @@ namespace SistemaUPGrafica
             {
                 editarInformacionEstudiante();
 
-                // ── Determinar IdEncargado ────────────────────────
-                // null o 0 = encargado nuevo, el SP lo insertará
+               
                 int idEncargado = this.EncargadoSeleccionado?.IdEncargado ?? 0;
 
-                // ── Llamar al SP ──────────────────────────────────
                 var resultado = estudianteService.MatriculaEstudianteExistente(
-                    idUsuario: 1, // ← reemplazá con el usuario logueado real
+                    idUsuario: this.Usuario?.IdUsuario ?? 0,
                     idEstudiante: this.Estudiante.IdEstudiante,
                     CedulaEstudiante: cedulaEstudianteTxt.Text,
                     NombreEstudiante: nombreCompletoTxt.Text,
@@ -250,13 +247,12 @@ namespace SistemaUPGrafica
                     idiomaElegido: this.Estudiante.IdiomaElegido ?? string.Empty
                 );
 
-                // ── Evaluar resultado del SP ──────────────────────
                 switch (resultado?.Resultado)
                 {
                     case 1:
-                        GenerarPDF(resultado.IdMatricula??0);
+                        GenerarPDF(resultado.IdMatricula ?? 0);
                         break;
-                    case 0:
+                    case 2:
                         MessageBox.Show(
                             "Este estudiante ya tiene una matrícula registrada para este año lectivo.".ToUpper(),
                             "Matrícula duplicada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -268,11 +264,10 @@ namespace SistemaUPGrafica
                         break;
                     default:
                         MessageBox.Show("Error" + resultado?.Resultado,
-
-    "Error",
-    MessageBoxButtons.OK,
-    MessageBoxIcon.Error
-);
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                            );
                         break;
                 }
             }
@@ -284,10 +279,9 @@ namespace SistemaUPGrafica
             }
         }
 
-        // ── Generación del PDF separada ───────────────────────────
+       
         private void GenerarPDF(long idMatricula)
         {
-            PlantillaExistente plantilla = new PlantillaExistente();
             SaveFileDialog rutaGuardar = new SaveFileDialog
             {
                 Title = "Guardar Archivo",
@@ -296,9 +290,19 @@ namespace SistemaUPGrafica
                 DefaultExt = "pdf"
             };
 
-            if (rutaGuardar.ShowDialog() == DialogResult.OK)
+            if (rutaGuardar.ShowDialog() != DialogResult.OK)
             {
-                // Construir el encargado final con los datos actuales de pantalla
+            
+                EliminarMatriculaSiCancela(idMatricula);
+                MessageBox.Show(
+                    "Se ha cancelado la generación. La matrícula no fue registrada.".ToUpper(),
+                    "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            
+            try
+            {
                 Encargado encargadoFinal = new Encargado
                 {
                     IdEncargado = this.EncargadoSeleccionado?.IdEncargado ?? 0,
@@ -306,30 +310,53 @@ namespace SistemaUPGrafica
                     NombreEncargado = nombreEncargadoTxt.Text,
                     TelefonoEncargado = telefonoEncargadoTxt.Text,
                     Correo = correoEncargadoTxt.Text,
-                    // Campos no editables en esta vista, tomar del seleccionado si existe
                     Parentesco = this.EncargadoSeleccionado?.Parentesco ?? "No especificado",
                     LugarTrabajo = this.EncargadoSeleccionado?.LugarTrabajo ?? "No especificado",
                     NombreContactoEmergencia = this.EncargadoSeleccionado?.NombreContactoEmergencia ?? "No especificado",
                     TelefonoContactoEmergencia = this.EncargadoSeleccionado?.TelefonoContactoEmergencia ?? "00000000"
                 };
-
+                PlantillaExistente plantilla = new PlantillaExistente();
                 plantilla.CrearFormulario(
                     idMatricula,
                     rutaGuardar.FileName,
                     this.Estudiante,
                     encargadoFinal,
                     PagoPatronato,
-                    montoPatronatoTxt.Text);
+                    montoPatronatoTxt.Text,
+                    annoLectivoTxt.Text,
+                    observacionesTxt.Text);
 
                 MessageBox.Show(
                     "Se ha generado la hoja de matrícula con éxito".ToUpper(),
                     "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _volverABuscarEstudiante?.Invoke();
             }
-            else
+            catch (Exception ex)
+            {
+            
+                EliminarMatriculaSiCancela(idMatricula);
+                MessageBox.Show(
+                    "Hubo un problema al generar el PDF. La matrícula no fue registrada.".ToUpper(),
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+      
+        private void EliminarMatriculaSiCancela(long idMatricula)
+        {
+            if (idMatricula <= 0) return;
+
+            var estudianteService = _serviceProvider.GetService<EstudianteService>();
+            if (estudianteService == null) return;
+
+            int resultadoEliminar = estudianteService.EliminarMatricula(idMatricula);
+
+            if (resultadoEliminar != 1)
             {
                 MessageBox.Show(
-                    "Se ha cancelado la generación de la hoja de matrícula".ToUpper(),
-                    "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    $"Advertencia: No se pudo eliminar la matrícula con ID {idMatricula}. Contacte al administrador.".ToUpper(),
+                    "Error de rollback", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -340,7 +367,6 @@ namespace SistemaUPGrafica
 
             if (this.Encargados != null && this.Encargados.Count > 0)
             {
-                // Siempre asignar el primero como seleccionado por defecto
                 this.EncargadoSeleccionado = this.Encargados[0];
 
                 if (this.Encargados.Count == 1)
@@ -371,7 +397,6 @@ namespace SistemaUPGrafica
                 encargadosLabel.Visible = false;
                 nuevoEncargadoCheck.Visible = false;
 
-                // Sin encargados: campos vacíos y habilitados para llenar
                 HabilitarCamposEncargado(true);
 
                 MessageBox.Show(
@@ -390,43 +415,6 @@ namespace SistemaUPGrafica
             correoEncargadoTxt.Text = encargado.Correo ?? string.Empty;
         }
 
-        private void llenarCheckNiveles()
-        {
-            for (int i = 0; i < Grados.Count; i++)
-            {
-
-                for (int j = 0; j < Grados[i].Count; j++)
-                {
-                    if (Grados[i][j].ToLower().Equals(Estudiante.NivelEstudiante.ToLower()))
-                    {
-
-                        if (i == 0)
-                        {
-
-                            preescolarCheck.Checked = true;
-
-                            return;
-                        }
-                        else if (i == 1)
-                        {
-
-                            primariaCheck.Checked = true;
-
-                            return;
-                        }
-                        else
-                        {
-
-                            secundariaCheck.Checked = true;
-
-                            return;
-                        }
-
-                    }
-                }
-
-            }
-        }
         private void editarInformacionEstudiante()
         {
             this.Estudiante.CedulaEstudiante = cedulaEstudianteTxt.Text;
@@ -578,19 +566,17 @@ namespace SistemaUPGrafica
         {
             if (nuevoEncargadoCheck.Checked)
             {
-                // Limpiar campos y habilitar para ingresar nuevo encargado
-                this.EncargadoSeleccionado = null; // null = encargado nuevo
+                this.EncargadoSeleccionado = null;
                 encargadosCb.Enabled = false;
                 HabilitarCamposEncargado(true);
                 LimpiarCamposEncargado();
             }
             else
             {
-                // Volver al encargado seleccionado en el ComboBox
+             
                 encargadosCb.Enabled = true;
                 HabilitarCamposEncargado(false);
 
-                // Restaurar datos del encargado que estaba seleccionado
                 if (this.Encargados != null && this.Encargados.Count > 0)
                 {
                     var encargado = encargadosCb.Visible

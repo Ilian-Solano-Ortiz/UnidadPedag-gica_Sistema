@@ -31,12 +31,12 @@ namespace GenerarPDFUP.Services
             documento.Open();
         }
 
-        public void CrearFormulario(long idMatricula, string ruta, Estudiante es, Encargado en, string pagoPatronato, string monto)
+        public void CrearFormulario(long idMatricula, string ruta, Estudiante es, Encargado en, string pagoPatronato, string monto,string cursoLectivo,string observaciones)
         {
             InicializarDocumento(ruta);
             AgregarEncabezado(idMatricula);
-            AgregarTitulo(es);
-            AgregarCuerpo(es, en, pagoPatronato, monto);
+            AgregarTitulo(es, cursoLectivo);
+            AgregarCuerpo(es, en, pagoPatronato, monto, observaciones);
             AgregarPieDePagina();
             CerrarDocumento();
         }
@@ -93,9 +93,9 @@ namespace GenerarPDFUP.Services
             return celda;
         }
 
-        private void AgregarTitulo(Estudiante es)
+        private void AgregarTitulo(Estudiante es, string cursoLectivo)
         {
-            Paragraph titulo = new Paragraph($"Validación De Matrícula\nCurso Lectivo: {GenerarAño()}\n\n",
+            Paragraph titulo = new Paragraph($"Validación De Matrícula\nCurso Lectivo: {cursoLectivo}\n\n",
                 new Font(Font.TIMES_ROMAN, 11, Font.BOLD));
 
             AgregarNivelConChecks(es.NivelSeleccionado);
@@ -134,13 +134,6 @@ namespace GenerarPDFUP.Services
             return c;
         }
 
-        private string GenerarAño()
-        {
-            string fecha;
-            fecha = DateAndTime.Year(DateAndTime.Now) + "";
-            return fecha;
-        }
-
         private void CerrarDocumento()
         {
             documento.Close();
@@ -163,17 +156,22 @@ namespace GenerarPDFUP.Services
             documento.Add(new Paragraph("\nFirma del funcionario que hace la matrícula: ___________________________", new Font(Font.TIMES_ROMAN, 12)));
         }
 
-        public void AgregarCuerpo(Estudiante es, Encargado en, string pagoPatronato, string monto)
+        public void AgregarCuerpo(Estudiante es, Encargado en, string pagoPatronato, string monto, string observaciones)
         {
             PdfPTable tabla = new PdfPTable(2);
             tabla.WidthPercentage = 100;
             tabla.SetWidths(new float[] { 35f, 65f });
             AgregarFilaConLinea(tabla, "Nivel:", es.NivelEstudiante);
             AgregarFilaConLinea(tabla, "Fecha de Matrícula:", es.FechaMatricula);
+
+            AgregarFilaConLinea(tabla, "Cédula del Estudiante:", es.CedulaEstudiante);
             AgregarFilaConLinea(tabla, "Nombre Completo del Estudiante:", es.NombreEstudiante);
-            AgregarFilaConLinea(tabla, "Cédula:", es.CedulaEstudiante);
-            AgregarFilaConLinea(tabla, "Teléfono del encargado:", en.TelefonoEncargado);
-            AgregarFilaConLinea(tabla, "Correo del encargado:", en.Correo);
+
+            AgregarFilaConLinea(tabla, "Cédula del Encargado:", en.CedulaEncargado);
+            AgregarFilaConLinea(tabla, "Nombre del Encargado:", en.NombreEncargado);
+
+            AgregarFilaConLinea(tabla, "Teléfono del Encargado:", en.TelefonoEncargado);
+            AgregarFilaConLinea(tabla, "Correo del Encargado:", en.Correo);
 
             AgregarFilaChecks(tabla, "Si cursa el nivel de 10° elija el idioma (10°):",
                 ("Inglés", string.Equals(es.IdiomaElegido, "Inglés", StringComparison.OrdinalIgnoreCase)),
@@ -197,7 +195,41 @@ namespace GenerarPDFUP.Services
                 ("No", string.Equals(pagoPatronato, "false", StringComparison.OrdinalIgnoreCase))
             );
             AgregarFilaConLinea(tabla, "Monto: ", monto);
+
             documento.Add(tabla);
+
+            Paragraph espacio = new Paragraph("\n");
+            documento.Add(espacio);
+
+            PdfPTable tablaObservaciones = new PdfPTable(1);
+            tablaObservaciones.WidthPercentage = 100;
+
+            PdfPCell tituloObservaciones = new PdfPCell(
+                new Phrase("OBSERVACIONES", fEtiqueta))
+            {
+                HorizontalAlignment = Element.ALIGN_CENTER,
+                VerticalAlignment = Element.ALIGN_MIDDLE,
+                FixedHeight = 25f
+            };
+
+            tablaObservaciones.AddCell(tituloObservaciones);
+
+            string textoObservaciones = string.IsNullOrWhiteSpace(observaciones)
+                ? "\n\n\n\n\n"
+                : observaciones + "\n\n\n";
+
+            PdfPCell contenidoObservaciones = new PdfPCell(
+                new Phrase(textoObservaciones, fValor))
+            {
+                MinimumHeight = 100f,
+                VerticalAlignment = Element.ALIGN_TOP,
+                Padding = 8f
+            };
+
+            tablaObservaciones.AddCell(contenidoObservaciones);
+
+            documento.Add(tablaObservaciones);
+
             PlantillaNoExistente.AgregarActaDeCompromiso(this.documento);
         }
 
