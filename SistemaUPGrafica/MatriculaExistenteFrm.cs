@@ -1,4 +1,4 @@
-﻿using GenerarPDFUP.Models;
+using GenerarPDFUP.Models;
 using GenerarPDFUP.Services;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -31,6 +31,7 @@ namespace SistemaUPGrafica
             this.Usuario = usuario;
 
             llenarCampos();
+            habilitacionComponentes(false);
         }
 
         private void preescolarCheck_CheckedChanged(object sender, EventArgs e)
@@ -200,7 +201,22 @@ namespace SistemaUPGrafica
 
         private void generarBtn_Click(object sender, EventArgs e)
         {
-           
+            // Validar que se haya seleccionado un nivel (checkbox)
+            if (!preescolarCheck.Checked && !primariaCheck.Checked && !secundariaCheck.Checked)
+            {
+                MessageBox.Show("Debe seleccionar un nivel (Preescolar, Primaria o Secundaria).".ToUpper(),
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Validar que se haya seleccionado un grado en el combobox
+            if (nivelCbx.SelectedIndex == -1 || string.IsNullOrWhiteSpace(nivelCbx.Text))
+            {
+                MessageBox.Show("Debe seleccionar un grado en el nivel.".ToUpper(),
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(annoLectivoTxt.Text))
             {
                 MessageBox.Show("Debe ingresar el año lectivo.".ToUpper(),
@@ -213,6 +229,32 @@ namespace SistemaUPGrafica
             {
                 MessageBox.Show("Debe completar los datos del encargado.".ToUpper(),
                     "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(telefonoEncargadoTxt.Text))
+            {
+                MessageBox.Show("El campo de teléfono del encargado es obligatorio.".ToUpper(),
+                    "Campo vacío", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!ValidarTelefono(telefonoEncargadoTxt.Text.Trim()))
+            {
+                MessageBox.Show("El teléfono debe tener el formato: 6230-1020", "Formato incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(correoEncargadoTxt.Text))
+            {
+                MessageBox.Show("El campo de correo electrónico del encargado es obligatorio.".ToUpper(),
+                    "Campo vacío", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!ValidarCorreo(correoEncargadoTxt.Text.Trim()))
+            {
+                MessageBox.Show("El correo debe tener un formato válido. Ejemplo: ejemplo@gmail.com", "Formato incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -540,8 +582,11 @@ namespace SistemaUPGrafica
         {
             nivelCbx.Enabled = habilitar;
             fechaMatricula.Enabled = habilitar;
+            annoLectivoTxt.Enabled = habilitar;
             nombreCompletoTxt.Enabled = habilitar;
             cedulaEstudianteTxt.Enabled = habilitar;
+            cedulaEncargadoTxt.Enabled = habilitar;
+            nombreEncargadoTxt.Enabled = habilitar;
             telefonoEncargadoTxt.Enabled = habilitar;
             inglesCheck.Enabled = habilitar;
             francesCheck.Enabled = habilitar;
@@ -552,6 +597,7 @@ namespace SistemaUPGrafica
             correoEncargadoTxt.Enabled = habilitar;
             siCheckPatronato.Enabled = habilitar;
             noCheckPatronato.Enabled = habilitar;
+            observacionesTxt.Enabled = habilitar;
             generarBtn.Enabled = habilitar;
         }
 
@@ -603,6 +649,17 @@ namespace SistemaUPGrafica
             nombreEncargadoTxt.Text = string.Empty;
             telefonoEncargadoTxt.Text = string.Empty;
             correoEncargadoTxt.Text = string.Empty;
+        }
+
+        private bool ValidarTelefono(string telefono)
+        {
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"^\d{4}-\d{4}$");
+            return regex.IsMatch(telefono);
+        }
+
+        private bool ValidarCorreo(string correo)
+        {
+            return correo.Contains("@") && correo.Contains(".");
         }
     }
 }

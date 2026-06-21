@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -463,8 +463,39 @@ namespace GenerarPDFUP.Services
             );
 
             AgregarFilaConLinea(tablaBeca, "Monto: ", condicionSocioEconomica.Monto);
-            AgregarFilaConLineaExpandible(tablaBeca, "Observaciones:", es.Observaciones);
             documento.Add(tablaBeca);
+
+            Paragraph espacio = new Paragraph("\n");
+            documento.Add(espacio);
+
+            PdfPTable tablaObservaciones = new PdfPTable(1);
+            tablaObservaciones.WidthPercentage = 100;
+
+            PdfPCell tituloObservaciones = new PdfPCell(
+                new Phrase("OBSERVACIONES", fEtiqueta))
+            {
+                HorizontalAlignment = Element.ALIGN_CENTER,
+                VerticalAlignment = Element.ALIGN_MIDDLE,
+                FixedHeight = 25f
+            };
+
+            tablaObservaciones.AddCell(tituloObservaciones);
+
+            string textoObservaciones = string.IsNullOrWhiteSpace(es.Observaciones)
+                ? "\n\n\n\n\n"
+                : es.Observaciones + "\n\n\n";
+
+            PdfPCell contenidoObservaciones = new PdfPCell(
+                new Phrase(textoObservaciones, fValor))
+            {
+                MinimumHeight = 100f,
+                VerticalAlignment = Element.ALIGN_TOP,
+                Padding = 8f
+            };
+
+            tablaObservaciones.AddCell(contenidoObservaciones);
+
+            documento.Add(tablaObservaciones);
         }
 
         public static void AgregarActaDeCompromiso(Document documento)

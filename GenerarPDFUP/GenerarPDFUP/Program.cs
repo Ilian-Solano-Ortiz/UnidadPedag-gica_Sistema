@@ -35,7 +35,7 @@ es.NivelSeleccionado = "Secundaria";
 //PlantillaNoExistente plantilla = new PlantillaNoExistente();
 PlantillaExistente plantilla2 = new PlantillaExistente();
 //plantilla.CrearFormulario("FormularioMatricula.pdf", es, en);
-plantilla2.CrearFormulario(1, "FormularioMatricula2.pdf", es, en, "true", "1000");
+//plantilla2.CrearFormulario(1, "FormularioMatricula2.pdf", es, en, "true", "1000");
 
 
 
