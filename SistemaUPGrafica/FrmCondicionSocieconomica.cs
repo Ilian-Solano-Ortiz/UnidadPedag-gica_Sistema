@@ -1,4 +1,4 @@
-﻿using GenerarPDFUP.Models;
+using GenerarPDFUP.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -99,32 +99,7 @@ namespace SistemaUPGrafica
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            /*  try
-              {
-                  CondicionSocioEconomica.Monto = montoTxt.Text;
-                  PlantillaNoExistente plantilla = new PlantillaNoExistente();
-                  SaveFileDialog rutaGuardar = new SaveFileDialog();
-                  rutaGuardar.Title = "Guardar Archivo";
-                  rutaGuardar.Filter = "Archivos PDF (*.pdf)|*.pdf";
-                  rutaGuardar.FileName = "Hoja de matrícula " + Estudiante.NombreEstudiante + ".pdf";
-                  rutaGuardar.DefaultExt = "pdf";
-                  if (rutaGuardar.ShowDialog() == DialogResult.OK)
-                  {
-                      string rutaSeleccionada = rutaGuardar.FileName;
-                      plantilla.CrearFormulario(rutaSeleccionada, Estudiante, Encargado, CondicionSocioEconomica);
-                      MessageBox.Show("Se ha generado la hoja de matrícula con éxito".ToUpper(), "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                      RegistroEstudianteBaseDatos();
-                  }
-                  else
-                  {
-                      MessageBox.Show("Se ha cancelado la hoja de matrícula".ToUpper(), "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                  }
-
-              }
-              catch (Exception ex)
-              {
-                  MessageBox.Show("Hubo un problema al generar la hoja de matrícula".ToUpper(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-              }*/
+            
             RealizarHoja();
 
         }
@@ -531,14 +506,7 @@ namespace SistemaUPGrafica
             {
                 CondicionSocioEconomica.Monto = montoTxt.Text;
 
-                
-                var resultadoRegistro = RegistroEstudianteBaseDatos();
-
-                if (resultadoRegistro == null || resultadoRegistro.Resultado != 1)
-                    return; 
-
-                long idMatricula = resultadoRegistro.IdMatricula ?? 0;
-
+                // Primero mostrar el diálogo para guardar el PDF
                 PlantillaNoExistente plantilla = new PlantillaNoExistente();
                 SaveFileDialog rutaGuardar = new SaveFileDialog();
                 rutaGuardar.Title = "Guardar Archivo";
@@ -548,6 +516,14 @@ namespace SistemaUPGrafica
 
                 if (rutaGuardar.ShowDialog() == DialogResult.OK)
                 {
+                    // El usuario confirmó guardar, ahora registrar en la BD
+                    var resultadoRegistro = RegistroEstudianteBaseDatos();
+
+                    if (resultadoRegistro == null || resultadoRegistro.Resultado != 1)
+                        return;
+
+                    long idMatricula = resultadoRegistro.IdMatricula ?? 0;
+
                     string rutaSeleccionada = rutaGuardar.FileName;
                     plantilla.CrearFormulario(rutaSeleccionada, Estudiante, Encargado, CondicionSocioEconomica, idMatricula);
                     MessageBox.Show("Se ha generado la hoja de matrícula con éxito".ToUpper(), "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -559,8 +535,7 @@ namespace SistemaUPGrafica
                 }
                 else
                 {
-                    var servicioEstudiante = this._serviceProvider.GetService<EstudianteService>();
-                    servicioEstudiante.EliminarMatricula(idMatricula);
+                    // El usuario canceló, no se toca la base de datos
                     MessageBox.Show("Se ha cancelado la hoja de matrícula.\nLos datos no fueron guardados.".ToUpper(),
                         "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
