@@ -11,7 +11,7 @@
 -- =====================================================
 
 DELIMITER $$
-
+DROP PROCEDURE IF EXISTS RegistrarMatricula;
 CREATE PROCEDURE RegistrarMatricula(
 
     IN pIdUsuario INT,
@@ -75,6 +75,14 @@ BEGIN
 
         SET vIdEstudiante = LAST_INSERT_ID();
 
+    ELSE
+
+        UPDATE Estudiante
+        SET NombreEstudiante = pNombreEstudiante,
+            FechaNacimiento = pFechaNacimiento,
+            Direccion = pDireccion
+        WHERE IdEstudiante = vIdEstudiante;
+
     END IF;
 
     SELECT IdEncargado
@@ -107,6 +115,18 @@ BEGIN
         );
 
         SET vIdEncargado = LAST_INSERT_ID();
+
+    ELSE
+
+        UPDATE Encargado
+        SET NombreEncargado = pNombreEncargado,
+            TelefonoEncargado = pTelefonoEncargado,
+            Parentesco = pParentesco,
+            LugarTrabajo = pLugarTrabajo,
+            Correo = pCorreo,
+            NombreContactoEmergencia = pNombreContactoEmergencia,
+            TelefonoContactoEmergencia = pTelefonoEmergencia
+        WHERE IdEncargado = vIdEncargado;
 
     END IF;
 

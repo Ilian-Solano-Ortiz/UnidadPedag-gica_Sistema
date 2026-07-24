@@ -22,7 +22,10 @@ namespace SistemaUPGrafica
               "Server=localhost;Database=BD_Unidad_Pedagogica_Sistema;User Id=root;Password=Keylor18;",
               new MySqlServerVersion(new Version(8, 0, 21))
             ));
-
+           /* options.UseMySql(
+              "Server=192.168.0.230;Database=BD_Unidad_Pedagogica_Sistema;User Id=sistema_up1;Password=UnaClaveSegura123*;",
+              new MySqlServerVersion(new Version(8, 0, 21))
+            ));*/
             //Agregar todos los servicios
             services.AddTransient<EstudianteService>();
             services.AddTransient<UsuarioService>();
