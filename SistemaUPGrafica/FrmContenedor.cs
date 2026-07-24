@@ -1,13 +1,4 @@
 ﻿using GenerarPDFUP.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
 using GenerarPDFUP.Services;
 using OfficeOpenXml;
@@ -16,6 +7,8 @@ namespace SistemaUPGrafica
 {
     public partial class FrmContenedor : Form
     {
+        private const double TOLERANCIA_DUPLICADOS = 0.90; // 90%
+
         public Form FormularioActivo { get; set; }
         public Usuario Usuario { get; set; }
 
@@ -29,7 +22,7 @@ namespace SistemaUPGrafica
             usuariosBtn.Visible = false;
             FormularioActivo = null;
             this.StartPosition = FormStartPosition.CenterScreen;
-            
+
             this.FormClosing += (s, e) =>
             {
 
@@ -37,7 +30,7 @@ namespace SistemaUPGrafica
                 {
                     var usuarioServicio = _serviceProvider.GetService<UsuarioService>();
                     usuarioServicio.LogoutUsuario(this.Usuario.CedulaUsuario);
-                     
+
                     Application.Exit();
                 }
             };
@@ -87,7 +80,7 @@ namespace SistemaUPGrafica
             Action volverABuscarEstudiante = null;
             volverABuscarEstudiante = () => abrirFormulario(new BuscarEstudiante(this._serviceProvider, this.Usuario, volverABuscarEstudiante));
             abrirFormulario(new BuscarEstudiante(this._serviceProvider, this.Usuario, volverABuscarEstudiante));
-            
+
         }
 
         private void usuariosBtn_Click(object sender, EventArgs e)
@@ -127,9 +120,13 @@ namespace SistemaUPGrafica
         {
             ExcelPackage.License.SetNonCommercialOrganization("Univerdiad de Costa Rica");
 
+            int totalProcesados = 0;
             int totalInsertados = 0;
-            int totalErrores = 0;
-            var errores = new System.Text.StringBuilder();
+            int totalDuplicados = 0;
+            int totalErroresReales = 0;
+
+            var duplicados = new System.Text.StringBuilder();
+            var erroresReales = new System.Text.StringBuilder();
 
             try
             {
@@ -147,11 +144,13 @@ namespace SistemaUPGrafica
                         if (hoja.Dimension == null || hoja.Dimension.Rows <= 1)
                             continue;
 
-                        ProcesarHoja(hoja, estudianteService, ref totalInsertados, ref totalErrores, errores);
+                        ProcesarHoja(hoja, estudianteService,
+                            ref totalProcesados, ref totalInsertados, ref totalDuplicados, ref totalErroresReales,
+                            duplicados, erroresReales);
                     }
                 }
 
-                MostrarResumen(totalInsertados, totalErrores, errores);
+                MostrarResumen(totalProcesados, totalInsertados, totalDuplicados, totalErroresReales, duplicados, erroresReales);
             }
             catch (Exception ex)
             {
@@ -162,9 +161,12 @@ namespace SistemaUPGrafica
         private void ProcesarHoja(
             ExcelWorksheet hoja,
             EstudianteService estudianteService,
+            ref int totalProcesados,
             ref int totalInsertados,
-            ref int totalErrores,
-            System.Text.StringBuilder errores)
+            ref int totalDuplicados,
+            ref int totalErroresReales,
+            System.Text.StringBuilder duplicados,
+            System.Text.StringBuilder erroresReales)
         {
             int totalFilas = hoja.Dimension.Rows;
 
@@ -204,8 +206,11 @@ namespace SistemaUPGrafica
                     domicilio
                 );
 
+                totalProcesados++;
+
                 EvaluarResultado(resultado, hoja.Name, fila, nombreCompleto,
-                    ref totalInsertados, ref totalErrores, errores);
+                    ref totalInsertados, ref totalDuplicados, ref totalErroresReales,
+                    duplicados, erroresReales);
             }
         }
         private void EvaluarResultado(
@@ -214,8 +219,10 @@ namespace SistemaUPGrafica
             int fila,
             string nombreCompleto,
             ref int totalInsertados,
-            ref int totalErrores,
-            System.Text.StringBuilder errores)
+            ref int totalDuplicados,
+            ref int totalErroresReales,
+            System.Text.StringBuilder duplicados,
+            System.Text.StringBuilder erroresReales)
         {
             switch (resultado?.Resultado)
             {
@@ -223,34 +230,77 @@ namespace SistemaUPGrafica
                     totalInsertados++;
                     break;
                 case 2:
-                    totalErrores++;
-                    errores.AppendLine($"Hoja '{nombreHoja}', Fila {fila}: '{nombreCompleto}' - El estudiante ya existe.");
+                    totalDuplicados++;
+                    duplicados.AppendLine($"Hoja '{nombreHoja}', Fila {fila}: '{nombreCompleto}' - El estudiante ya existe.");
                     break;
                 case 3:
-                    totalErrores++;
-                    errores.AppendLine($"Hoja '{nombreHoja}', Fila {fila}: '{nombreCompleto}' - Error en base de datos.");
+                    totalErroresReales++;
+                    erroresReales.AppendLine($"Hoja '{nombreHoja}', Fila {fila}: '{nombreCompleto}' - Error en base de datos.");
                     break;
                 default:
-                    totalErrores++;
-                    errores.AppendLine($"Hoja '{nombreHoja}', Fila {fila}: '{nombreCompleto}' - Resultado desconocido ({resultado?.Resultado}).");
+                    totalErroresReales++;
+                    erroresReales.AppendLine($"Hoja '{nombreHoja}', Fila {fila}: '{nombreCompleto}' - Resultado desconocido ({resultado?.Resultado}).");
                     break;
             }
         }
-        private void MostrarResumen(int totalInsertados, int totalErrores, System.Text.StringBuilder errores)
+        private void MostrarResumen(
+            int totalProcesados,
+            int totalInsertados,
+            int totalDuplicados,
+            int totalErroresReales,
+            System.Text.StringBuilder duplicados,
+            System.Text.StringBuilder erroresReales)
         {
-            string resumen = $"PROCESO COMPLETADO\n\n" +
-                             $"✔  Insertados correctamente: {totalInsertados}\n" +
-                             $"✖  Con errores: {totalErrores}";
-
-            if (errores.Length > 0)
+            if (totalProcesados == 0)
             {
-                resumen += $"\n\nDetalle de errores:\n{errores}";
-                MessageBox.Show(resumen, "Resultado de Carga", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No se encontraron filas válidas para procesar.".ToUpper(),
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            double porcentajeDuplicados = (double)totalDuplicados / totalProcesados;
+            bool mayoriaDuplicados = totalDuplicados > 0 && porcentajeDuplicados >= TOLERANCIA_DUPLICADOS;
+
+            var resumen = new System.Text.StringBuilder();
+            resumen.AppendLine("PROCESO COMPLETADO");
+            resumen.AppendLine();
+
+            if (mayoriaDuplicados)
+            {
+                resumen.AppendLine($"La mayoría de los estudiantes de este archivo ya estaban registrados " +
+                                    $"({totalDuplicados} de {totalProcesados}, {porcentajeDuplicados:P0}).");
+                resumen.AppendLine($"✔  Estudiantes nuevos ingresados: {totalInsertados}");
             }
             else
             {
-                MessageBox.Show(resumen, "Resultado de Carga", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                resumen.AppendLine($"✔  Insertados correctamente: {totalInsertados}");
+                if (totalDuplicados > 0)
+                    resumen.AppendLine($"↺  Ya existían: {totalDuplicados}");
             }
+
+            if (totalErroresReales > 0)
+                resumen.AppendLine($"✖  Con errores: {totalErroresReales}");
+
+            // El detalle de duplicados solo se colapsa cuando son la mayoría (ej. archivo repetido).
+            // Si son pocos, se listan igual que antes: puede indicar un mapeo de columnas erróneo.
+            if (!mayoriaDuplicados && duplicados.Length > 0)
+            {
+                resumen.AppendLine();
+                resumen.AppendLine("Detalle de estudiantes ya existentes:");
+                resumen.Append(duplicados);
+            }
+
+            // Los errores reales (no duplicados) siempre se muestran en detalle para análisis.
+            if (erroresReales.Length > 0)
+            {
+                resumen.AppendLine();
+                resumen.AppendLine("Detalle de errores:");
+                resumen.Append(erroresReales);
+            }
+
+            bool hayAlgoQueRevisar = totalErroresReales > 0 || (!mayoriaDuplicados && totalDuplicados > 0);
+            MessageBox.Show(resumen.ToString(), "Resultado de Carga", MessageBoxButtons.OK,
+                hayAlgoQueRevisar ? MessageBoxIcon.Warning : MessageBoxIcon.Information);
         }
         private string ObtenerCelda(ExcelWorksheet hoja, int fila, int columna)
         {

@@ -505,7 +505,7 @@ namespace SistemaUPGrafica
             {
                 this.EncargadoSeleccionado = encargadoSeleccionado;
                 CargarDatosEncargado(encargadoSeleccionado);
-                HabilitarCamposEncargado(false); // solo lectura si es existente
+                HabilitarCamposEncargado(true); // <- antes estaba en false ("solo lectura si es existente")
             }
         }
 
@@ -619,9 +619,8 @@ namespace SistemaUPGrafica
             }
             else
             {
-             
                 encargadosCb.Enabled = true;
-                HabilitarCamposEncargado(false);
+                HabilitarCamposEncargado(true); // <- antes estaba en false
 
                 if (this.Encargados != null && this.Encargados.Count > 0)
                 {
@@ -659,7 +658,12 @@ namespace SistemaUPGrafica
 
         private bool ValidarCorreo(string correo)
         {
-            return correo.Contains("@") && correo.Contains(".");
+            if (string.IsNullOrWhiteSpace(correo)) return false;
+
+            var regex = new System.Text.RegularExpressions.Regex(
+                @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
+
+            return regex.IsMatch(correo.Trim());
         }
     }
 }

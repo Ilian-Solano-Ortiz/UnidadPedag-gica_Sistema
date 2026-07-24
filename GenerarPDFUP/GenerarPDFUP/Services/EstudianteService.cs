@@ -75,13 +75,13 @@ namespace GenerarPDFUP.Services
             }
    }
         public ResultadoDto registrarEstudianteExcel(
-            string cedulaEstudiante,
-            string nombreEstudiante,
-            string cedulaEncargado,
-            string nombreEncargado,
-            string telefonoEncargado,
-            string direccion
-            )
+    string cedulaEstudiante,
+    string nombreEstudiante,
+    string cedulaEncargado,
+    string nombreEncargado,
+    string telefonoEncargado,
+    string direccion
+    )
         {
             try
             {
@@ -97,6 +97,21 @@ namespace GenerarPDFUP.Services
                     .AsNoTracking()
                     .AsEnumerable()
                     .FirstOrDefault();
+
+                if (resultado == null)
+                    return new ResultadoDto { Resultado = 3 };
+
+                // Normaliza los códigos crudos del SP a un contrato estable para los consumidores:
+                // 1 = insertado con éxito
+                // 2 = el estudiante ya existía (duplicado)
+                // 3 = error real (SQL dentro del SP, o inesperado)
+                resultado.Resultado = resultado.Resultado switch
+                {
+                    1 => 1, // Éxito
+                    0 => 2, // El SP hace ROLLBACK y devuelve 0 cuando la cédula ya existe
+                    2 => 3, // El SP devuelve 2 cuando el EXIT HANDLER captura una SQLException
+                    _ => 3  // Cualquier código no contemplado se trata como error, por seguridad
+                };
 
                 return resultado;
             }
